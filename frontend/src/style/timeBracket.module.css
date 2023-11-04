@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-tiny);
+}
+
+.container p {
+    padding: 0 4px;
+    border-radius: 5px;
+    background-color: var(--color-foreground-opaque);
+}
+
+.container svg {
+    opacity: 0.4;
+}

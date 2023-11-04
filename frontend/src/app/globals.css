@@ -1,0 +1,165 @@
+:root {
+    --max-width: 1100px;
+    --color-background: rgb(255, 255, 255);
+    --color-background-opaque: rgba(255, 255, 255, 0.1);
+    --color-foreground: rgb(18, 18, 18);
+    --color-foreground-opaque: rgba(18, 18, 18, 0.1);
+    --color-header: rgba(255, 255, 255, 0.8);
+    --color-purple: rgb(77, 71, 151);
+    --color-purple-opaque: rgba(77, 71, 151, 0.1);
+    --color-pink: rgb(247, 203, 224);
+    --color-pink-opaque: rgba(247, 203, 224, 0.1);
+    --spacing-tiny: 5px;
+    --spacing-small: 15px;
+    --spacing-medium: 30px;
+    --spacing-large: 60px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: rgb(18, 18, 18);
+        --color-background-opaque: rgba(18, 18, 18, 0.1);
+        --color-foreground: rgb(255, 255, 255);
+        --color-foreground-opaque: rgba(255, 255, 255, 0.1);
+        --color-header: rgba(18, 18, 18, 0.8);
+    }
+
+    html {
+        color-scheme: dark;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    overflow: hidden;
+    font-size: 16px;
+}
+
+body {
+    width: 100vw;
+    height: 100svh;
+    overflow: auto;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2rem; /*32px*/
+}
+
+/*wrapper*/
+div.wrapper {
+    padding: var(--spacing-medium);
+    margin: 0 auto;
+    max-width: var(--max-width);
+    height: 100%;
+}
+
+/*header*/
+header {
+    background-color: var(--color-header);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+header div.wrapper {
+    padding: var(--spacing-small) var(--spacing-medium);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-medium);
+}
+
+header svg#logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+    color: var(--color-purple);
+}
+
+header nav {
+    display: flex;
+    gap: var(--spacing-small);
+}
+
+@media (max-width: 480px) {
+    header nav {
+        display: none;
+    }
+}
+
+header div.socials {
+    display: flex;
+    gap: var(--spacing-tiny);
+}
+
+/*footer*/
+footer div.wrapper {
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-medium);
+}
+
+/*loading*/
+.loading {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*@uiball/loaders*/
+.ring {
+    --uib-size: 40px;
+    --uib-speed: 2s;
+    --uib-color: var(--color-foreground-opaque);
+    height: var(--uib-size);
+    width: var(--uib-size);
+    vertical-align: middle;
+    transform-origin: center;
+    animation: rotate var(--uib-speed) linear infinite;
+}
+
+.ring circle {
+    fill: none;
+    stroke: var(--uib-color);
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: stretch calc(var(--uib-speed) * 0.75) ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes stretch {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dashoffset: -124px;
+    }
+}

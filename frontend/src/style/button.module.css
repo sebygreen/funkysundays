@@ -1,0 +1,57 @@
+.button {
+    border-radius: 50px;
+    color: rgb(77, 71, 151);
+    background-color: rgb(247, 203, 224);
+    transition: background-color 100ms, color 100ms, transform 100ms;
+    font-weight: bold;
+}
+
+button.button {
+    border: none;
+    outline: none;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.button:hover {
+    color: white;
+    background-color: #4d4797;
+    cursor: pointer;
+}
+
+.button.normal {
+    padding: 5px 11px 5px 10px;
+    display: inline-flex;
+    align-self: flex-start;
+    gap: 10px;
+    align-items: center;
+}
+
+.button.icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button.text {
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+.button.instagram {
+    background-color: #e4405f;
+    color: white;
+}
+
+.button.facebook {
+    background-color: #1877f2;
+    color: white;
+}
+
+.button svg {
+    display: block;
+}
