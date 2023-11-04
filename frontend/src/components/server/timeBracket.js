@@ -1,4 +1,4 @@
-import { jetBrainsMono } from "@/fonts";
+import { jetBrainsMono } from "@/lib/localFonts";
 import dayjs from "dayjs";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import formatTime from "@/lib/formatTime";

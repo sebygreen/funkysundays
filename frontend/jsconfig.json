@@ -1,8 +1,8 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/fonts": ["./src/lib/fonts"],
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./src/*"],
+            "#/*": ["./public/*"]
+        }
     }
-  }
 }

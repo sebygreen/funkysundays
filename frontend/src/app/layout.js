@@ -1,6 +1,6 @@
 import Footer from "@/components/server/footer";
 import Header from "@/components/server/header";
-import { satoshi } from "@/fonts";
+import { satoshi } from "@/lib/localFonts";
 import "./globals.css";
 
 export const metadata = {
