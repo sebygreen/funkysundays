@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     background: var(--color-purple-opaque);
+    padding-top: 80px; /*header height*/
 }
 
 .heroTexture {
@@ -10,7 +11,7 @@
     width: 200%;
     background: url("/grid.png");
     background-repeat: repeat;
-    background-size: 20%;
+    background-size: 50%;
     background-position: center;
     animation: 60s ease-in-out 1s infinite alternate animatedHeroTexture;
 }
@@ -35,7 +36,12 @@
 
 .hero {
     position: relative;
-    padding: var(--spacing-large) 0;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero > * {
+    margin: 0 auto;
 }
 
 .hero > *:not(:last-child) {
@@ -43,6 +49,10 @@
 }
 
 .hero img {
+    width: 100%;
     height: auto;
-    width: 50%;
+}
+
+.hero h1 {
+    width: 75%;
 }

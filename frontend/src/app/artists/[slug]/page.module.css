@@ -1,5 +1,18 @@
-.wrapper > *:not(:last-child) {
-    margin-bottom: var(--spacing-medium);
+.wrapper {
+    margin-top: 80px;
+}
+
+.wrapper button {
+    margin: 0;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.wrapper h1 {
+    margin-bottom: 20px;
 }
 
 .nextEvent {
@@ -72,6 +85,7 @@
 }
 
 .embeds {
+    margin-top: 20px;
     position: relative;
     display: grid;
     gap: var(--spacing-medium);

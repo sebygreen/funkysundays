@@ -15,7 +15,7 @@ export default function Home() {
                         src={logo}
                         alt="Purple logo."
                     />
-                    <h1>Making sundays a better day since 2019</h1>
+                    <h1>Making sundays a better day since 2019.</h1>
                 </section>
             </div>
         </div>

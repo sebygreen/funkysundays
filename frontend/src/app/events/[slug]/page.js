@@ -83,6 +83,7 @@ export default async function Page({ params }) {
             <Back />
             <Suspense fallback={<Loading />}>
                 <section className={styles.event}>
+                    <h1>{event.name}</h1>
                     <figure className={styles.poster}>
                         <Image
                             src={event.poster}
@@ -91,49 +92,46 @@ export default async function Page({ params }) {
                             sizes="240px"
                         />
                     </figure>
-                    <div className={styles.information}>
-                        <h1>{event.name}</h1>
-                        <ul>
-                            <li>
-                                <Calendar
-                                    size={18}
-                                    weight="fill"
-                                />
-                                {event.formattedDate}
-                            </li>
-                            <li>
-                                <MapPin
-                                    size={18}
-                                    weight="fill"
-                                />
-                                {event.location}
-                            </li>
-                            <li>
-                                <UsersThree
-                                    size={18}
-                                    weight="fill"
-                                />
-                                {event.attendees}
-                            </li>
-                        </ul>
-                        {event.sponsors && (
-                            <div className={styles.sponsors}>
-                                {event.sponsors.map((sponsor) => (
-                                    <a
-                                        key={sponsor.id}
-                                        href={sponsor.url}
-                                    >
-                                        <Image
-                                            src={sponsor.logo}
-                                            fill={true}
-                                            sizes="32px"
-                                            alt={sponsor.name}
-                                        />
-                                    </a>
-                                ))}
-                            </div>
-                        )}
-                    </div>
+                    <ul className={styles.information}>
+                        <li>
+                            <Calendar
+                                size={18}
+                                weight="fill"
+                            />
+                            {event.formattedDate}
+                        </li>
+                        <li>
+                            <MapPin
+                                size={18}
+                                weight="fill"
+                            />
+                            {event.location}
+                        </li>
+                        <li>
+                            <UsersThree
+                                size={18}
+                                weight="fill"
+                            />
+                            {event.attendees}
+                        </li>
+                    </ul>
+                    {event.sponsors && (
+                        <div className={styles.sponsors}>
+                            {event.sponsors.map((sponsor) => (
+                                <a
+                                    key={sponsor.id}
+                                    href={sponsor.url}
+                                >
+                                    <Image
+                                        src={sponsor.logo}
+                                        fill={true}
+                                        sizes="32px"
+                                        alt={sponsor.name}
+                                    />
+                                </a>
+                            ))}
+                        </div>
+                    )}
                 </section>
                 {event.schedule && (
                     <section className={styles.schedule}>

@@ -1,4 +1,5 @@
 .wrapper {
+    margin-top: 80px; /*header height*/
     display: flex;
     flex-direction: column;
     gap: var(--spacing-small);
@@ -6,37 +7,19 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--spacing-small);
-}
-
-.archivedGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 50%);
-    gap: var(--spacing-small);
-}
-
-@media (max-width: 480px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .upcoming {
     display: flex;
     gap: var(--spacing-small);
-    padding: var(--spacing-small);
-    border-radius: 20px;
-    border: 1px solid var(--color-foreground-opaque);
 }
 
 .archived {
     display: flex;
     gap: var(--spacing-small);
     align-items: center;
-    padding: var(--spacing-small);
-    border-radius: 20px;
-    border: 1px solid var(--color-foreground-opaque);
 }
 
 .archived h2 {

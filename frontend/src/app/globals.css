@@ -36,39 +36,35 @@
 }
 
 html {
-    overflow: hidden;
     font-size: 16px;
 }
 
 body {
-    width: 100vw;
-    height: 100svh;
-    overflow: auto;
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
+    position: relative;
+    width: 100%;
 }
 
 a {
     text-decoration: none;
+    color: var(--color-foreground);
 }
 
 h1 {
-    font-size: 2rem; /*32px*/
+    font-size: 2rem;
 }
 
 /*wrapper*/
-div.wrapper {
-    padding: var(--spacing-medium);
+.wrapper {
     margin: 0 auto;
+    padding: 20px;
     max-width: var(--max-width);
-    height: 100%;
 }
 
 /*header*/
 header {
     background-color: var(--color-header);
-    backdrop-filter: blur(15px);
-    position: sticky;
+    backdrop-filter: blur(32px);
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -76,7 +72,6 @@ header {
 }
 
 header div.wrapper {
-    padding: var(--spacing-small) var(--spacing-medium);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -109,7 +104,6 @@ header div.socials {
 
 /*footer*/
 footer div.wrapper {
-    padding-top: 0;
     display: flex;
     justify-content: space-between;
     gap: var(--spacing-medium);

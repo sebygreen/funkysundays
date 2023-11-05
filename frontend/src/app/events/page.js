@@ -11,37 +11,20 @@ import { Suspense } from "react";
 
 import styles from "./page.module.css";
 import Calendar from "@/components/server/calendar";
+import Event from "@/components/server/event";
+import EventSchema from "@/schemas/eventSchema";
 
 dayjs.extend(localizedFormat);
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 async function fetchEvents() {
-    function Event(event) {
-        this.id = event.id; //*
-        this.name = event.name; //*
-        this.start = dayjs(event.start); //*
-        this.end = dayjs(event.end); //*
-        this.days = this.end.diff(this.start, "day") + 1;
-        if (event.expand) {
-            if (event.expand["schedule(event)"]) {
-                this.schedule = event.expand["schedule(event)"].map((set) => ({
-                    id: set.id, //*
-                    start: dayjs(set.start), //*
-                    end: dayjs(set.end), //*
-                    day: this.start.format("LL"),
-                    artistName: set.expand.artist.name, //*
-                }));
-            }
-        }
-        this.category = event.category;
-    }
     const response = await pb.collection("events").getFullList({
         expand: "schedule(event).artist",
         fields: "id, name, start, end, category, poster, expand",
-        sort: "-created",
+        sort: "-start",
     });
     const objects = response.map((event) => {
-        return new Event(event);
+        return new EventSchema(event);
     });
     const events = {
         upcoming: [],
@@ -62,7 +45,7 @@ export default async function Page() {
     //console.dir(events, { depth: "full" });
     return (
         <div
-            className={`wrapper ${styles.wrapper}`}
+            className={`${styles.wrapper} wrapper`}
             id="events"
         >
             <h1>Events</h1>
@@ -70,50 +53,19 @@ export default async function Page() {
                 <h2>Upcoming</h2>
                 <section
                     id="upcoming"
-                    className={styles.archivedGrid}
+                    className={styles.grid}
                 >
-                    {events.upcoming.map((event) => (
-                        <article
-                            key={event.id}
-                            className={styles.upcoming}
-                        >
-                            <span>
-                                <h2>{event.name}</h2>
-                                {event.schedule && (
-                                    <section className={styles.schedule}>
-                                        {Object.entries(groupBy(event.schedule, "day")).map(([day, sets]) => (
-                                            <div
-                                                className={styles.sets}
-                                                key={day}
-                                            >
-                                                {sets.map((set) => (
-                                                    <div
-                                                        key={set.id}
-                                                        className={styles.set}
-                                                    >
-                                                        <p>{set.artistName}</p>
-                                                        <TimeBracket
-                                                            start={set.start}
-                                                            end={set.end}
-                                                        />
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        ))}
-                                    </section>
-                                )}
-                            </span>
-                            <span>
-                                <Calendar date={event.start} />
-                                <Button
-                                    className={styles.button}
-                                    type="route"
-                                    url={`/events/${event.id}`}
-                                    icon={<Info size={22} />}
-                                />
-                            </span>
-                        </article>
-                    ))}
+                    {events.upcoming.length === 0 ? (
+                        <p>No upcoming events for now.</p>
+                    ) : (
+                        events.upcoming.map((event) => (
+                            <Event
+                                key={event.id}
+                                artists={true}
+                                event={event}
+                            />
+                        ))
+                    )}
                 </section>
                 <h2>Archived</h2>
                 <section
@@ -121,22 +73,11 @@ export default async function Page() {
                     className={styles.grid}
                 >
                     {events.archived.map((event) => (
-                        <article
+                        <Event
                             key={event.id}
-                            className={styles.archived}
-                        >
-                            <Calendar date={event.start} />
-                            <span>
-                                <h2>{event.name}</h2>
-                                <p>{event.category}</p>
-                            </span>
-                            <Button
-                                className={styles.button}
-                                type="route"
-                                url={`/events/${event.id}`}
-                                icon={<Info size={22} />}
-                            />
-                        </article>
+                            artists={false}
+                            event={event}
+                        />
                     ))}
                 </section>
             </Suspense>
