@@ -2,7 +2,6 @@
     position: relative;
     overflow: hidden;
     background: var(--color-purple-opaque);
-    padding-top: 80px; /*header height*/
 }
 
 .heroTexture {
@@ -37,11 +36,6 @@
 .hero {
     position: relative;
     padding: 60px 0;
-    text-align: center;
-}
-
-.hero > * {
-    margin: 0 auto;
 }
 
 .hero > *:not(:last-child) {

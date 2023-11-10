@@ -3,7 +3,7 @@ export default function Footer() {
         <footer>
             <div className="wrapper">
                 <a href="">Legal</a>
-                <p>&copy; 2023</p>
+                <p>&copy; funkysundays.com 2023</p>
             </div>
         </footer>
     );

@@ -1,4 +1,3 @@
-import Back from "@/components/client/back";
 import Button from "@/components/server/button";
 import Embed from "@/components/server/embed";
 import Loading from "@/components/server/loading";
@@ -75,7 +74,6 @@ export default async function Page({ params }) {
             className={`wrapper ${styles.wrapper}`}
             id="artist"
         >
-            <Back />
             <Suspense fallback={<Loading />}>
                 <h1>{artist.name}</h1>
                 <section className={styles.content}>

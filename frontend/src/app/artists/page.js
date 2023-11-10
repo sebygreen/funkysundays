@@ -27,7 +27,7 @@ async function fetchArtists() {
 
 export default async function Page() {
     const artists = await fetchArtists();
-    console.dir(artists[0], { depth: "full" });
+    //console.dir(artists[0], { depth: "full" });
     return (
         <div
             className={`wrapper ${styles.wrapper}`}

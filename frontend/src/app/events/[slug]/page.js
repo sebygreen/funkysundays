@@ -1,4 +1,3 @@
-import Back from "@/components/client/back";
 import Button from "@/components/server/button";
 import Loading from "@/components/server/loading";
 import TimeBracket from "@/components/server/timeBracket";
@@ -80,7 +79,6 @@ export default async function Page({ params }) {
             className={`wrapper ${styles.wrapper}`}
             id="event"
         >
-            <Back />
             <Suspense fallback={<Loading />}>
                 <section className={styles.event}>
                     <h1>{event.name}</h1>
