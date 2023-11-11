@@ -60,14 +60,15 @@ h1 {
 
 /*wrapper*/
 .wrapper {
-    padding: 20px;
+    height: 100%;
+    padding: 0 20px;
     margin: 0 auto;
     max-width: var(--max-width);
 }
 
 /*header*/
 header .wrapper {
-    padding-bottom: 0;
+    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -108,7 +109,7 @@ footer .wrapper {
 
 /*loading*/
 .loading {
-    height: 100%;
+    margin: auto 0;
     display: flex;
     align-items: center;
     justify-content: center;

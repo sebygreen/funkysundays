@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ArrowLeft, List, X } from "@phosphor-icons/react/dist/ssr";
 
 import styles from "@/style/Overlay.module.css";
-import Menu from "./Menu";
+import Menu from "../server/Menu";
 import Button from "../server/button";
 
 export default function Overlay() {

@@ -55,11 +55,11 @@
 .content {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-medium);
+    gap: 20px;
 }
 
 .media > *:not(:last-child) {
-    margin-bottom: var(--spacing-medium);
+    margin-bottom: 20px;
 }
 
 .thumbnail {
@@ -84,7 +84,7 @@
     margin-top: 20px;
     position: relative;
     display: grid;
-    gap: var(--spacing-medium);
+    gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 

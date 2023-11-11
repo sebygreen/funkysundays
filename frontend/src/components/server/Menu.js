@@ -6,13 +6,11 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Menu({ shown }) {
     const menu = {
         visible: {
-            opacity: 1,
             transition: {
                 staggerChildren: -0.05,
             },
         },
         hidden: {
-            opacity: 0,
             transition: {
                 staggerChildren: -0.05,
             },
@@ -22,10 +20,18 @@ export default function Menu({ shown }) {
         visible: {
             opacity: 1,
             y: 0,
+            transition: {
+                ease: "backOut",
+                duration: 0.4,
+            },
         },
         hidden: {
             opacity: 0,
             y: 10,
+            transition: {
+                ease: "backIn",
+                duration: 0.3,
+            },
         },
     };
     return (
