@@ -19,6 +19,7 @@ dayjs.extend(localizedFormat);
 const pb = new PocketBase("http://127.0.0.1:8090");
 async function fetchEvents() {
     const response = await pb.collection("events").getFullList({
+        requestKey: "events",
         expand: "schedule(event).artist",
         fields: "id, name, start, end, category, poster, expand",
         sort: "-start",

@@ -18,11 +18,17 @@ dayjs.extend(localizedFormat);
 const pb = new PocketBase("http://127.0.0.1:8090");
 async function fetchEventIds() {
     const response = await pb.collection("events").getFullList({
+        requestKey: "event-ids",
         fields: "id",
     });
     return response;
 }
 async function fetchEvent(id) {
+    const response = await pb.collection("events").getOne(id, {
+        requestKey: "event",
+        expand: "sponsors, schedule(event).artist",
+        fields: "id, collectionId, name, start, end, attendees, poster, location, expand",
+    });
     function Event(event) {
         this.id = event.id; //*
         this.name = event.name; //*
@@ -57,10 +63,6 @@ async function fetchEvent(id) {
             }
         }
     }
-    const response = await pb.collection("events").getOne(id, {
-        expand: "sponsors, schedule(event).artist",
-        fields: "id, collectionId, name, start, end, attendees, poster, location, expand",
-    });
     const event = new Event(response);
     return event;
 }

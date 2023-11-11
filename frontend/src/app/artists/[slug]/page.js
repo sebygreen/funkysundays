@@ -17,11 +17,18 @@ dayjs.extend(localizedFormat);
 const pb = new PocketBase("http://127.0.0.1:8090");
 async function fetchArtistIds() {
     const response = await pb.collection("artists").getFullList({
+        requestKey: "artist-ids",
         fields: "id",
     });
     return response;
 }
 async function fetchArtist(id) {
+    const response = await pb.collection("artists").getOne(id, {
+        requestKey: "artist",
+        //filter: `schedule(artist).start > "${dayjs().format()}"`,
+        fields: "id, collectionId, thumbnail, name, description, expand.links.id, expand.links.embed, expand.links.platform, expand.links.username, expand.links.url, expand.schedule(artist).start, expand.schedule(artist).expand.event",
+        expand: "links, schedule(artist).event",
+    });
     function Artist(artist) {
         this.id = artist.id;
         this.thumbnail = `http://127.0.0.1:8090/api/files/${artist.collectionId}/${this.id}/${artist.thumbnail}`;
@@ -51,11 +58,6 @@ async function fetchArtist(id) {
             }
         }
     }
-    const response = await pb.collection("artists").getOne(id, {
-        //filter: `schedule(artist).start > "${dayjs().format()}"`,
-        fields: "id, collectionId, thumbnail, name, description, expand.links.id, expand.links.embed, expand.links.platform, expand.links.username, expand.links.url, expand.schedule(artist).start, expand.schedule(artist).expand.event",
-        expand: "links, schedule(artist).event",
-    });
     const artist = new Artist(response);
     return artist;
 }

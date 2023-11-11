@@ -10,15 +10,16 @@ import styles from "./page.module.css";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 async function fetchArtists() {
+    const response = await pb.collection("artists").getFullList({
+        requestKey: "artists",
+        field: "id, collectionId, name, thumbnail, type",
+    });
     function Artist(artist) {
         this.id = artist.id;
         this.thumbnail = `http://127.0.0.1:8090/api/files/${artist.collectionId}/${this.id}/${artist.thumbnail}`;
         this.name = artist.name;
         this.type = artist.type;
     }
-    const response = await pb.collection("artists").getFullList({
-        field: "id, collectionId, name, thumbnail, type",
-    });
     const artists = response.map((artist) => {
         return new Artist(artist);
     });
