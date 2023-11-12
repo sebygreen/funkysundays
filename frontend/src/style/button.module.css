@@ -2,6 +2,7 @@
     border-radius: 50px;
     color: rgb(77, 71, 151);
     background-color: rgb(247, 203, 224);
+    box-shadow: inset -1px 1px 2px -1px rgba(255, 255, 255, 0.1);
     transition: background-color 100ms, color 100ms, transform 100ms;
     font-weight: bold;
 }
@@ -14,6 +15,7 @@ button.button {
     font-family: inherit;
 }
 
+.button:active,
 .button:hover {
     color: white;
     background-color: #4d4797;

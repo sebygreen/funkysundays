@@ -15,8 +15,9 @@ export default function RootLayout({ children }) {
             <body className={satoshi.className}>
                 <Header />
                 <main>{children}</main>
-                <Footer />
-                <Overlay />
+                <Overlay>
+                    <Footer />
+                </Overlay>
             </body>
         </html>
     );

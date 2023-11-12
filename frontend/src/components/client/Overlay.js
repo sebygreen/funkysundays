@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { ArrowLeft, List, X } from "@phosphor-icons/react/dist/ssr";
@@ -9,7 +9,9 @@ import styles from "@/style/Overlay.module.css";
 import Menu from "../server/Menu";
 import Button from "../server/button";
 
-export default function Overlay() {
+import { motion } from "framer-motion";
+
+export default function Overlay({ children }) {
     const router = useRouter();
     const [openMenu, setOpenMenu] = useState(false);
     return (
@@ -17,9 +19,13 @@ export default function Overlay() {
             id="overlay"
             className={styles.overlay}
         >
-            <span className={styles.wrapper}>
-                <Menu shown={openMenu} />
-                <section className={styles.toolbar}>
+            <Menu
+                shown={openMenu}
+                route={usePathname()}
+            />
+            <section className={styles.toolbar}>
+                {children}
+                <span className={styles.buttons}>
                     <Button
                         type="button"
                         action={() => router.back()}
@@ -35,8 +41,8 @@ export default function Overlay() {
                         action={() => (openMenu ? setOpenMenu(false) : setOpenMenu(true))}
                         icon={openMenu ? <X size={22} /> : <List size={22} />}
                     />
-                </section>
-            </span>
+                </span>
+            </section>
         </aside>
     );
 }

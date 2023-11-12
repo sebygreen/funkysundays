@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Menu({ shown }) {
+export default function Menu({ shown, route }) {
+    console.log(route);
     const menu = {
         visible: {
             transition: {
@@ -12,7 +13,7 @@ export default function Menu({ shown }) {
         },
         hidden: {
             transition: {
-                staggerChildren: -0.05,
+                staggerChildren: 0.01,
             },
         },
     };
@@ -30,7 +31,7 @@ export default function Menu({ shown }) {
             y: 10,
             transition: {
                 ease: "backIn",
-                duration: 0.3,
+                duration: 0.2,
             },
         },
     };
@@ -45,16 +46,36 @@ export default function Menu({ shown }) {
                         exit="hidden"
                     >
                         <motion.li variants={item}>
-                            <Link href="/">Home</Link>
+                            <Link
+                                href="/"
+                                className={route === "/" ? styles.active : undefined}
+                            >
+                                Home
+                            </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/events">Events</Link>
+                            <Link
+                                href="/events"
+                                className={route === "/events" ? styles.active : undefined}
+                            >
+                                Events
+                            </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/artists">Artists</Link>
+                            <Link
+                                href="/artists"
+                                className={route === "/artists" ? styles.active : undefined}
+                            >
+                                Artists
+                            </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/about">About</Link>
+                            <Link
+                                href="/about"
+                                className={route === "/about" ? styles.active : undefined}
+                            >
+                                About
+                            </Link>
                         </motion.li>
                     </motion.ul>
                 </nav>

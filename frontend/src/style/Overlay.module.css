@@ -1,27 +1,22 @@
 .overlay {
     position: fixed;
     height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.wrapper {
-    position: relative;
-    display: block;
-    max-width: var(--max-width);
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .toolbar {
-    padding: 10px;
-    border-radius: 50px;
-    display: inline-flex;
+    margin-left: auto;
+    display: flex;
     gap: 10px;
+    justify-content: space-between;
     background-color: var(--color-header);
     backdrop-filter: blur(32px);
-    box-shadow: inset -1px 1px 2px -1px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
 }
