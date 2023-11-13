@@ -4,7 +4,6 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Menu({ shown, route }) {
-    console.log(route);
     const menu = {
         visible: {
             transition: {

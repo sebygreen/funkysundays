@@ -11,7 +11,7 @@ import Button from "../server/button";
 
 import { motion } from "framer-motion";
 
-export default function Overlay({ children }) {
+export default function Overlay() {
     const router = useRouter();
     const [openMenu, setOpenMenu] = useState(false);
     return (
@@ -24,24 +24,21 @@ export default function Overlay({ children }) {
                 route={usePathname()}
             />
             <section className={styles.toolbar}>
-                {children}
-                <span className={styles.buttons}>
-                    <Button
-                        type="button"
-                        action={() => router.back()}
-                        icon={
-                            <ArrowLeft
-                                size={16}
-                                weight="bold"
-                            />
-                        }
-                    />
-                    <Button
-                        type="button"
-                        action={() => (openMenu ? setOpenMenu(false) : setOpenMenu(true))}
-                        icon={openMenu ? <X size={22} /> : <List size={22} />}
-                    />
-                </span>
+                <Button
+                    type="button"
+                    action={() => router.back()}
+                    icon={
+                        <ArrowLeft
+                            size={16}
+                            weight="bold"
+                        />
+                    }
+                />
+                <Button
+                    type="button"
+                    action={() => (openMenu ? setOpenMenu(false) : setOpenMenu(true))}
+                    icon={openMenu ? <X size={22} /> : <List size={22} />}
+                />
             </section>
         </aside>
     );

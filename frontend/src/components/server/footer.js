@@ -1,8 +1,10 @@
 export default function Footer() {
     return (
         <footer>
-            <a href="">Legal</a>
-            <p>&copy; funkysundays.com 2023</p>
+            <span className="wrapper">
+                <a href="/legal">Legal</a>
+                <p>&copy; funkysundays.com 2023</p>
+            </span>
         </footer>
     );
 }

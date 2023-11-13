@@ -47,7 +47,7 @@ body {
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     gap: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
     background-color: var(--color-background);
 }
 
@@ -102,9 +102,10 @@ header div.socials {
 }
 
 /*footer*/
-footer {
+footer .wrapper {
     display: flex;
     gap: 10px;
+    justify-content: space-between;
     align-items: flex-end;
 }
 
@@ -119,7 +120,7 @@ footer a {
 
 footer p {
     font-size: 12px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 /*loading*/

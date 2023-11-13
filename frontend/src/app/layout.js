@@ -1,5 +1,5 @@
 import Overlay from "@/components/client/Overlay";
-import Footer from "@/components/server/footer";
+import Footer from "@/components/server/Footer";
 import Header from "@/components/server/header";
 import { satoshi } from "@/lib/localFonts";
 import "./globals.css";
@@ -13,11 +13,10 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={satoshi.className}>
+                <Overlay />
                 <Header />
                 <main>{children}</main>
-                <Overlay>
-                    <Footer />
-                </Overlay>
+                <Footer />
             </body>
         </html>
     );
