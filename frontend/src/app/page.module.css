@@ -50,3 +50,15 @@
 .hero h1 {
     width: 75%;
 }
+
+.wrapper {
+    margin-top: 20px;
+}
+
+.wrapper > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.about h2 {
+    margin-bottom: 5px;
+}
