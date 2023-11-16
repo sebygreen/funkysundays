@@ -1,5 +1,5 @@
 import Button from "@/components/server/button";
-import Loading from "@/components/server/loading";
+import Loading from "@/components/server/Loading";
 
 import { Info } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";

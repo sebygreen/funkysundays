@@ -1,0 +1,45 @@
+.statistic {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.statistic figure {
+    display: block;
+    border-radius: 50px;
+    padding: 10px;
+    flex-shrink: 0;
+    height: 64px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statistic figure svg {
+    display: block;
+}
+
+.statistic figure.blue {
+    background-color: rgba(170, 218, 247, 0.2);
+    box-shadow: inset -1px 1px 2px -1px rgba(170, 218, 247, 0.2);
+}
+
+.statistic figure.orange {
+    background-color: rgba(253, 215, 174, 0.2);
+    box-shadow: inset -1px 1px 2px -1px rgba(253, 215, 174, 0.2);
+}
+
+.statistic figure.green {
+    background-color: rgba(198, 224, 184, 0.2);
+    box-shadow: inset -1px 1px 2px -1px rgba(198, 224, 184, 0.2);
+}
+
+.statistic .text {
+    font-size: 14px;
+}
+
+.statistic .counter {
+    font-size: 24px;
+    font-weight: bold;
+}

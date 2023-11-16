@@ -1,5 +1,5 @@
 import Button from "@/components/server/button";
-import Loading from "@/components/server/loading";
+import Loading from "@/components/server/Loading";
 import TimeBracket from "@/components/server/timeBracket";
 import formatTime from "@/lib/formatTime";
 import groupBy from "@/lib/groupBy";

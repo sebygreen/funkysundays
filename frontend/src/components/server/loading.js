@@ -1,12 +1,12 @@
 "use client";
 import { useEffect } from "react";
 
-export default function Loader() {
+export default function Loading() {
+    async function getLoader() {
+        const { bouncy } = await import("ldrs");
+        bouncy.register();
+    }
     useEffect(() => {
-        async function getLoader() {
-            const { bouncy } = await import("ldrs");
-            bouncy.register();
-        }
         getLoader();
     }, []);
     return (

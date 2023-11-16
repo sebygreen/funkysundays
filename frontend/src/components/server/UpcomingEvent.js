@@ -3,7 +3,6 @@ import Event from "./event";
 import dynamic from "next/dynamic";
 import Countdown from "../client/Countdown";
 import { Suspense } from "react";
-import Loader from "./loading";
 
 export default function UpcomingEvent({ event }) {
     //console.log(event);
