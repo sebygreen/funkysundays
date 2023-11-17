@@ -13,6 +13,7 @@ build/
 npm-debug.log*
 
 .env*.local
+frontend/.env*.local
 
 .vercel
 
