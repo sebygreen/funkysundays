@@ -1,0 +1,38 @@
+.wrapper > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.staffImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.staff {
+    display: grid;
+}
+
+.staff > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.staff article > *:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.staff article {
+    text-align: center;
+    width: fit-content;
+}
+
+.staff article figure {
+    position: relative;
+    overflow: hidden;
+    height: 120px;
+    width: 120px;
+    border-radius: 20px;
+}
+
+.staff article figure img {
+    object-fit: cover;
+}

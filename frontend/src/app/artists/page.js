@@ -1,5 +1,5 @@
-import Button from "@/components/server/button";
-import Loading from "@/components/server/Loading";
+import Button from "@/components/Button";
+import Loading from "@/components/Loading";
 
 import { Info } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import PocketBase from "pocketbase";
 import { Suspense } from "react";
 
 import styles from "./page.module.css";
+import Artist from "@/components/Artist";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 async function fetchArtists() {
@@ -38,28 +39,10 @@ export default async function Page() {
             <Suspense fallback={<Loading />}>
                 <section className={styles.artists}>
                     {artists.map((artist) => (
-                        <article
+                        <Artist
                             key={artist.id}
-                            className={styles.artist}
-                        >
-                            <figure className={styles.thumbnail}>
-                                <Image
-                                    src={artist.thumbnail}
-                                    fill={true}
-                                    alt={artist.name}
-                                    sizes="80px"
-                                />
-                            </figure>
-                            <div>
-                                <h2 className={styles.name}>{artist.name}</h2>
-                                <p className={styles.type}>{artist.type}</p>
-                            </div>
-                            <Button
-                                type="route"
-                                url={`/artists/${artist.id}`}
-                                icon={<Info size={22} />}
-                            />
-                        </article>
+                            artist={artist}
+                        />
                     ))}
                 </section>
             </Suspense>

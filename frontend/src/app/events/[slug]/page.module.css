@@ -1,22 +1,18 @@
 .wrapper {
     position: relative;
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.wrapper button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+.wrapper > * {
+    flex: 0 0 100%;
 }
 
 .event {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-small);
+    gap: 20px;
 }
 
 .poster {
@@ -67,35 +63,6 @@
     object-fit: contain;
 }
 
-.schedule {
-    display: grid;
-    grid-auto-rows: 1fr;
-    gap: var(--spacing-small);
-}
-
-.group {
-    display: grid;
-    grid-auto-rows: auto;
-    gap: var(--spacing-small);
-}
-
-.title {
-    position: relative;
-    font-weight: bold;
-    margin-bottom: 4px;
-}
-
-.title::after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background: var(--color-foreground-opaque);
-    position: absolute;
-    bottom: -4px;
-    border-radius: 1px;
-    left: 0;
-}
-
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -119,4 +86,30 @@
 
 .artist {
     margin-bottom: var(--spacing-tiny);
+}
+
+.map .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.map .buttons a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background-color: var(--color-foreground-opaque);
+    box-shadow: inset -1px 1px 2px -1px var(--color-foreground-opaque);
+}
+
+.map .buttons a img {
+    height: 20px;
+    width: auto;
+}
+
+.map .buttons a span {
+    font-size: 14px;
 }

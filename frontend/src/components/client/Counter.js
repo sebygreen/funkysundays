@@ -7,6 +7,10 @@ export default function Counter({ number }) {
         <CountUp
             start={0}
             end={number}
-        />
+            delay={0}
+            enableScrollSpy
+        >
+            {({ countUpRef }) => <span ref={countUpRef} />}
+        </CountUp>
     );
 }

@@ -15,39 +15,3 @@
         grid-template-columns: 1fr;
     }
 }
-
-.artist {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-small);
-    overflow: hidden;
-}
-
-.name {
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-tiny);
-}
-
-.type {
-    padding: 0 5px;
-    border-radius: 5px;
-    background-color: var(--color-foreground-opaque);
-    width: fit-content;
-}
-
-.thumbnail {
-    position: relative;
-    height: 80px;
-    width: 80px;
-    border-radius: 5px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.thumbnail img {
-    object-fit: cover;
-}
-
-.artist a {
-    margin-left: auto;
-}

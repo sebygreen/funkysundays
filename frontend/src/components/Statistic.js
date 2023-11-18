@@ -1,5 +1,5 @@
 import { jetBrainsMono } from "@/lib/localFonts";
-import Counter from "../client/Counter";
+import Counter from "./client/Counter";
 import styles from "@/style/Statistic.module.css";
 
 export default function Statistic({ icon, text, number, color }) {

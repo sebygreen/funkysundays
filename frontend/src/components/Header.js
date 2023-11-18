@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Social from "./social";
-import Button from "./button";
+import Social from "./Social";
+import Button from "./Button";
 
 export default function Header() {
     return (

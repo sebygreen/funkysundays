@@ -1,6 +1,6 @@
 import Overlay from "@/components/client/Overlay";
-import Footer from "@/components/server/Footer";
-import Header from "@/components/server/header";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { satoshi } from "@/lib/localFonts";
 import "./globals.css";
 

@@ -1,6 +1,6 @@
-import Button from "@/components/server/button";
-import Loading from "@/components/server/Loading";
-import TimeBracket from "@/components/server/timeBracket";
+import Button from "@/components/Button";
+import Loading from "@/components/Loading";
+import TimeBracket from "@/components/TimeBracket";
 import groupBy from "@/lib/groupBy";
 
 import { Info } from "@phosphor-icons/react/dist/ssr";
@@ -10,8 +10,8 @@ import PocketBase from "pocketbase";
 import { Suspense } from "react";
 
 import styles from "./page.module.css";
-import Calendar from "@/components/server/calendar";
-import Event from "@/components/server/event";
+import Calendar from "@/components/Calendar";
+import Event from "@/components/Event";
 import EventSchema from "@/schemas/eventSchema";
 
 dayjs.extend(localizedFormat);

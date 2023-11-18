@@ -1,5 +1,5 @@
-import Statistic from "@/components/server/Statistic";
-import UpcomingEvent from "@/components/server/UpcomingEvent";
+import Statistic from "@/components/Statistic";
+import UpcomingEvent from "@/components/UpcomingEvent";
 import logo from "@/images/logo.png";
 import {
     CalendarCheck,

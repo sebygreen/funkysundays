@@ -1,34 +1,38 @@
-import Button from "@/components/server/button";
-import Embed from "@/components/server/embed";
-import Loading from "@/components/server/Loading";
-
-import { Info } from "@phosphor-icons/react/dist/ssr";
+import Button from "@/components/Button";
+import Embed from "@/components/Embed";
+import Event from "@/components/Event";
+import Loading from "@/components/Loading";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import parse from "html-react-parser";
 import Image from "next/image";
 import PocketBase from "pocketbase";
 import { Suspense } from "react";
-
 import styles from "./page.module.css";
 
 dayjs.extend(localizedFormat);
-
 const pb = new PocketBase("http://127.0.0.1:8090");
+
 async function fetchArtistIds() {
-    const response = await pb.collection("artists").getFullList({
+    const data = await pb.collection("artists").getFullList({
         requestKey: "artist-ids",
         fields: "id",
     });
-    return response;
+    return data;
 }
+
 async function fetchArtist(id) {
-    const response = await pb.collection("artists").getOne(id, {
+    const data = await pb.collection("artists").getOne(id, {
         requestKey: "artist",
         //filter: `schedule(artist).start > "${dayjs().format()}"`,
-        fields: "id, collectionId, thumbnail, name, description, expand.links.id, expand.links.embed, expand.links.platform, expand.links.username, expand.links.url, expand.schedule(artist).start, expand.schedule(artist).expand.event",
+        fields: "id, collectionId, thumbnail, name, description, expand.links.id, expand.links.embed, expand.links.platform, expand.links.username, expand.links.url, expand.schedule(artist).start, expand.schedule(artist).expand.event.id, expand.schedule(artist).expand.event.name, expand.schedule(artist).expand.event.category",
         expand: "links, schedule(artist).event",
     });
+
+    //console.dir(response, { depth: "full" });
+
+    function Link(link) {}
+
     function Artist(artist) {
         this.id = artist.id;
         this.thumbnail = `http://127.0.0.1:8090/api/files/${artist.collectionId}/${this.id}/${artist.thumbnail}`;
@@ -47,18 +51,19 @@ async function fetchArtist(id) {
                 });
             }
             if (artist.expand["schedule(artist)"]) {
-                var nextSet = artist.expand["schedule(artist)"].find((item) => item.start > dayjs().format());
-                if (nextSet) {
-                    this.nextEvent = {
-                        start: dayjs(nextSet.start),
-                        eventId: nextSet.expand.event.id,
-                        eventName: nextSet.expand.event.name,
+                var upcomingEvent = artist.expand["schedule(artist)"].find((item) => item.start > dayjs().format());
+                if (upcomingEvent) {
+                    this.event = {
+                        start: dayjs(upcomingEvent.start),
+                        id: upcomingEvent.expand.event.id,
+                        name: upcomingEvent.expand.event.name,
+                        category: upcomingEvent.expand.event.category,
                     };
                 }
             }
         }
     }
-    const artist = new Artist(response);
+    const artist = new Artist(data);
     return artist;
 }
 
@@ -90,9 +95,9 @@ export default async function Page({ params }) {
                         </div>
                         {artist.links && (
                             <div className={styles.socials}>
-                                {artist.links.map((link) => {
-                                    if (!link.embed) {
-                                        return (
+                                {artist.links.map(
+                                    (link) =>
+                                        !link.embed && (
                                             <Button
                                                 key={link.id}
                                                 type="social"
@@ -100,35 +105,14 @@ export default async function Page({ params }) {
                                                 platform={link.platform}
                                                 text={link.username}
                                             />
-                                        );
-                                    }
-                                })}
+                                        )
+                                )}
                             </div>
                         )}
                     </div>
+                    {artist.event && <Event event={artist.event} />}
                     <div className={styles.description}>{parse(artist.description)}</div>
                 </section>
-                {artist.nextEvent && (
-                    <section className={styles.nextEvent}>
-                        <div className={styles.calendar}>
-                            <p className={styles.month}>{artist.nextEvent.start.format("MMM")}</p>
-                            <p className={styles.day}>{artist.nextEvent.start.format("DD")}</p>
-                        </div>
-                        <div className={styles.text}>
-                            <p className={styles.eventName}>{artist.nextEvent.eventName}</p>
-                            <p className={styles.time}>
-                                {artist.nextEvent.start.isSame(dayjs(), "year")
-                                    ? artist.nextEvent.start.format("HH:mm")
-                                    : artist.nextEvent.start.format("YYYY")}
-                            </p>
-                        </div>
-                        <Button
-                            type="route"
-                            url={`/events/${artist.nextEvent.eventId}`}
-                            icon={<Info size={22} />}
-                        />
-                    </section>
-                )}
                 {artist.links && (
                     <section className={styles.embeds}>
                         {artist.links.map((link) => {
