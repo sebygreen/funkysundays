@@ -19,12 +19,12 @@
     border-radius: 50px;
     color: var(--color-pink);
     background-color: rgb(26, 21, 23);
-    transition: background-color 200ms, color 200ms;
+    backdrop-filter: blur(10px);
+    transition: background-color 200ms;
 }
 
 .menu ul li a:hover {
     background-color: rgba(247, 203, 224, 0.2);
-    box-shadow: inset -1px 1px 2px -1px var(--color-pink-opaque);
 }
 
 .menu ul li a.active,
