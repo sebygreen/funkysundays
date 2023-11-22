@@ -3,25 +3,38 @@
 }
 
 .header {
-    display: flex;
+    display: grid;
+    grid-template-columns: max-content 1fr;
     gap: var(--spacing-medium);
 }
 
-.header h1 {
+.header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-medium);
+}
+
+.header div h1 {
+    margin-top: auto;
+}
+
+.header div svg {
+    height: 200px;
+    width: 200px;
 }
 
 .staffImage {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    transition: transform 200ms ease-in-out;
 }
 
 .staff {
-    display: grid;
-}
-
-.staff > *:not(:last-child) {
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-medium);
 }
 
 .staff article > *:not(:last-child) {

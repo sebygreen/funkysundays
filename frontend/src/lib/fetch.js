@@ -192,3 +192,16 @@ export async function fetchEventUpcoming() {
         return false;
     }
 }
+
+//staff
+export async function fetchStaff() {
+    try {
+        const data = await pb.collection("staff").getFullList({
+            fields: "id, collectionId, name, position, picture",
+        });
+        return data;
+    } catch (err) {
+        console.log(err);
+        return false;
+    }
+}

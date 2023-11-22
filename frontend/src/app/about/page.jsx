@@ -4,28 +4,18 @@ import PocketBase from "pocketbase";
 import staffImage from "@/images/staff.jpg";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
+import IconBird from "@/components/icons/IconBird";
+import { fetchStaff } from "@/lib/fetch";
 
-const pb = new PocketBase("http://127.0.0.1:8090");
-
-async function fetchStaff() {
-    try {
-        const data = await pb.collection("staff").getFullList({
-            fields: "id, collectionId, name, position, picture",
-        });
-        return data;
-    } catch (err) {
-        console.log(err);
-        return false;
-    }
-}
-
-export default async function Page() {
+export default async function About() {
     const staff = await fetchStaff();
-    //console.log(staff);
     return (
         <div className={`wrapper ${styles.wrapper}`}>
             <section className={styles.header}>
-                <h1>Qui sommes-nous?</h1>
+                <div>
+                    <IconBird />
+                    <h1>Qui sommes-nous?</h1>
+                </div>
                 <Image
                     className={styles.staffImage}
                     src={staffImage}
@@ -53,7 +43,6 @@ export default async function Page() {
                 culture locale et à réjouir la population genevoise de son dimanche ensoleillé et bercé par la
                 programmation des Funky Sundays.
             </p>
-
             <section
                 id="staff"
                 className={styles.staff}
