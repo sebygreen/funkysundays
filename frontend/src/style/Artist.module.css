@@ -1,7 +1,7 @@
 .artist {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: var(--spacing-small);
 }
 
 .thumbnail {

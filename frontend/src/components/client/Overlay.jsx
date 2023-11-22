@@ -6,8 +6,8 @@ import { useState } from "react";
 import { ArrowLeft, List, X } from "@phosphor-icons/react/dist/ssr";
 
 import styles from "@/style/Overlay.module.css";
-import Menu from "../Menu";
-import Button from "../Button";
+import Menu from "../layout/Menu";
+import Button from "../layout/Button";
 
 import { motion } from "framer-motion";
 
@@ -36,9 +36,7 @@ export default function Overlay() {
                 />
                 <Button
                     type="button"
-                    action={() =>
-                        openMenu ? setOpenMenu(false) : setOpenMenu(true)
-                    }
+                    action={() => (openMenu ? setOpenMenu(false) : setOpenMenu(true))}
                     icon={openMenu ? <X size={22} /> : <List size={22} />}
                 />
             </section>

@@ -1,0 +1,7 @@
+.container > *:not(:last-child) {
+    margin-bottom: var(--spacing-small);
+}
+
+.container article {
+    max-width: fit-content;
+}

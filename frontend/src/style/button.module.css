@@ -1,36 +1,60 @@
+.route,
+.anchor,
 .button {
     border-radius: 50px;
-    color: rgb(77, 71, 151);
-    background-color: rgb(247, 203, 224);
-    box-shadow: inset -1px 1px 2px -1px rgba(255, 255, 255, 0.1);
-    transition: background-color 100ms, color 100ms, transform 100ms;
-    font-weight: bold;
+    color: var(--color-button);
+    background-color: var(--color-button-opaque);
+    box-shadow: inset -1px 1px 2px -1px var(--color-button-opaque);
+    transition: background-color 200ms, color 200ms, transform 200ms;
 }
 
-button.button {
+.route img,
+.anchor img,
+.button img {
+    border-radius: 50px;
+}
+
+.route,
+.anchor {
+    display: block;
+    text-decoration: none;
+}
+
+.button {
     border: none;
     outline: none;
-    text-decoration: none;
     font-size: 16px;
-    font-family: inherit;
 }
 
+.route:active,
+.anchor:active,
 .button:active,
+.route:hover,
+.anchor:hover,
 .button:hover {
-    color: white;
-    background-color: #4d4797;
+    color: var(--color-button-hover);
+    background-color: var(--color-button);
     cursor: pointer;
 }
 
-.button.normal {
-    padding: 5px 11px 5px 10px;
-    display: inline-flex;
-    align-self: flex-start;
-    gap: 10px;
+.full {
+    padding: 9px 12px 9px 9px;
+    width: fit-content;
     align-items: center;
+    display: flex;
+    gap: 10px;
 }
 
-.button.icon {
+.full svg {
+    display: block;
+}
+
+.full p {
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.icon {
     width: 40px;
     height: 40px;
     flex-shrink: 0;
@@ -39,21 +63,28 @@ button.button {
     justify-content: center;
 }
 
-.button.text {
+.text {
     padding: 5px 15px;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.button.instagram {
-    background-color: #e4405f;
+.instagram {
+    background-color: rgba(227, 64, 94, 0.2);
+    color: rgba(227, 64, 94, 1);
+}
+
+.instagram:hover {
+    background-color: rgba(227, 64, 94, 1);
     color: white;
 }
 
-.button.facebook {
-    background-color: #1877f2;
-    color: white;
+.facebook {
+    background-color: rgba(24, 118, 242, 0.2);
+    color: rgba(24, 118, 242, 1);
 }
 
-.button svg {
-    display: block;
+.facebook:hover {
+    background-color: rgba(24, 118, 242, 1);
+    color: white;
 }

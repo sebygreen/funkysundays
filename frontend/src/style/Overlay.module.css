@@ -14,7 +14,7 @@
     gap: 10px;
     justify-content: center;
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-background-blur);
     padding: 10px;
     border-radius: 50px;
 }

@@ -1,28 +1,54 @@
 :root {
-    --max-width: 1100px;
+    --max-width-layout: 980px;
+    --spacing-tiny: 5px;
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+
+    --color-purple: rgba(77, 71, 151, 1);
+    --color-purple-opaque: rgba(77, 71, 151, 0.1);
+
+    --color-pink: rgba(247, 203, 224, 1);
+    --color-pink-opaque: rgba(247, 203, 224, 0.1);
+
+    --color-orange: rgb(253, 215, 174);
+    --color-blue: rgb(170, 218, 247);
+    --color-green: rgb(198, 224, 184);
+
     --color-background: rgb(255, 255, 255);
     --color-background-opaque: rgba(255, 255, 255, 0.1);
+
     --color-foreground: rgb(18, 18, 18);
     --color-foreground-opaque: rgba(18, 18, 18, 0.1);
-    --color-header: rgba(255, 255, 255, 0.8);
-    --color-purple: rgb(77, 71, 151);
-    --color-purple-opaque: rgba(77, 71, 151, 0.1);
-    --color-pink: rgb(247, 203, 224);
-    --color-pink-opaque: rgba(247, 203, 224, 0.1);
-    --spacing-tiny: 5px;
-    --spacing-small: 15px;
-    --spacing-medium: 30px;
-    --spacing-large: 60px;
+    --color-foreground-blur: rgba(255, 255, 255, 0.8);
+
+    --color-button: var(--color-purple);
+    --color-button-opaque: var(--color-purple-opaque);
+    --color-button-hover: var(--color-pink);
+}
+
+@media (min-width: 480px) {
+    :root {
+        --spacing-tiny: 10px;
+        --spacing-small: 15px;
+        --spacing-medium: 30px;
+        --spacing-large: 60px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --color-background: rgb(0, 0, 0);
         --color-background-opaque: rgba(0, 0, 0, 0.1);
-        --color-background-secondary: rgb(38, 38, 38);
+        --color-background-blur: rgba(0, 0, 0, 0.6);
+
         --color-foreground: rgb(255, 255, 255);
         --color-foreground-opaque: rgba(255, 255, 255, 0.1);
-        --color-header: rgba(0, 0, 0, 0.4);
+        --color-foreground-blur: rgba(255, 255, 255, 0.8);
+
+        --color-button: var(--color-pink);
+        --color-button-opaque: var(--color-pink-opaque);
+        --color-button-hover: var(--color-purple);
     }
 
     html {
@@ -41,39 +67,69 @@ html {
 }
 
 body {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
-    gap: 20px;
     padding-bottom: 80px;
     background-color: var(--color-background);
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-foreground);
+h1 {
+    font-size: 32px;
 }
 
-h1 {
-    font-size: 2rem;
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+/*layout helper*/
+.responsive {
+    display: grid;
+    grid-template-rows: max-content max-content;
+    gap: var(--spacing-medium);
+}
+
+.grid {
+    display: grid;
+    grid-auto-rows: max-content;
+    gap: var(--spacing-medium);
+}
+
+@media (min-width: 768px) {
+    .responsive {
+        grid-template-rows: initial;
+        grid-template-columns: 1fr max-content;
+    }
+}
+
+@media (min-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
 }
 
 /*wrapper*/
 .wrapper {
-    padding: 0 20px;
+    padding: 0 var(--spacing-medium);
     margin: 0 auto;
-    max-width: var(--max-width);
+    max-width: var(--max-width-layout);
+}
+
+.wrapper.spaced > *:not(:last-child) {
+    margin-bottom: var(--spacing-medium);
 }
 
 /*header*/
+header {
+    padding: var(--spacing-medium) 0;
+}
+
 header .wrapper {
-    padding-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-medium);
+    gap: var(--spacing-small);
 }
 
 header svg#logo {
@@ -84,28 +140,20 @@ header svg#logo {
     color: var(--color-purple);
 }
 
-header nav {
-    display: flex;
-    gap: var(--spacing-small);
-}
-
-@media (max-width: 480px) {
-    header nav {
-        display: none;
-    }
-}
-
-header div.socials {
+header span.socials {
     display: flex;
     gap: var(--spacing-tiny);
 }
 
 /*footer*/
+footer {
+    padding-top: var(--spacing-medium);
+}
 footer .wrapper {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-small);
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 footer a {

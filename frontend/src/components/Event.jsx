@@ -1,11 +1,7 @@
-import styles from "@/style/event.module.css";
-
-import Button from "./Button";
+import styles from "@/style/Event.module.css";
+import Button from "../layout/Button";
 import Calendar from "./Calendar";
-
 import { Info } from "@phosphor-icons/react/dist/ssr";
-
-import groupBy from "@/lib/groupBy";
 
 export default function Event({ event }) {
     //console.dir(event, { depth: "full" });
@@ -18,8 +14,9 @@ export default function Event({ event }) {
             </span>
             <Button
                 type="route"
-                url={`/events/${event.id}`}
+                href={`/events/${event.id}`}
                 icon={<Info size={22} />}
+                text={false}
             />
         </article>
     );

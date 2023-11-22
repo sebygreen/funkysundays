@@ -1,6 +1,6 @@
 import styles from "@/style/Artist.module.css";
 import Image from "next/image";
-import Button from "./Button";
+import Button from "../layout/Button";
 import { Info } from "@phosphor-icons/react/dist/ssr";
 
 export default function Artist({ artist }) {
@@ -20,7 +20,7 @@ export default function Artist({ artist }) {
             </span>
             <Button
                 type="route"
-                url={`/artists/${artist.id}`}
+                href={`/artists/${artist.id}`}
                 icon={<Info size={22} />}
             />
         </article>

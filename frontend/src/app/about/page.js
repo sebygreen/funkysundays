@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import PocketBase from "pocketbase";
 import staffImage from "@/images/staff.jpg";
 import { Suspense } from "react";
-import Loading from "@/components/Loading";
+import Loading from "@/components/layout/Loading";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 

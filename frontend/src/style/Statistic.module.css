@@ -1,10 +1,10 @@
-.statistic {
+.container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-small);
 }
 
-.statistic figure {
+.container figure {
     display: block;
     border-radius: 50px;
     padding: 10px;
@@ -16,30 +16,32 @@
     justify-content: center;
 }
 
-.statistic figure svg {
+.container figure svg {
     display: block;
 }
 
-.statistic figure.blue {
+.container figure.blue {
     background-color: rgba(170, 218, 247, 0.2);
     box-shadow: inset -1px 1px 2px -1px rgba(170, 218, 247, 0.2);
 }
 
-.statistic figure.orange {
+.container figure.orange {
     background-color: rgba(253, 215, 174, 0.2);
     box-shadow: inset -1px 1px 2px -1px rgba(253, 215, 174, 0.2);
 }
 
-.statistic figure.green {
+.container figure.green {
     background-color: rgba(198, 224, 184, 0.2);
     box-shadow: inset -1px 1px 2px -1px rgba(198, 224, 184, 0.2);
 }
 
-.statistic .text {
-    font-size: 14px;
+.container .number {
+    font-size: 32px;
+    font-weight: bolder;
+    letter-spacing: -0.6px;
+    line-height: 32px;
 }
 
-.statistic .counter {
-    font-size: 24px;
-    font-weight: bold;
+.container .text {
+    font-size: 14px;
 }

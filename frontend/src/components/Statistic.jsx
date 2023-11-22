@@ -1,10 +1,10 @@
-import { jetBrainsMono } from "@/lib/localFonts";
+import { jetBrainsMono } from "@/lib/fonts";
 import Counter from "./client/Counter";
-import styles from "@/style/Statistic.module.css";
+import styles from "@/style/home/Statistic.module.css";
 
 export default function Statistic({ icon, text, number, color }) {
     return (
-        <article className={styles.statistic}>
+        <article className={styles.container}>
             <figure
                 className={
                     color === "blue"
@@ -18,12 +18,12 @@ export default function Statistic({ icon, text, number, color }) {
             >
                 {icon}
             </figure>
-            <div>
-                <p className={styles.counter}>
+            <section className={styles.counter}>
+                <p className={`${jetBrainsMono.className} ${styles.number}`}>
                     <Counter number={number} />
                 </p>
-                <span className={styles.text}>{text}</span>
-            </div>
+                <p className={styles.text}>{text}</p>
+            </section>
         </article>
     );
 }

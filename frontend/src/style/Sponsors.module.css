@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-medium);
+}
+
+@media (min-width: 480px) {
+    .container {
+        justify-content: flex-start;
+    }
+}
+
+.container a {
+    position: relative;
+    display: block;
+    height: 32px;
+    width: 32px;
+}
+
+.container a img {
+    object-fit: contain;
+}

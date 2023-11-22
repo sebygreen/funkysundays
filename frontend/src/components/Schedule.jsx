@@ -1,7 +1,7 @@
-import groupBy from "@/lib/groupBy";
+import groupBy from "@/lib/helpers";
 import styles from "@/style/Schedule.module.css";
 import { Info } from "@phosphor-icons/react/dist/ssr";
-import Button from "./Button";
+import Button from "../layout/Button";
 import TimeBracket from "./TimeBracket";
 
 export default function Schedule({ multipleDays, schedule }) {
@@ -32,7 +32,7 @@ export default function Schedule({ multipleDays, schedule }) {
         //console.log("single day event");
         return (
             <section className={styles.container}>
-                <div className={styles.grid}>
+                <div className="grid">
                     {schedule.map((set) => (
                         <Set
                             key={set.id}
@@ -60,8 +60,9 @@ function Set({ set }) {
             </span>
             <Button
                 type="route"
-                url={`/artists/${set.artist.id}`}
+                href={`/artists/${set.artist.id}`}
                 icon={<Info size={22} />}
+                text={false}
             />
         </article>
     );
