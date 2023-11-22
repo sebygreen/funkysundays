@@ -5,7 +5,7 @@ import { jetBrainsMono } from "@/lib/fonts";
 import styles from "@/style/Countdown.module.css";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
-import Loading from "@/components/layout/Loading";
+import Loading from "@/components/Loading";
 
 export default function Countdown({ date }) {
     const [timer, setTimer] = useState({

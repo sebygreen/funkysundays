@@ -1,8 +1,8 @@
-import Embed from "@/components/artists/Embed";
-import Event from "@/components/events/Event";
-import Button from "@/components/layout/Button";
-import Loading from "@/components/layout/Loading";
-import { artist, artistSlugs } from "@/lib/fetch";
+import Embed from "@/components/Embed";
+import Event from "@/components/Event";
+import Button from "@/components/Button";
+import Loading from "@/components/Loading";
+import { fetchArtist, fetchArtistSlugs } from "@/lib/fetch";
 import parse from "html-react-parser";
 import Image from "next/image";
 import { Suspense } from "react";
@@ -10,12 +10,12 @@ import styles from "./page.module.css";
 
 export default async function Artist({ params }) {
     async function generateStaticParams() {
-        const artistIds = await artistSlugs();
+        const artistIds = await fetchArtistSlugs();
         return artistIds.map((artist) => ({
             slug: artist.id,
         }));
     }
-    const artist = await artist(params.slug);
+    const artist = await fetchArtist(params.slug);
     return (
         <div
             className={`wrapper ${styles.wrapper}`}
@@ -49,8 +49,8 @@ export default async function Artist({ params }) {
                                 )}
                             </div>
                         )}
+                        {artist.event && <Event event={artist.event} />}
                     </div>
-                    {artist.event && <Event event={artist.event} />}
                     <div className={styles.description}>{parse(artist.description)}</div>
                 </section>
                 {artist.links && (

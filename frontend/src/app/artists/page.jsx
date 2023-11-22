@@ -1,10 +1,10 @@
-import Artist from "@/components/artists/Artist";
-import Loading from "@/components/layout/Loading";
-import { artists } from "@/lib/fetch";
+import Artist from "@/components/Artist";
+import Loading from "@/components/Loading";
+import { fetchArtists } from "@/lib/fetch";
 import { Suspense } from "react";
 
 export default async function Artists() {
-    const artists = await artists();
+    const artists = await fetchArtists();
     return (
         <div
             className="wrapper"

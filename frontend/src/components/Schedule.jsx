@@ -1,7 +1,7 @@
-import groupBy from "@/lib/helpers";
+import { groupBy } from "@/lib/helpers";
 import styles from "@/style/Schedule.module.css";
 import { Info } from "@phosphor-icons/react/dist/ssr";
-import Button from "../layout/Button";
+import Button from "./Button";
 import TimeBracket from "./TimeBracket";
 
 export default function Schedule({ multipleDays, schedule }) {

@@ -1,6 +1,6 @@
 import styles from "@/style/Artist.module.css";
 import Image from "next/image";
-import Button from "../layout/Button";
+import Button from "./Button";
 import { Info } from "@phosphor-icons/react/dist/ssr";
 
 export default function Artist({ artist }) {

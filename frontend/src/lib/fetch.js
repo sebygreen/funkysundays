@@ -4,7 +4,7 @@ import PocketBase from "pocketbase";
 const pb = new PocketBase("http://127.0.0.1:8090");
 
 //artists
-export async function artist(id) {
+export async function fetchArtist(id) {
     try {
         const data = await pb.collection("artists").getOne(id, {
             requestKey: "artist",
@@ -20,7 +20,7 @@ export async function artist(id) {
     }
 }
 
-export async function artists() {
+export async function fetchArtists() {
     try {
         const data = await pb.collection("artists").getFullList({
             requestKey: "artists",
@@ -37,7 +37,7 @@ export async function artists() {
     }
 }
 
-export async function artistSlugs() {
+export async function fetchArtistSlugs() {
     try {
         const data = await pb.collection("artists").getFullList({
             requestKey: "artist-ids",
@@ -53,7 +53,7 @@ export async function artistSlugs() {
 }
 
 //statistics
-export async function countArtists() {
+export async function fetchCountArtists() {
     try {
         const records = await pb.collection("artists").getList(1, 1, {
             requestKey: "statistics-artists",
@@ -67,7 +67,7 @@ export async function countArtists() {
     }
 }
 
-export async function countAttendees() {
+export async function fetchCountAttendees() {
     try {
         const records = await pb.collection("events").getFullList({
             requestKey: "statistics-attendees",
@@ -82,7 +82,7 @@ export async function countAttendees() {
     }
 }
 
-export async function countEvents() {
+export async function fetchCountEvents() {
     try {
         const records = await pb.collection("events").getList(1, 1, {
             requestKey: "statistics-events",
@@ -97,7 +97,7 @@ export async function countEvents() {
 }
 
 //gps
-export async function coordinates(query) {
+export async function fetchCoordinates(query) {
     try {
         const data = await fetch(
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ch&limit=3&access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}`
@@ -117,7 +117,7 @@ export async function coordinates(query) {
 }
 
 //events
-export async function event(id) {
+export async function fetchEvent(id) {
     try {
         const data = await pb.collection("events").getOne(id, {
             requestKey: "event",
@@ -133,7 +133,7 @@ export async function event(id) {
     }
 }
 
-export async function events() {
+export async function fetchEvents() {
     try {
         const data = await pb.collection("events").getFullList({
             requestKey: "events",
@@ -163,7 +163,7 @@ export async function events() {
     }
 }
 
-export async function eventSlugs() {
+export async function fetchEventSlugs() {
     try {
         const data = await pb.collection("events").getFullList({
             requestKey: "event-ids",
@@ -178,7 +178,7 @@ export async function eventSlugs() {
     }
 }
 
-export async function eventUpcoming() {
+export async function fetchEventUpcoming() {
     try {
         const data = await pb.collection("events").getFirstListItem(`start > "${dayjs().format()}"`, {
             requestKey: "upcoming-event",

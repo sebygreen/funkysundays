@@ -1,4 +1,4 @@
-import styles from "@/style/home/Statistics.module.css";
+import styles from "@/style/Statistics.module.css";
 import Statistic from "./Statistic";
 import { UsersFour, CalendarCheck, Guitar } from "@phosphor-icons/react/dist/ssr";
 

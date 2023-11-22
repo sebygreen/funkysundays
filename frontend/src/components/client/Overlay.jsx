@@ -2,13 +2,10 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
-
 import { ArrowLeft, List, X } from "@phosphor-icons/react/dist/ssr";
-
 import styles from "@/style/Overlay.module.css";
-import Menu from "../layout/Menu";
-import Button from "../layout/Button";
-
+import Menu from "../Menu";
+import Button from "../Button";
 import { motion } from "framer-motion";
 
 export default function Overlay() {

@@ -1,5 +1,5 @@
-import styles from "@/style/home/About.module.css";
-import Button from "../layout/Button";
+import styles from "@/style/About.module.css";
+import Button from "./Button";
 import { Info } from "@phosphor-icons/react/dist/ssr";
 
 export default function About() {

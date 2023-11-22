@@ -1,11 +1,11 @@
-import Event from "@/components/events/Event";
-import Loading from "@/components/layout/Loading";
+import Event from "@/components/Event";
+import Loading from "@/components/Loading";
 import { Suspense } from "react";
 import styles from "./page.module.css";
-import { events } from "@/lib/fetch";
+import { fetchEvents } from "@/lib/fetch";
 
 export default async function Events() {
-    const events = await events();
+    const events = await fetchEvents();
     return (
         <div
             className={`${styles.wrapper} wrapper`}

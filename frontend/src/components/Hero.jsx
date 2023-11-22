@@ -1,7 +1,7 @@
-import styles from "@/style/home/Hero.module.css";
+import styles from "@/style/Hero.module.css";
 import Image from "next/image";
 import logo from "@/images/logo.png";
-import Upcoming from "../Upcoming";
+import Upcoming from "./Upcoming";
 
 export default function Hero({ event }) {
     return (

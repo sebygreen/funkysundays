@@ -1,5 +1,5 @@
 import styles from "@/style/Event.module.css";
-import Button from "../layout/Button";
+import Button from "./Button";
 import Calendar from "./Calendar";
 import { Info } from "@phosphor-icons/react/dist/ssr";
 

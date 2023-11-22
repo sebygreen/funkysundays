@@ -1,15 +1,15 @@
-import About from "@/components/home/About";
-import Hero from "@/components/home/Hero";
-import Statistics from "@/components/home/Statistics";
-import { countArtists, countAttendees, countEvents, eventUpcoming } from "@/lib/fetch";
+import About from "@/components/About";
+import Hero from "@/components/Hero";
+import Statistics from "@/components/Statistics";
+import { fetchCountArtists, fetchCountAttendees, fetchCountEvents, fetchEventUpcoming } from "@/lib/fetch";
 import styles from "./page.module.css";
 
 export default async function Home() {
-    const upcoming = await eventUpcoming();
+    const upcoming = await fetchEventUpcoming();
     const statistics = {
-        attendees: await countAttendees(),
-        events: await countEvents(),
-        artists: await countArtists(),
+        attendees: await fetchCountAttendees(),
+        events: await fetchCountEvents(),
+        artists: await fetchCountArtists(),
     };
     return (
         <div className={`wrapper spaced ${styles.wrapper}`}>

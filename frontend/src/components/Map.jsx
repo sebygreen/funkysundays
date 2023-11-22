@@ -3,7 +3,7 @@ import Image from "next/image";
 import appleMaps from "@/images/apple-maps.png";
 import googleMaps from "@/images/google-maps.png";
 import styles from "@/style/Map.module.css";
-import Button from "../layout/Button";
+import Button from "./Button";
 
 export default function Map({ coordinates, location }) {
     return (

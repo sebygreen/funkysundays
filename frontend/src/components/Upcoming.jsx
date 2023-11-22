@@ -1,7 +1,7 @@
 import styles from "@/style/Upcoming.module.css";
-import Event from "./events/Event";
+import Event from "./Event";
 import dynamic from "next/dynamic";
-import Countdown from "./home/client/Countdown";
+import Countdown from "./client/Countdown";
 import { Suspense } from "react";
 
 export default function Upcoming({ event }) {
