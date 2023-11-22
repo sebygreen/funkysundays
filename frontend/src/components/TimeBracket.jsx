@@ -1,7 +1,7 @@
 import { jetBrainsMono } from "@/lib/fonts";
 import dayjs from "dayjs";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import styles from "@/style/timeBracket.module.css";
+import styles from "@/style/TimeBracket.module.css";
 
 export default function TimeBracket({ start, end }) {
     return (

@@ -40,7 +40,7 @@ export async function fetchArtists() {
 export async function fetchArtistSlugs() {
     try {
         const data = await pb.collection("artists").getFullList({
-            requestKey: "artist-ids",
+            requestKey: "artist-slugs",
             fields: "id",
         });
         //success
@@ -56,7 +56,7 @@ export async function fetchArtistSlugs() {
 export async function fetchCountArtists() {
     try {
         const records = await pb.collection("artists").getList(1, 1, {
-            requestKey: "statistics-artists",
+            requestKey: "count-artists",
         });
         //success
         return records.totalItems;
@@ -70,7 +70,7 @@ export async function fetchCountArtists() {
 export async function fetchCountAttendees() {
     try {
         const records = await pb.collection("events").getFullList({
-            requestKey: "statistics-attendees",
+            requestKey: "count-attendees",
             fields: "attendees",
         });
         //success
@@ -85,7 +85,7 @@ export async function fetchCountAttendees() {
 export async function fetchCountEvents() {
     try {
         const records = await pb.collection("events").getList(1, 1, {
-            requestKey: "statistics-events",
+            requestKey: "count-events",
         });
         //success
         return records.totalItems;
@@ -166,7 +166,7 @@ export async function fetchEvents() {
 export async function fetchEventSlugs() {
     try {
         const data = await pb.collection("events").getFullList({
-            requestKey: "event-ids",
+            requestKey: "event-slugs",
             fields: "id",
         });
         //success
@@ -181,7 +181,7 @@ export async function fetchEventSlugs() {
 export async function fetchEventUpcoming() {
     try {
         const data = await pb.collection("events").getFirstListItem(`start > "${dayjs().format()}"`, {
-            requestKey: "upcoming-event",
+            requestKey: "event-upcoming",
             fields: "id, name, start, category",
         });
         // success
@@ -197,6 +197,7 @@ export async function fetchEventUpcoming() {
 export async function fetchStaff() {
     try {
         const data = await pb.collection("staff").getFullList({
+            requestKey: "staff",
             fields: "id, collectionId, name, position, picture",
         });
         return data;
