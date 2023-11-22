@@ -7,7 +7,7 @@ export default async function Artists() {
     const artists = await fetchArtists();
     return (
         <div
-            className="wrapper"
+            className="wrapper spaced"
             id="artists"
         >
             <h1>Artists</h1>
