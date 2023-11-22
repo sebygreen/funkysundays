@@ -13,7 +13,7 @@ export default function Mapbox({ coordinates }) {
                 zoom: 14,
             }}
             style={{ width: "100%", height: 320, borderRadius: 10 }}
-            mapStyle="mapbox://styles/mapbox/streets-v9"
+            mapStyle="mapbox://styles/mapbox/streets-v12"
             mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}
             reuseMaps
             scrollZoom={false}
