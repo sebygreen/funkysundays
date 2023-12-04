@@ -2,46 +2,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "npm",
-            "script": "build",
-            "path": "frontend",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "label": "npm: build - frontend",
-            "detail": "next build"
-        },
-        {
-            "type": "npm",
-            "script": "start",
-            "path": "frontend",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "label": "npm: start - frontend",
-            "detail": "next start"
-        },
-        {
+            "label": "npm: dev - frontend",
             "type": "npm",
             "script": "dev",
             "path": "frontend",
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            },
-            "problemMatcher": [],
-            "label": "npm: dev - frontend",
-            "detail": "next dev"
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
         },
         {
             "label": "pocketbase: serve - backend",
             "type": "shell",
             "command": "./backend/pocketbase serve",
-            "group": "none",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"

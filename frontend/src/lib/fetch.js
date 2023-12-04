@@ -1,7 +1,7 @@
 import { Artist, Event } from "./objects";
 import dayjs from "dayjs";
 import PocketBase from "pocketbase";
-const pb = new PocketBase("http://127.0.0.1:8090");
+const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL);
 
 //artists
 export async function fetchArtist(id) {
