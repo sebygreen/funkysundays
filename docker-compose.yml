@@ -22,6 +22,13 @@ services:
         restart: unless-stopped
         networks:
             - funkysundays
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.funkysundays.rule=Host(`funkysundays.smkg.me`)"
+            - "traefik.http.routers.funkysundays.entrypoints=websecure"
+            - "traefik.http.routers.funkysundays.tls.certresolver=letsencrypt"
 networks:
     funkysundays:
+        external: true
+    traefik_proxy:
         external: true
