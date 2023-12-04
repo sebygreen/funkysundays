@@ -2,26 +2,20 @@
 node_modules/
 .pnp
 .pnp.js
-
 coverage/
-
 .next/
 out/
-
 build/
-
 npm-debug.log*
-
 .env*.local
 .env
-
 .vercel
-
 *.tsbuildinfo
 next-env.d.ts
 
 # backend
-backend/*
+pb_data/
+pocketbase
 
 # misc
 .DS_Store
