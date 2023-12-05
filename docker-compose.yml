@@ -1,15 +1,11 @@
-version: "3.7"
 name: funkysundays
 services:
     backend:
-        build:
-            context: ./backend
-            dockerfile: Dockerfile
+        build: ./backend
         container_name: backend
         restart: unless-stopped
-        volumes:
-            - ./pb_data:/pb_data
-            - ./pb_migrations:/pb_migrations
+        ports:
+            - 8090:8090
         networks:
             - funkysundays
     frontend:
@@ -17,18 +13,11 @@ services:
             - backend
         build:
             context: ./frontend
-            dockerfile: Dockerfile
+            network: host
         container_name: frontend
         restart: unless-stopped
         networks:
             - funkysundays
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.routers.funkysundays.rule=Host(`funkysundays.smkg.me`)"
-            - "traefik.http.routers.funkysundays.entrypoints=websecure"
-            - "traefik.http.routers.funkysundays.tls.certresolver=letsencrypt"
 networks:
     funkysundays:
-        external: true
-    traefik_proxy:
         external: true

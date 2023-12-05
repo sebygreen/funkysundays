@@ -4,7 +4,7 @@ dayjs.extend(localizedFormat);
 
 export function Artist(artist, options = { expanded: false }) {
     this.id = artist.id;
-    this.thumbnail = `${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${artist.collectionId}/${this.id}/${artist.thumbnail}`;
+    this.thumbnail = `${process.env.POCKETBASE_URL}/api/files/${artist.collectionId}/${this.id}/${artist.thumbnail}`;
     this.name = artist.name;
     this.type = artist.type;
 
@@ -35,7 +35,7 @@ export function Event(event, options = { expanded: false, artist: false }) {
         this.multipleDays = this.end.isAfter(this.start, "day");
         this.location = event.location;
         this.attendees = event.attendees ? event.attendees : "-";
-        this.poster = `${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${event.collectionId}/${this.id}/${event.poster}`;
+        this.poster = `${process.env.POCKETBASE_URL}/api/files/${event.collectionId}/${this.id}/${event.poster}`;
         if (event.expand) {
             if (event.expand.sponsors) {
                 this.sponsors = event.expand.sponsors.map((sponsor) => new Sponsor(sponsor));
@@ -49,7 +49,7 @@ export function Event(event, options = { expanded: false, artist: false }) {
 
 export function Sponsor(sponsor) {
     this.name = sponsor.name;
-    this.logo = `${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`;
+    this.logo = `${process.env.POCKETBASE_URL}/api/files/${sponsor.collectionId}/${sponsor.id}/${sponsor.logo}`;
     this.url = sponsor.url;
 }
 

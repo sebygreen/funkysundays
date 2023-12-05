@@ -1,7 +1,7 @@
 import { Artist, Event } from "./objects";
 import dayjs from "dayjs";
 import PocketBase from "pocketbase";
-const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL);
+const pb = new PocketBase("http://127.0.0.1:8090");
 
 //artists
 export async function fetchArtist(id) {
@@ -100,7 +100,7 @@ export async function fetchCountEvents() {
 export async function fetchCoordinates(query) {
     try {
         const data = await fetch(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ch&limit=3&access_token=${process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN}`
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ch&limit=3&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`
         );
         const json = await data.json();
         //success
