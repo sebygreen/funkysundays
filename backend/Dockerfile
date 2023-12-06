@@ -12,5 +12,7 @@ RUN unzip /tmp/pb.zip -d /pb/
 COPY pb_data /pb/pb_data
 COPY pb_migrations /pb/pb_migrations
 
+EXPOSE 8090
+
 # start PocketBase
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8090"]
+CMD ["/pb/pocketbase", "serve"]
