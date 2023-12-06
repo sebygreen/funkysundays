@@ -16,6 +16,7 @@ next-env.d.ts
 # backend
 pb_data/
 pocketbase
+errors.log
 
 # misc
 .DS_Store
