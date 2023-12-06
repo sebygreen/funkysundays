@@ -18,7 +18,6 @@ services:
             - traefik_proxy
         labels:
             - "traefik.enable=true"
-            - "traefik.http.services.funkysundays.loadbalancer.server.port=3000"
             - "traefik.http.routers.funkysundays.rule=Host(`funkysundays.smkg.me`)"
             - "traefik.http.routers.funkysundays.entrypoints=websecure"
             - "traefik.http.routers.funkysundays.tls.certresolver=letsencrypt"
