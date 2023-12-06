@@ -5,7 +5,7 @@ module.exports = {
         remotePatterns: [
             {
                 protocol: "http",
-                hostname: "0.0.0.0",
+                hostname: "backend",
                 port: "8090",
                 pathname: "/api/files/**",
             },
