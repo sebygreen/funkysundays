@@ -1,7 +1,7 @@
 .route,
 .anchor,
 .button {
-    border-radius: 50px;
+    border-radius: 10px;
     color: var(--color-button);
     background-color: var(--color-button-opaque);
     box-shadow: inset -1px 1px 2px -1px var(--color-button-opaque);
@@ -38,7 +38,7 @@
 }
 
 .full {
-    padding: 9px 12px 9px 9px;
+    padding: 10px 10px 10px 13px;
     width: fit-content;
     align-items: center;
     display: flex;
@@ -51,7 +51,7 @@
 
 .full p {
     font-weight: bold;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 .icon {

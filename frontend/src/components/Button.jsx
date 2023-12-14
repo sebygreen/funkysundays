@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "@/style/Button.module.css";
 import { SiFacebook, SiInstagram } from "@icons-pack/react-simple-icons";
+import { satoshi } from "@/lib/fonts";
 
 function buttonClass(icon, text) {
     if (icon && text) {
@@ -29,8 +30,8 @@ export default function Button({ type, platform, icon, text, href, action }) {
                 href={href}
                 className={`${styles.route} ${buttonClass(icon, text)}`}
             >
+                {text && <p className={satoshi.className}>{text}</p>}
                 {icon && icon}
-                {text && <p>{text}</p>}
             </Link>
         );
     } else if (type === "anchor") {
@@ -39,8 +40,8 @@ export default function Button({ type, platform, icon, text, href, action }) {
                 href={href}
                 className={`${styles.anchor} ${buttonClass(icon, text)}`}
             >
+                {text && <p className={satoshi.className}>{text}</p>}
                 {icon && icon}
-                {text && <p>{text}</p>}
             </a>
         );
     } else if (type === "button") {
@@ -49,8 +50,8 @@ export default function Button({ type, platform, icon, text, href, action }) {
                 onClick={action}
                 className={`${styles.button} ${buttonClass(icon, text)}`}
             >
+                {text && <p className={satoshi.className}>{text}</p>}
                 {icon && icon}
-                {text && <p>{text}</p>}
             </button>
         );
     } else if (type === "social") {
@@ -74,8 +75,8 @@ export default function Button({ type, platform, icon, text, href, action }) {
                 href={href}
                 className={`${styles.anchor} ${buttonClass(icon, text)} ${platformClass(platform)}`}
             >
-                {icon && icon}
                 {text && <p>{text}</p>}
+                {icon && icon}
             </a>
         );
     }

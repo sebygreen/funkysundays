@@ -1,34 +1,37 @@
 .menu {
-    margin: 0 auto;
+    position: relative;
     width: fit-content;
-    margin-bottom: 10px;
+    margin: 0 auto;
 }
 
 .menu ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .menu ul li a {
+    line-height: 20px;
+    font-weight: bold;
     text-decoration: none;
     text-align: center;
     display: block;
-    padding: 5px 15px;
-    border-radius: 50px;
+    padding: 10px 23px;
+    border-radius: 10px;
     color: var(--color-pink);
-    background-color: rgb(26, 21, 23);
-    backdrop-filter: blur(10px);
-    transition: background-color 200ms;
+    background-color: var(--color-pink-opaque);
+    box-shadow: inset -1px 1px 2px -1px var(--color-button-opaque);
+    transition-property: background-color, box-shadow;
+    transition-duration: 200ms;
 }
 
 .menu ul li a:hover {
-    background-color: rgba(247, 203, 224, 0.2);
+    box-shadow: inset 0 0 0 2px var(--color-button-opaque);
 }
 
 .menu ul li a.active,
 .menu ul li a.active:hover {
-    background-color: var(--color-foreground);
-    color: var(--color-background);
+    background-color: var(--color-pink);
+    color: var(--color-purple);
 }

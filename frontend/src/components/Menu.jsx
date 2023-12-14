@@ -1,42 +1,33 @@
 import styles from "@/style/Menu.module.css";
 import Link from "next/link";
 
-import { AnimatePresence, motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 
-export default function Menu({ shown, route }) {
+export default function Menu({shown, route}) {
     const menu = {
         visible: {
             transition: {
                 staggerChildren: -0.05,
             },
-        },
-        hidden: {
+        }, hidden: {
             transition: {
-                staggerChildren: 0.01,
+                staggerChildren: -0.05,
             },
         },
     };
     const item = {
         visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                ease: "backOut",
-                duration: 0.4,
+            opacity: 1, y: 0, transition: {
+                ease: "backOut", duration: 0.4,
             },
-        },
-        hidden: {
-            opacity: 0,
-            y: 10,
-            transition: {
-                ease: "backIn",
-                duration: 0.2,
+        }, hidden: {
+            opacity: 0, y: 10, transition: {
+                ease: "linear", duration: 0.2,
             },
         },
     };
-    return (
-        <AnimatePresence>
-            {shown && (
+    return (<AnimatePresence>
+        {shown && (
                 <nav className={styles.menu}>
                     <motion.ul
                         variants={menu}
@@ -78,7 +69,7 @@ export default function Menu({ shown, route }) {
                         </motion.li>
                     </motion.ul>
                 </nav>
-            )}
-        </AnimatePresence>
-    );
+
+        )}
+    </AnimatePresence>);
 }
