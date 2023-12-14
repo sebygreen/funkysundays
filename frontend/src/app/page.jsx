@@ -7,13 +7,10 @@ import styles from "./page.module.css";
 export default async function Home() {
     const upcoming = await fetchEventUpcoming();
     const statistics = {
-        attendees: [],
-        events: [],
-        artists: [],
-    };
-    statistics.attendees = await fetchCountAttendees()
-    statistics.events = await fetchCountEvents()
-    statistics.artists = await fetchCountArtists()
+        attendees: await fetchCountAttendees(),
+        events: await fetchCountEvents(),
+        artists: await fetchCountArtists(),
+    }
     return (
         <div className={`wrapper spaced ${styles.wrapper}`}>
             <Hero event={upcoming}/>
