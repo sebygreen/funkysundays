@@ -1,6 +1,7 @@
 import {Artist, Event} from "./objects";
 import dayjs from "dayjs";
 import PocketBase from "pocketbase";
+
 const pb = new PocketBase("http://127.0.0.1:8090");
 
 //events
@@ -12,7 +13,7 @@ export async function fetchEvent(id) {
             fields: "id, collectionId, name, start, end, category, attendees, poster, location, expand.sponsors.id, expand.sponsors.collectionId, expand.sponsors.name, expand.sponsors.logo, expand.sponsors.url, expand.schedule(event).id, expand.schedule(event).start, expand.schedule(event).end, expand.schedule(event).expand.artist.id, expand.schedule(event).expand.artist.name",
         });
         //success
-        return new Event(data, { expanded: true });
+        return new Event(data, {expanded: true});
     } catch (err) {
         //failure
         console.error("Error fetching Event", err);
@@ -89,7 +90,7 @@ export async function fetchArtist(id) {
             expand: "links, schedule(artist).event",
         });
         //success
-        return new Artist(data, { expanded: true });
+        return new Artist(data, {expanded: true});
     } catch (err) {
         //failure
         console.error("Error fetching Artist:", err);
@@ -151,7 +152,7 @@ export async function fetchCountAttendees() {
             fields: "attendees",
         });
         //success
-        return Object.values(records).reduce((accumulator, { attendees }) => accumulator + attendees, 0);
+        return Object.values(records).reduce((accumulator, {attendees}) => accumulator + attendees, 0);
     } catch (err) {
         //failure
         console.log("Error fetching Attendee Count", err);
