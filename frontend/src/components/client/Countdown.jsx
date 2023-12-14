@@ -26,7 +26,7 @@ export default function Countdown({ date }) {
             }, 1000);
             return () => clearInterval(interval);
         }
-    }, [counted]);
+    }, [counted, date]);
 
     return (
         <section className={styles.container}>
