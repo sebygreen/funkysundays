@@ -21,3 +21,4 @@ errors.log
 # misc
 .DS_Store
 *.pem
+nginx/
