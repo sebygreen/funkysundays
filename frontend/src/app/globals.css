@@ -15,16 +15,18 @@
     --color-blue: rgb(170, 218, 247);
     --color-green: rgb(198, 224, 184);
 
-    --color-background: rgb(255, 255, 255);
-    --color-background-opaque: rgba(255, 255, 255, 0.1);
+    --color-background: rgb(0, 0, 0);
+    --color-background-opaque: rgba(0, 0, 0, 0.1);
+    --color-background-blur: rgba(0, 0, 0, 0.6);
 
-    --color-foreground: rgb(18, 18, 18);
-    --color-foreground-opaque: rgba(18, 18, 18, 0.1);
+    --color-foreground: rgb(255, 255, 255);
+    --color-foreground-opaque: rgba(255, 255, 255, 0.1);
     --color-foreground-blur: rgba(255, 255, 255, 0.8);
 
-    --color-button: var(--color-purple);
-    --color-button-opaque: var(--color-purple-opaque);
-    --color-button-hover: var(--color-pink);
+    --button-foreground: var(--color-pink);
+    --button-background: var(--color-pink-opaque);
+    --button-inset: rgba(247, 203, 224, 0.2);
+    --button-hover: var(--color-purple);
 }
 
 @media (min-width: 480px) {
@@ -36,27 +38,6 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-background: rgb(0, 0, 0);
-        --color-background-opaque: rgba(0, 0, 0, 0.1);
-        --color-background-blur: rgba(0, 0, 0, 0.6);
-
-        --color-foreground: rgb(255, 255, 255);
-        --color-foreground-opaque: rgba(255, 255, 255, 0.1);
-        --color-foreground-blur: rgba(255, 255, 255, 0.8);
-
-        --button-foreground: var(--color-pink);
-        --button-background: var(--color-pink-opaque);
-        --button-inset: rgba(247, 203, 224, 0.2);
-        --button-hover: var(--color-purple);
-    }
-
-    html {
-        color-scheme: dark;
-    }
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -64,6 +45,7 @@
 }
 
 html {
+    color-scheme: dark;
     font-size: 16px;
 }
 
