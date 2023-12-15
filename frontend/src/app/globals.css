@@ -46,9 +46,10 @@
         --color-foreground-opaque: rgba(255, 255, 255, 0.1);
         --color-foreground-blur: rgba(255, 255, 255, 0.8);
 
-        --color-button: var(--color-pink);
-        --color-button-opaque: var(--color-pink-opaque);
-        --color-button-hover: var(--color-purple);
+        --button-foreground: var(--color-pink);
+        --button-background: var(--color-pink-opaque);
+        --button-inset: rgba(247, 203, 224, 0.2);
+        --button-hover: var(--color-purple);
     }
 
     html {
@@ -142,7 +143,7 @@ header svg#logo {
 
 header span.socials {
     display: flex;
-    gap: var(--spacing-tiny);
+    gap: 10px;
 }
 
 /*footer*/

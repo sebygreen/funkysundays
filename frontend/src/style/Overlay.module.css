@@ -1,12 +1,14 @@
 .overlay {
     position: fixed;
-    height: 100%;
     width: 100%;
+    height: 100lvh;
+    bottom: 0;
     z-index: 3;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: 20px;
+    align-items: center;
+    gap: 10px;
     pointer-events: none;
 }
 
@@ -16,9 +18,9 @@
 
 .backdrop {
     position: absolute;
-    height: 100svh;
+    height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, .8);
     backdrop-filter: blur(10px);
 }
 
@@ -28,9 +30,10 @@
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin: 0 auto 20px auto;
+    margin-bottom: 11px; /*1px more*/
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--color-background);
 }
 
-.toolbar button {
-    backdrop-filter: brightness(.1) blur(10px);
-}
+

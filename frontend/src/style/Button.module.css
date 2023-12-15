@@ -2,9 +2,9 @@
 .anchor,
 .button {
     border-radius: 10px;
-    color: var(--color-button);
-    background-color: var(--color-button-opaque);
-    box-shadow: inset -1px 1px 2px -1px var(--color-button-opaque);
+    color: var(--button-foreground);
+    background-color: var(--button-background);
+    box-shadow: inset -1px 1px 2px -1px var(--button-inset);
     transition: background-color 200ms, color 200ms, transform 200ms;
 }
 
@@ -28,14 +28,20 @@
 
 .route:active,
 .anchor:active,
-.button:active,
-.route:hover,
-.anchor:hover,
-.button:hover {
-    color: var(--color-button-hover);
-    background-color: var(--color-button);
+.button:active {
+    background-color: var(--button-hover);
     cursor: pointer;
 }
+
+@media (hover: hover) {
+    .route:hover,
+    .anchor:hover,
+    .button:hover {
+        background-color: var(--button-hover);
+        cursor: pointer;
+    }
+}
+
 
 .full {
     padding: 10px 10px 10px 13px;

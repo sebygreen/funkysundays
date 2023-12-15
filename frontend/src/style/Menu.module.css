@@ -1,7 +1,6 @@
 .menu {
     position: relative;
     width: fit-content;
-    margin: 0 auto;
 }
 
 .menu ul {
@@ -21,7 +20,7 @@
     border-radius: 10px;
     color: var(--color-pink);
     background-color: var(--color-pink-opaque);
-    box-shadow: inset -1px 1px 2px -1px var(--color-button-opaque);
+    box-shadow: inset -1px 1px 2px -1px var(--button-inset);
     transition-property: background-color, box-shadow;
     transition-duration: 200ms;
 }

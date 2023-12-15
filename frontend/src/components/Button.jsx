@@ -23,7 +23,7 @@ function platformClass(platform) {
     }
 }
 
-export default function Button({ type, platform, icon, text, href, action }) {
+export default function Button({ type, icon, text, href, action, platform }) {
     if (type === "route") {
         return (
             <Link
