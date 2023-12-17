@@ -54,6 +54,17 @@ export default function Button({ type, icon, text, href, action, platform }) {
                 {icon && icon}
             </button>
         );
+    } else if (type === "submit") {
+        return (
+            <button
+                type="submit"
+                onClick={action}
+                className={`${styles.button} ${buttonClass(icon, text)}`}
+            >
+                {text && <p className={satoshi.className}>{text}</p>}
+                {icon && icon}
+            </button>
+        );
     } else if (type === "social") {
         if (platform === "instagram") {
             icon = (
