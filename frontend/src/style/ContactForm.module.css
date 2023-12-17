@@ -21,15 +21,18 @@
     font-family: inherit;
 }
 
-.form select {
-    appearance: none;
+.select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
-    width: 100%;
+    width: min-content;
 }
 
-.select {
+.form select {
     position: relative;
-    height: min-content;
+    appearance: none;
+    padding: 10px 40px 10px 10px;
 }
 
 .select:after {
@@ -41,4 +44,5 @@
     content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'><rect width='256' height='256' fill='none'/><circle cx='128' cy='128' r='96' fill='none' stroke='white' stroke-miterlimit='10' stroke-width='16'/><circle fill='white' cx='128' cy='128' r='12'/><circle fill='white' cx='172' cy='128' r='12'/><circle fill='white' cx='84' cy='128' r='12'/></svg>");
     height: 20px;
     width: 20px;
+    pointer-events: none;
 }

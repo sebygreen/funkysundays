@@ -22,11 +22,20 @@ export default function ContactForm() {
                 </select>
             </div>
             <label>Name</label>
-            <input type="text" />
+            <input
+                type="text"
+                placeholder="John Appleseed"
+            />
             <label>Email</label>
-            <input type="text" />
+            <input
+                type="text"
+                placeholder="john@email.com"
+            />
             <label>Message</label>
-            <textarea rows={10}></textarea>
+            <textarea
+                rows={10}
+                placeholder="Start typing here..."
+            ></textarea>
             <Button
                 type="submit"
                 text="Send"
