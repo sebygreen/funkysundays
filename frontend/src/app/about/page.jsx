@@ -52,7 +52,7 @@ export default async function About() {
                         <article key={member.id}>
                             <figure>
                                 <Image
-                                    src={`http://127.0.0.1:8090/api/files/${member.collectionId}/${member.id}/${member.picture}`}
+                                    src={`${process.env.NEXT_PUBLIC_POCKETBASE_URL}/api/files/${member.collectionId}/${member.id}/${member.picture}`}
                                     alt={member.name}
                                     fill={true}
                                     sizes="120px"

@@ -16,7 +16,7 @@ export default function Mapbox({ coordinates }) {
             mapStyle="mapbox://styles/mapbox/streets-v12"
             mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
             reuseMaps
-            scrollZoom={false}
+            cooperativeGestures
         >
             <NavigationControl />
             <Marker

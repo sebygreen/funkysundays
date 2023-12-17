@@ -1,8 +1,9 @@
-import {Artist, Event} from "./objects";
+import { Artist, Event } from "./objects";
 import dayjs from "dayjs";
 import PocketBase from "pocketbase";
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
-const pb = new PocketBase("http://127.0.0.1:8090");
+const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL);
 
 //events
 export async function fetchEvent(id) {
@@ -13,7 +14,7 @@ export async function fetchEvent(id) {
             fields: "id, collectionId, name, start, end, category, attendees, poster, location, expand.sponsors.id, expand.sponsors.collectionId, expand.sponsors.name, expand.sponsors.logo, expand.sponsors.url, expand.schedule(event).id, expand.schedule(event).start, expand.schedule(event).end, expand.schedule(event).expand.artist.id, expand.schedule(event).expand.artist.name",
         });
         //success
-        return new Event(data, {expanded: true});
+        return new Event(data, { expanded: true });
     } catch (err) {
         //failure
         console.error("Error fetching Event", err);
@@ -90,7 +91,7 @@ export async function fetchArtist(id) {
             expand: "links, schedule(artist).event",
         });
         //success
-        return new Artist(data, {expanded: true});
+        return new Artist(data, { expanded: true });
     } catch (err) {
         //failure
         console.error("Error fetching Artist:", err);
@@ -152,7 +153,7 @@ export async function fetchCountAttendees() {
             fields: "attendees",
         });
         //success
-        return Object.values(records).reduce((accumulator, {attendees}) => accumulator + attendees, 0);
+        return Object.values(records).reduce((accumulator, { attendees }) => accumulator + attendees, 0);
     } catch (err) {
         //failure
         console.log("Error fetching Attendee Count", err);
@@ -178,7 +179,7 @@ export async function fetchCountEvents() {
 export async function fetchCoordinates(query) {
     try {
         const data = await fetch(
-            `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ch&limit=3&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`
+            `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ch&limit=3&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`,
         );
         const json = await data.json();
         //success

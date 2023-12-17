@@ -78,6 +78,7 @@
 .instagram {
     background-color: rgba(227, 64, 94, 0.2);
     color: rgba(227, 64, 94, 1);
+    box-shadow: inset -1px 1px 2px -1px rgba(227, 64, 94, 0.2);
 }
 
 .instagram:hover {
@@ -88,6 +89,7 @@
 .facebook {
     background-color: rgba(24, 118, 242, 0.2);
     color: rgba(24, 118, 242, 1);
+    box-shadow: inset -1px 1px 2px -1px rgba(24, 118, 242, 0.2);
 }
 
 .facebook:hover {
