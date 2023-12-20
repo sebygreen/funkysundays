@@ -13,12 +13,10 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# backend
-pb_data/
-pocketbase
-errors.log
+# folders
+backend/
+config/
 
 # misc
 .DS_Store
 *.pem
-nginx/
