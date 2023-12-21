@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-
 const satoshi = localFont({
     src: [
         {
@@ -16,7 +15,6 @@ const satoshi = localFont({
         },
     ],
 });
-
 const jetBrainsMono = localFont({
     src: [
         {
@@ -33,5 +31,4 @@ const jetBrainsMono = localFont({
         },
     ],
 });
-
 export { satoshi, jetBrainsMono };

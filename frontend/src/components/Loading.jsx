@@ -1,21 +1,23 @@
 "use client";
 import { useEffect } from "react";
 
-export default function Loading() {
+export default function Loading({ size, stroke }) {
     async function getLoader() {
-        const { bouncy } = await import("ldrs");
-        bouncy.register();
+        const { ring } = await import("ldrs");
+        ring.register();
     }
     useEffect(() => {
         getLoader();
     }, []);
     return (
         <section className="loading">
-            <l-bouncy
-                size="45"
-                speed="1.75"
-                color="white"
-            ></l-bouncy>
+            <l-ring
+                size={size}
+                stroke={stroke}
+                bg-opacity="0"
+                speed="2"
+                color="#F7CBE0"
+            ></l-ring>
         </section>
     );
 }

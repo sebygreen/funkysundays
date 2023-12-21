@@ -23,7 +23,7 @@ function platformClass(platform) {
     }
 }
 
-export default function Button({ type, icon, text, href, action, platform }) {
+export default function Button({ type, icon, text, href, action, platform, disabled }) {
     if (type === "route") {
         return (
             <Link
@@ -60,6 +60,7 @@ export default function Button({ type, icon, text, href, action, platform }) {
                 type="submit"
                 onClick={action}
                 className={`${styles.button} ${buttonClass(icon, text)}`}
+                disabled={disabled}
             >
                 {text && <p className={satoshi.className}>{text}</p>}
                 {icon && icon}

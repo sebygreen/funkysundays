@@ -1,7 +1,6 @@
 import { Artist, Event } from "./objects";
 import dayjs from "dayjs";
 import PocketBase from "pocketbase";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const pb = new PocketBase(process.env.NEXT_PUBLIC_POCKETBASE_URL);
 
@@ -13,10 +12,8 @@ export async function fetchEvent(id) {
             expand: "sponsors, schedule(event).artist",
             fields: "id, collectionId, name, start, end, category, attendees, poster, location, expand.sponsors.id, expand.sponsors.collectionId, expand.sponsors.name, expand.sponsors.logo, expand.sponsors.url, expand.schedule(event).id, expand.schedule(event).start, expand.schedule(event).end, expand.schedule(event).expand.artist.id, expand.schedule(event).expand.artist.name",
         });
-        //success
-        return new Event(data, { expanded: true });
+        return new Event(data, { expanded: true, artist: false });
     } catch (err) {
-        //failure
         console.error("Error fetching Event", err);
         return false;
     }
@@ -29,7 +26,6 @@ export async function fetchEvents() {
             fields: "id, name, start, end, category",
             sort: "-start",
         });
-        //success
         const objects = data.map((event) => {
             return new Event(event);
         });
@@ -46,7 +42,6 @@ export async function fetchEvents() {
         });
         return events;
     } catch (err) {
-        //failure
         console.error("Error fetching Events", err);
         return false;
     }
@@ -54,14 +49,11 @@ export async function fetchEvents() {
 
 export async function fetchEventSlugs() {
     try {
-        const data = await pb.collection("events").getFullList({
+        return await pb.collection("events").getFullList({
             requestKey: "event-slugs",
             fields: "id",
         });
-        //success
-        return data;
     } catch (err) {
-        //failure
         console.error("Error fetching Event Slugs", err);
         return false;
     }
@@ -73,10 +65,8 @@ export async function fetchEventUpcoming() {
             requestKey: null,
             fields: "id, name, start, category",
         });
-        // success
         return new Event(data);
     } catch (err) {
-        // failure
         console.error("Error fetching Upcoming Event", err);
         return false;
     }
@@ -90,10 +80,8 @@ export async function fetchArtist(id) {
             fields: "id, collectionId, thumbnail, name, description, expand.links.id, expand.links.embed, expand.links.platform, expand.links.username, expand.links.url, expand.schedule(artist).start, expand.schedule(artist).end, expand.schedule(artist).expand.event.id, expand.schedule(artist).expand.event.name, expand.schedule(artist).expand.event.category",
             expand: "links, schedule(artist).event",
         });
-        //success
         return new Artist(data, { expanded: true });
     } catch (err) {
-        //failure
         console.error("Error fetching Artist:", err);
         return false;
     }
@@ -105,12 +93,10 @@ export async function fetchArtists() {
             requestKey: "artists",
             field: "id, collectionId, name, thumbnail, type",
         });
-        //success
         return data.map((artist) => {
             return new Artist(artist);
         });
     } catch (err) {
-        //failure
         console.error("Error fetching Artists", err);
         return false;
     }
@@ -118,14 +104,11 @@ export async function fetchArtists() {
 
 export async function fetchArtistSlugs() {
     try {
-        const data = await pb.collection("artists").getFullList({
+        return await pb.collection("artists").getFullList({
             requestKey: "artist-slugs",
             fields: "id",
         });
-        //success
-        return data;
     } catch (err) {
-        //failure
         console.error("Error fetching Artist Slugs", err);
         return false;
     }
@@ -137,10 +120,8 @@ export async function fetchCountArtists() {
         const records = await pb.collection("artists").getList(1, 1, {
             requestKey: "count-artists",
         });
-        //success
         return records.totalItems;
     } catch (err) {
-        //failure
         console.log("Error fetching Artist Count", err);
         return false;
     }
@@ -152,10 +133,8 @@ export async function fetchCountAttendees() {
             requestKey: "count-attendees",
             fields: "attendees",
         });
-        //success
         return Object.values(records).reduce((accumulator, { attendees }) => accumulator + attendees, 0);
     } catch (err) {
-        //failure
         console.log("Error fetching Attendee Count", err);
         return false;
     }
@@ -166,10 +145,8 @@ export async function fetchCountEvents() {
         const records = await pb.collection("events").getList(1, 1, {
             requestKey: "count-events",
         });
-        //success
         return records.totalItems;
     } catch (err) {
-        //failure
         console.error("Error fetching Event Count", err);
         return false;
     }
@@ -182,13 +159,11 @@ export async function fetchCoordinates(query) {
             `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ch&limit=3&access_token=${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`,
         );
         const json = await data.json();
-        //success
         return {
             longitude: json.features[0].center[0],
             latitude: json.features[0].center[1],
         };
     } catch (err) {
-        //failure
         console.error("Error fetching Coordinates", err);
         return false;
     }
@@ -197,11 +172,10 @@ export async function fetchCoordinates(query) {
 //staff
 export async function fetchStaff() {
     try {
-        const data = await pb.collection("staff").getFullList({
+        return await pb.collection("staff").getFullList({
             requestKey: "staff",
             fields: "id, collectionId, name, position, picture",
         });
-        return data;
     } catch (err) {
         console.log("Error fetching Staff", err);
         return false;

@@ -1,6 +1,6 @@
 "use server";
 import nodemailer from "nodemailer";
-export default async function sendEmail(formData) {
+export default async function sendEmail(prevState, formData) {
     const values = {
         tag: formData.get("tag"),
         name: formData.get("name"),
@@ -9,8 +9,8 @@ export default async function sendEmail(formData) {
     };
     const options = {
         from: process.env.NODEMAILER_USERNAME,
-        to: "nathaliemagreen@gmail.com",
-        subject: `Message from ${values.email}`,
+        to: process.env.NODEMAILER_DESTINATION,
+        subject: `Message from ${values.email}.`,
         html: `
         <p>Tag: ${values.tag}</p>
         <p>Name: ${values.name}</p>
@@ -29,7 +29,13 @@ export default async function sendEmail(formData) {
     });
     try {
         await transporter.sendMail(options);
+        return {
+            message: "Email sent successfully",
+        };
     } catch (error) {
         console.error(error);
+        return {
+            message: "Email failed to send",
+        };
     }
 }
