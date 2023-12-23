@@ -10,7 +10,7 @@ export default function SubmitButton() {
     return (
         <Button
             type="submit"
-            text="Send"
+            text="Envoyer"
             icon={
                 pending ? (
                     <Loading

@@ -11,9 +11,9 @@ export default async function Events() {
             className={`${styles.wrapper} wrapper`}
             id="events"
         >
-            <h1>Events</h1>
+            <h1>Événements</h1>
             <Suspense fallback={<Loading />}>
-                <h2>Upcoming</h2>
+                <h2>À Venir</h2>
                 <section
                     id="upcoming"
                     className="grid"
@@ -30,7 +30,7 @@ export default async function Events() {
                         ))
                     )}
                 </section>
-                <h2>Archived</h2>
+                <h2>Archives</h2>
                 <section
                     id="archived"
                     className="grid"

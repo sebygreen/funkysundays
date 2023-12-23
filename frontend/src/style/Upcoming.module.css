@@ -1,3 +1,9 @@
 .container > *:not(:last-child) {
     margin-bottom: var(--spacing-small);
 }
+
+@media (min-width: 480px) {
+    .container {
+        width: fit-content;
+    }
+}

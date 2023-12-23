@@ -7,6 +7,7 @@ import parse from "html-react-parser";
 import Image from "next/image";
 import { Suspense } from "react";
 import styles from "./page.module.css";
+import Upcoming from "@/components/Upcoming";
 
 export default async function Artist({ params }) {
     async function generateStaticParams() {
@@ -45,11 +46,16 @@ export default async function Artist({ params }) {
                                                 platform={link.platform}
                                                 text={link.username}
                                             />
-                                        )
+                                        ),
                                 )}
                             </div>
                         )}
-                        {artist.event && <Event event={artist.event} />}
+                        {artist.event && (
+                            <Upcoming
+                                event={artist.event}
+                                countdown={false}
+                            />
+                        )}
                     </div>
                     <div className={styles.description}>{parse(artist.description)}</div>
                 </section>

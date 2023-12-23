@@ -49,7 +49,7 @@ export default function Menu({ shown, route }) {
                                 href="/"
                                 className={route === "/" ? styles.active : undefined}
                             >
-                                Home
+                                Accueil
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
@@ -57,7 +57,7 @@ export default function Menu({ shown, route }) {
                                 href="/events"
                                 className={route === "/events" ? styles.active : undefined}
                             >
-                                Events
+                                Événements
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
@@ -65,7 +65,7 @@ export default function Menu({ shown, route }) {
                                 href="/artists"
                                 className={route === "/artists" ? styles.active : undefined}
                             >
-                                Artists
+                                Artistes
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
@@ -73,7 +73,7 @@ export default function Menu({ shown, route }) {
                                 href="/about"
                                 className={route === "/about" ? styles.active : undefined}
                             >
-                                About
+                                À Propos
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>

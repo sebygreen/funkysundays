@@ -10,15 +10,17 @@ export default function Statistic({ icon, text, number, color }) {
                     color === "blue"
                         ? styles.blue
                         : color === "orange"
-                        ? styles.orange
-                        : color === "green"
-                        ? styles.green
-                        : undefined
+                          ? styles.orange
+                          : color === "green"
+                            ? styles.green
+                            : color === "pink"
+                              ? styles.pink
+                              : undefined
                 }
             >
                 {icon}
             </figure>
-            <section className={styles.counter}>
+            <section>
                 <p className={`${jetBrainsMono.className} ${styles.number}`}>
                     <Counter number={number} />
                 </p>

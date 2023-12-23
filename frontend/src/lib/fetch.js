@@ -152,6 +152,19 @@ export async function fetchCountEvents() {
     }
 }
 
+//sponsors
+export async function fetchCountSponsors() {
+    try {
+        const records = await pb.collection("sponsors").getList(1, 1, {
+            requestKey: "count-sponsors",
+        });
+        return records.totalItems;
+    } catch (err) {
+        console.error("Error fetching sponsors.", "\n", err);
+        return false;
+    }
+}
+
 //gps
 export async function fetchCoordinates(query) {
     try {

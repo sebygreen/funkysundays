@@ -23,31 +23,31 @@ export default function ContactForm() {
                     name="tag"
                     id="tag"
                 >
-                    <option value="volunteer">I would like to volunteer</option>
-                    <option value="artist">I would like to perform</option>
-                    <option value="question">I have a question</option>
-                    <option value="feedback">I have feedback</option>
-                    <option value="other">Other</option>
+                    <option value="volunteer">Je souhaite devenir membre</option>
+                    <option value="artist">Je souhaite jouer sur scène</option>
+                    <option value="question">J&apos;ai une question</option>
+                    <option value="feedback">J&apos;ai du feedback</option>
+                    <option value="other">Autre</option>
                 </select>
             </div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Nom</label>
             <input
                 type="text"
-                placeholder="John Appleseed"
+                placeholder="Jean Dupont"
                 name="name"
                 id="name"
             />
             <label htmlFor="email">Email</label>
             <input
                 type="text"
-                placeholder="john@email.com"
+                placeholder="jean@email.com"
                 name="email"
                 id="email"
             />
             <label htmlFor="message">Message</label>
             <textarea
                 rows={10}
-                placeholder="Start typing here..."
+                placeholder="Commencez à ècrire içi..."
                 name="message"
                 id="message"
             ></textarea>

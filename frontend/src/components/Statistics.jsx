@@ -1,6 +1,6 @@
 import styles from "@/style/Statistics.module.css";
 import Statistic from "./Statistic";
-import { UsersFour, CalendarCheck, Guitar } from "@phosphor-icons/react/dist/ssr";
+import { UsersFour, CalendarCheck, Guitar, BeerStein } from "@phosphor-icons/react/dist/ssr";
 
 export default function Statistics({ statistics }) {
     return (
@@ -15,7 +15,7 @@ export default function Statistics({ statistics }) {
                         color="rgb(170, 218, 247)"
                     />
                 }
-                text="Funky attendees."
+                text="Spectateurs Funky Sundays."
                 number={statistics.attendees}
                 color="blue"
             />
@@ -26,7 +26,7 @@ export default function Statistics({ statistics }) {
                         color="rgb(253, 215, 174)"
                     />
                 }
-                text="Funky afternoons & evenings."
+                text="Événements organisés."
                 number={statistics.events}
                 color="orange"
             />
@@ -37,9 +37,20 @@ export default function Statistics({ statistics }) {
                         color="rgb(198, 224, 184)"
                     />
                 }
-                text="Local musicians & groups hosted."
+                text="Musiciens & groupes locaux."
                 number={statistics.artists}
                 color="green"
+            />
+            <Statistic
+                icon={
+                    <BeerStein
+                        size={32}
+                        color="rgb(247, 203, 224)"
+                    />
+                }
+                text="Commerces & partenaires locaux."
+                number={statistics.sponsors}
+                color="pink"
             />
         </section>
     );

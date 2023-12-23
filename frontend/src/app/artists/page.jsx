@@ -10,7 +10,7 @@ export default async function Artists() {
             className="wrapper spaced"
             id="artists"
         >
-            <h1>Artists</h1>
+            <h1>Artistes</h1>
             <Suspense fallback={<Loading />}>
                 <section className="grid">
                     {artists.map((artist) => (

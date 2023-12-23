@@ -62,6 +62,16 @@
     margin-bottom: 20px;
 }
 
+.media {
+    flex-grow: 1;
+}
+
+@media (min-width: 480px) {
+    .media {
+        flex-grow: unset;
+    }
+}
+
 .thumbnail {
     position: relative;
     height: 240px;

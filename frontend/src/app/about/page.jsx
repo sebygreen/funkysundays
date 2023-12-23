@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import PocketBase from "pocketbase";
-import staffImage from "@/images/staff.jpg";
+import picture from "@/images/staff.jpg";
 import { Suspense } from "react";
 import Loading from "@/components/Loading";
 import IconBird from "@/components/icons/IconBird";
@@ -11,18 +11,13 @@ export default async function About() {
     const staff = await fetchStaff();
     return (
         <div className={`wrapper ${styles.wrapper}`}>
-            <section className={styles.header}>
-                <div>
-                    <IconBird />
-                    <h1>Qui sommes-nous?</h1>
-                </div>
-                <Image
-                    className={styles.staffImage}
-                    src={staffImage}
-                    alt="Staff on duty in 2019."
-                    placeholder="blur"
-                />
-            </section>
+            <h1>Qui sommes-nous?</h1>
+            <Image
+                className={styles.picture}
+                src={picture}
+                alt="Staff on duty in 2019."
+                placeholder="blur"
+            />
             <p>
                 Le dimanche 19 mai 2019, la première édition du festival a lieu au parc de Montbenon à Lausanne et
                 réunit près de 1&apos;000 personnes un jour de pluie, ainsi que des artistes live de musique, des DJs,
@@ -43,6 +38,9 @@ export default async function About() {
                 culture locale et à réjouir la population genevoise de son dimanche ensoleillé et bercé par la
                 programmation des Funky Sundays.
             </p>
+            <figure className={styles.bird}>
+                <IconBird />
+            </figure>
             <section
                 id="staff"
                 className={styles.staff}
