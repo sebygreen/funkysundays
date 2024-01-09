@@ -1,9 +1,8 @@
-import { event, statistic } from "@/lib/fetch";
-import { BeerStein, CalendarCheck, Guitar, Info, UsersFour } from "@phosphor-icons/react/dist/ssr";
+import { event } from "@/lib/fetch";
+import { Info } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import texture from "@/images/texture.png";
 import logo from "@/images/logo.png";
-import Statistic from "@/components/Statistic";
 import Button from "@/components/Button";
 import Upcoming from "@/components/Upcoming";
 import styles from "./page.module.css";
