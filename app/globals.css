@@ -1,0 +1,175 @@
+:root {
+    --palette-purple: #4D4797;
+    --palette-pink: #F7CBE0;
+    --palette-yellow: #FDD7AE;
+    --palette-blue:#AADAF7;
+    --palette-green:#C6E0B9;
+    --palette-background: #121212;
+    --palette-foreground: white;
+    --opaque-purple: #4D479720;
+    --opaque-pink: #F7CBE020;
+    --opaque-background: #12121210;
+    --opaque-foreground: #FFFFFF05;
+}
+
+/*begin color for svg stamp*/
+.cls-1 {
+    fill: #f7c9df;
+}
+
+.cls-2 {
+    fill: #f7cae0;
+}
+
+.cls-3 {
+    fill: #8d8cc3;
+}
+
+.cls-4 {
+    fill: #4d4796;
+}
+/*end color for svg stamp*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    color-scheme: dark;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--palette-background);
+    padding-bottom: 60px;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+}
+
+/*small anchors*/
+a.small::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+a.small:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+a.small::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: var(--opaque-purple);
+    z-index: -1;
+    transition: transform 200ms ease;
+}
+
+a.small {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--palette-purple);
+}
+
+a.small:hover {
+    text-decoration: underline;
+}
+
+.blur {
+    backdrop-filter: blur(20px);
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.grid {
+    display: grid;
+    grid-auto-rows: max-content;
+    gap: 20px;
+}
+
+@media (min-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .grid.small {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .grid.smaller {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+.spaced > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.constrain {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 980px;
+    padding: 20px;
+}
+
+header .constrain,
+footer .constrain {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .constrain {
+    align-items: center;
+    padding: 20px 20px 0 20px;
+}
+
+footer .constrain {
+    align-items: baseline;
+    padding: 0 20px 20px 20px;
+}
+
+header svg#logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+    color: var(--palette-purple);
+}
+
+header span.socials {
+    display: flex;
+    gap: 10px;
+}
+
+footer p {
+    opacity: 0.5;
+    font-size: 0.8rem;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

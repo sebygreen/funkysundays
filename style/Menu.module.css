@@ -1,0 +1,31 @@
+.menu {
+    position: relative;
+    width: fit-content;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu ul li a {
+    line-height: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: var(--palette-pink);
+    background-color: var(--opaque-pink);
+    box-shadow: inset -1px 1px 2px -1px var(--opaque-pink);
+    transition-property: background-color, box-shadow;
+    transition-duration: 200ms;
+}
+
+.menu ul li a.active {
+    background-color: var(--palette-pink);
+    color: var(--palette-purple);
+}
