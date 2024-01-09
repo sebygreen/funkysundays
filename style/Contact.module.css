@@ -1,0 +1,137 @@
+.toasts {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+}
+
+.toast {
+    display: flex;
+    gap: 20px;
+    padding: 15px 18px 15px 15px;
+    color: mediumseagreen;
+    background-color: rgba(60, 179, 113, 0.1);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    line-height: 22px;
+    backdrop-filter: blur(10px);
+}
+
+.toast:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.toast.failure {
+    color: tomato;
+    background-color: rgba(255, 99, 71, 0.1);
+}
+
+.form {
+    margin-top: 20px;
+}
+
+.responsive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.information, .message {
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .information {
+        max-width: 320px;
+    }
+    .message {
+        min-width: 320px;
+    }
+}
+
+.message {
+    flex-grow: 1;
+    flex-basis: 320px;
+    height: 200px;
+}
+
+@media (min-width: 700px) {
+    .message {
+        height: unset;
+    }
+}
+
+.message .input {
+    height: 100%;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.input p {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.select select, .input input, .input textarea {
+    display: block;
+    border: unset;
+    outline: unset;
+    background-color: unset;
+    color: unset;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.select {
+    border-radius: 10px;
+    position: relative;
+    color: var(--palette-pink);
+    background-color: var(--opaque-pink);
+    box-shadow: inset -1px 1px 2px -1px var(--opaque-pink);
+    transition: background-color 200ms, color 200ms, transform 200ms;
+}
+
+.select select {
+    padding: 10px 15px 10px 10px;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.select:hover {
+    background-color: var(--palette-pink);
+    color: var(--palette-purple);
+}
+
+.select svg {
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    pointer-events: none;
+}
+
+.input textarea {
+    resize: none;
+}
+
+.input input, .input textarea {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--opaque-foreground);
+    box-shadow: inset 0 0 0 0 rgba(255, 255, 255, 0.1);
+    transition: box-shadow 200ms ease;
+}
+
+.input input:focus, .input textarea:focus {
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.submit {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}

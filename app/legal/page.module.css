@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container article > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.container span {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.container ul {
+    list-style: none;
+}
+
+.container ul li:not(:last-child) {
+    margin-bottom: 5px;
+}

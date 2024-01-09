@@ -1,0 +1,87 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--opaque-purple);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.hero.upcoming {
+    border-radius: 10px 10px 35px 35px;
+}
+
+.background {
+    position: absolute;
+    height: 200%;
+    width: 200%;
+    background-repeat: repeat;
+    background-size: 50%;
+    background-position: center;
+    animation: 120s ease-in-out 1s infinite alternate hero;
+}
+
+@keyframes hero {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-5%, -40%);
+    }
+    50% {
+        transform: translate(-20%, -5%);
+    }
+    75% {
+        transform: translate(-5%, -50%);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+.content {
+    position: relative;
+}
+
+.content img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+}
+
+.content h1 {
+    width: 75%;
+    line-height: unset;
+}
+
+.responsive {
+    display: grid;
+    gap: 20px;
+}
+
+/*statistics*/
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100% - 20px, max(5ch, 100% / 2 - 20px)), 1fr));
+    gap: 20px;
+}
+
+@media (min-width: 480px) {
+    .responsive {
+        grid-template-columns: 1fr min-content;
+    }
+
+    .hero.upcoming {
+        border-radius: 10px 10px 10px 35px;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .statistics {
+        grid-template-columns: min-content min-content;
+        grid-template-rows: min-content min-content;
+    }
+}

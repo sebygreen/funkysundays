@@ -1,0 +1,53 @@
+.metadata {
+    display: grid;
+    gap: 20px;
+}
+
+.media {
+    flex-grow: 1;
+}
+
+@media (min-width: 756px) {
+    .metadata {
+        grid-template-columns: min-content 1fr;
+    }
+}
+
+.picture {
+    position: relative;
+    height: 240px;
+    width: 240px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.picture img {
+    object-fit: cover;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.embeds {
+    position: relative;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (max-width: 480px) {
+    .embeds {
+        grid-template-columns: 1fr;
+    }
+}
+
+.description {
+    flex: 1 1 250px;
+}
+
+.description > *:not(:last-child) {
+    margin-bottom: 10px;
+}
