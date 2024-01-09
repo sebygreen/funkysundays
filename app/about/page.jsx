@@ -7,6 +7,8 @@ import { staff } from "@/lib/fetch";
 import Stamp from "@/components/Stamp";
 import Employee from "@/components/Employee";
 
+export const revalidate = 3600;
+
 export const metadata = {
     title: "À Propos",
 };

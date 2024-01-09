@@ -3,6 +3,8 @@ import Loading from "@/components/Loading";
 import { artist } from "@/lib/fetch";
 import { Suspense } from "react";
 
+export const revalidate = 300;
+
 export const metadata = {
     title: "Artistes",
 };

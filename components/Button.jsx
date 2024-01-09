@@ -23,7 +23,7 @@ export default function Button({ type, icon, text, href, action, platform, disab
     } else if (type === "anchor") {
         //text, icon, href
         return (
-            <a href={href} className={`${styles.anchor} ${variant(icon, text)}`}>
+            <a href={href} target="_blank" className={`${styles.anchor} ${variant(icon, text)}`}>
                 {text && <p>{text}</p>}
                 {icon && icon}
             </a>
@@ -47,7 +47,7 @@ export default function Button({ type, icon, text, href, action, platform, disab
     } else if (type === "social") {
         //text, icon, href, platform
         return (
-            <a href={href} className={`${styles.anchor} ${variant(icon, text)} ${styles[platform]}`}>
+            <a href={href} target="_blank" className={`${styles.anchor} ${variant(icon, text)} ${styles[platform]}`}>
                 {text && <p>{text}</p>}
                 {icon && icon}
             </a>

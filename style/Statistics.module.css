@@ -1,12 +1,18 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-small);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100% - 20px, max(5ch, 100% / 2 - 20px)), 1fr));
+    gap: 20px;
 }
 
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 480px) {
     .container {
-        flex-direction: row;
-        flex-wrap: wrap;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: min-content min-content;
+        grid-template-rows: min-content min-content;
     }
 }

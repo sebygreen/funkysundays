@@ -1,7 +1,7 @@
 import Contact from "@/components/client/Contact";
 
 export const metadata = {
-    title: "Contacte",
+    title: "Contact",
 };
 
 export default function Page() {

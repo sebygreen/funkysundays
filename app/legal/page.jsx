@@ -32,14 +32,14 @@ export default function Page() {
                 <h2>Hébergeur</h2>
                 <p>
                     Le site internet est hébergé chez:{" "}
-                    <a className="small" href="https://vultr.com">
+                    <a target="_blank" className="small" href="https://vultr.com">
                         Vultr
                     </a>
                     .
                 </p>
                 <p>
                     Registrar de &apos;funkysundays.com&apos;:{" "}
-                    <a className="small" href="https://infomaniak.com">
+                    <a target="_blank" className="small" href="https://infomaniak.com">
                         Infomaniak
                     </a>
                     .

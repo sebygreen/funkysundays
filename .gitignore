@@ -1,21 +1,9 @@
 # files
-.pnp
-.pnp.js
-npm-debug.log*
-.env*.local
 .env
-.vercel
-*.tsbuildinfo
-next-env.d.ts
 
 # folders
 node_modules/
-coverage/
 .next/
-out/
-build/
-backend/
-config/
 
 # os
 .DS_Store
