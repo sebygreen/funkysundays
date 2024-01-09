@@ -9,6 +9,8 @@ import styles from "./page.module.css";
 import Upcoming from "@/components/Upcoming";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 
+export const revalidate = 300;
+
 export const metadata = {
     title: "Artistes",
 };
@@ -38,7 +40,7 @@ export default async function Artist({ params }) {
                                             <Button
                                                 key={link.id}
                                                 type="social"
-                                                url={link.url}
+                                                href={link.url}
                                                 platform={link.platform}
                                                 text={link.username}
                                                 icon={<SiInstagram size={18} color="currentColor" />}

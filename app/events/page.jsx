@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { event } from "@/lib/fetch";
 import dayjs from "dayjs";
 
+export const revalidate = 300;
+
 export const metadata = {
     title: "Évènements",
 };

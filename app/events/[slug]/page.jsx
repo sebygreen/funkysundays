@@ -8,6 +8,8 @@ import Image from "next/image";
 import { Calendar, MapPin, Tag, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import dayjs from "dayjs";
 
+export const revalidate = 300;
+
 export const metadata = {
     title: "Évènements",
 };
@@ -70,7 +72,7 @@ export default async function Page({ params }) {
                         {data.sponsors && (
                             <div className={styles.sponsors}>
                                 {data.sponsors.map((sponsor) => (
-                                    <a key={sponsor.id} href={sponsor.url}>
+                                    <a key={sponsor.id} target="_blank" href={sponsor.url}>
                                         <figure>
                                             <Image src={sponsor.logo} fill={true} sizes="32px" alt={sponsor.name} />
                                         </figure>
