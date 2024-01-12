@@ -7,6 +7,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import { Calendar, MapPin, Tag, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import dayjs from "dayjs";
+import Collaborations from "@/components/Collaborations";
 
 export const revalidate = 300;
 
@@ -22,6 +23,7 @@ export default async function Page({ params }) {
         }));
     }
     const data = await event.one(params.slug, true);
+    console.log(data);
     let places = await mapbox.geocoding(data.location);
     return (
         <div className="constrain spaced">
@@ -69,17 +71,8 @@ export default async function Page({ params }) {
                                 {data.attendees}
                             </li>
                         </ul>
-                        {data.sponsors && (
-                            <div className={styles.sponsors}>
-                                {data.sponsors.map((sponsor) => (
-                                    <a key={sponsor.id} target="_blank" href={sponsor.url}>
-                                        <figure>
-                                            <Image src={sponsor.logo} fill={true} sizes="32px" alt={sponsor.name} />
-                                        </figure>
-                                    </a>
-                                ))}
-                            </div>
-                        )}
+                        {data.partners && <Collaborations items={data.partners} />}
+                        {data.sponsors && <Collaborations items={data.sponsors} type={"sponsors"} />}
                     </section>
                     {data.schedule && <Schedule multi={data.multi} schedule={data.schedule} />}
                 </div>

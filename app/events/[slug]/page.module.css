@@ -50,31 +50,6 @@
     box-sizing: content-box;
 }
 
-.sponsors {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.sponsors a {
-    position: relative;
-    display: block;
-    height: 40px;
-    width: 40px;
-}
-
-.sponsors a figure {
-    height: 100%;
-    width: 100%;
-    box-sizing: content-box;
-    overflow: hidden;
-}
-
-.sponsors a figure img {
-    object-fit: contain;
-}
-
 .responsive {
     display: flex;
     flex-direction: column;

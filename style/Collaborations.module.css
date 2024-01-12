@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container a {
+    position: relative;
+    display: block;
+    width: fit-content;
+}
+
+.sponsors img {
+    display: block;
+    height: 32px;
+    width: auto;
+}
+
+.partners img {
+    display: block;
+    height: auto;
+    width: auto;
+    max-height: 40px;
+    max-width: 200px;
+}
