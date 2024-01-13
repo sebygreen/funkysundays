@@ -5,13 +5,13 @@ import { satoshi } from "@/lib/fonts";
 import "./globals.css";
 import Script from "next/script";
 
+export const viewport = {
+    themeColor: "#121212",
+};
+
 export const metadata = {
     title: "Funky Sundays",
     description: "Bring Sunday back to life.",
-};
-
-export const viewport = {
-    themeColor: "#121212",
 };
 
 export default function Layout({ children }) {
