@@ -17,7 +17,11 @@ export const metadata = {
 export default function Layout({ children }) {
     return (
         <html lang="fr">
-            {/*<Script async src="https://umami.smkg.me/script.js" data-website-id="f29a55dc-c3c6-4ad6-a9ff-4d8d97679cb6"/>*/}
+            <Script
+                async
+                src="https://umami.smkg.me/script.js"
+                data-website-id="f29a55dc-c3c6-4ad6-a9ff-4d8d97679cb6"
+            />
             <body className={satoshi.className}>
                 <Overlay />
                 <Header />
