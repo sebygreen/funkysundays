@@ -23,7 +23,6 @@ export default async function Page({ params }) {
         }));
     }
     const data = await event.one(params.slug, true);
-    console.log(data);
     let places = await mapbox.geocoding(data.location);
     return (
         <div className="constrain spaced">
