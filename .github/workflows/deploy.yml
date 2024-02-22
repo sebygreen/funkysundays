@@ -9,12 +9,18 @@ jobs:
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
+                with:
+                    node-version: '20.x'
             -   name: Install dependencies
                 run: npm install
+                with:
+                    node-version: '20.x'
             -   name: Build Next.js app
                 run: npm run build
                 env:
                     -   POCKETBASE_URL: ${{ secrets.DATABASE_URL }}
+                with:
+                    node-version: '20.x'
             -   name: SSH Deploy
                 uses: appleboy/ssh-action@master
                 with:
