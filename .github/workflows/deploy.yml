@@ -24,10 +24,8 @@ jobs:
             -   name: Build Next.js app
                 run: |
                     touch .env
-                    echo POCKETBASE_URL="$POCKETBASE_URL" >> .env
+                    echo POCKETBASE_URL="https://pocketbase.funkysundays.com" >> .env
                     npm run build
-                env:
-                    POCKETBASE_URL: ${{ vars.POCKETBASE_URL }}
 
             -   name: SSH Deploy
                 uses: appleboy/ssh-action@master
