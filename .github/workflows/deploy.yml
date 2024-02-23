@@ -5,13 +5,6 @@ on:
             - release
     workflow_dispatch:
 
-env:
-    NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }}
-    POCKETBASE_URL: ${{ secrets.POCKETBASE_URL }}
-    NODEMAILER_PASSWORD: ${{ secrets.NODEMAILER_PASSWORD }}
-    NODEMAILER_USERNAME: ${{ secrets.NODEMAILER_USERNAME }}
-    NODEMAILER_DESTINATION: ${{ secrets.NODEMAILER_DESTINATION }}
-
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -22,7 +15,7 @@ jobs:
             -   name: Use Node.js
                 uses: actions/setup-node@v4
                 with:
-                    node-version: '21.x'
+                    node-version: '20'
                     cache: npm
 
             -   name: Restore cache
@@ -42,11 +35,10 @@ jobs:
                 run: npm run lint
 
             -   name: Build Next.js app
-                run: |
-                    touch .env
-                    echo NEXT_PUBLIC_MAPBOX_TOKEN=$NEXT_PUBLIC_MAPBOX_TOKEN >> .env
-                    echo POCKETBASE_URL=$POCKETBASE_URL >> .env
-                    echo NODEMAILER_PASSWORD=$NODEMAILER_PASSWORD >> .env
-                    echo NODEMAILER_USERNAME=$NODEMAILER_USERNAME >> .env
-                    echo NODEMAILER_DESTINATION=$NODEMAILER_DESTINATION >> .env
-                    npm run build
+                run: npm run build
+                env:
+                    NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }}
+                    POCKETBASE_URL: ${{ secrets.POCKETBASE_URL }}
+                    NODEMAILER_PASSWORD: ${{ secrets.NODEMAILER_PASSWORD }}
+                    NODEMAILER_USERNAME: ${{ secrets.NODEMAILER_USERNAME }}
+                    NODEMAILER_DESTINATION: ${{ secrets.NODEMAILER_DESTINATION }}
