@@ -24,7 +24,7 @@ jobs:
             -   name: Build Next.js app
                 run: |
                     touch .env
-                    echo POCKETBASE_URL="$POCKETBASE_URL"
+                    echo POCKETBASE_URL="$POCKETBASE_URL" >> .env
                     npm run build
                 env:
                     POCKETBASE_URL: ${{ vars.POCKETBASE_URL }}
