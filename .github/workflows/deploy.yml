@@ -38,7 +38,7 @@ jobs:
                 run: |
                     touch .env
                     echo NEXT_PUBLIC_MAPBOX_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }} >> .env
-                    echo POCKETBASE_URL=${{ secrets.POCKETBASE_URL }} >> .env
+                    echo POCKETBASE_URL="https://pocketbase.funkysundays.com" >> .env
                     echo NODEMAILER_PASSWORD=${{ secrets.NODEMAILER_PASSWORD }} >> .env
                     echo NODEMAILER_USERNAME=${{ secrets.NODEMAILER_USERNAME }} >> .env
                     echo NODEMAILER_DESTINATION=${{ secrets.NODEMAILER_DESTINATION }} >> .env
