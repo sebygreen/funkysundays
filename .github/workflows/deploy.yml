@@ -37,11 +37,11 @@ jobs:
             -   name: Build Next.js app
                 run: |
                     touch .env
-                    echo NEXT_PUBLIC_MAPBOX_TOKEN=$NEXT_PUBLIC_MAPBOX_TOKEN
-                    echo POCKETBASE_URL=$POCKETBASE_URL
-                    echo NODEMAILER_PASSWORD=$NODEMAILER_PASSWORD
-                    echo NODEMAILER_USERNAME=$NODEMAILER_USERNAME
-                    echo NODEMAILER_DESTINATION=$NODEMAILER_DESTINATION
+                    echo NEXT_PUBLIC_MAPBOX_TOKEN=$NEXT_PUBLIC_MAPBOX_TOKEN >> .env
+                    echo POCKETBASE_URL=$POCKETBASE_URL >> .env
+                    echo NODEMAILER_PASSWORD=$NODEMAILER_PASSWORD >> .env
+                    echo NODEMAILER_USERNAME=$NODEMAILER_USERNAME >> .env
+                    echo NODEMAILER_DESTINATION=$NODEMAILER_DESTINATION >> .env
                     npm run build
                 env:
                     NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }}
