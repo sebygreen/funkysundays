@@ -1,9 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import picture from "@/images/staff.jpg";
-import { Suspense } from "react";
-import Loading from "@/components/Loading";
-import { staff } from "@/lib/fetch";
+import {staff} from "@/lib/fetch";
 import Stamp from "@/components/Stamp";
 import Employee from "@/components/Employee";
 
@@ -23,8 +21,8 @@ export default async function About() {
     return (
         <div className="constrain spaced">
             <section className={styles.stamped}>
-                <Stamp />
-                <Image className={styles.picture} src={picture} alt="Staff photo of 2023" placeholder="blur" />
+                <Stamp/>
+                <Image className={styles.picture} src={picture} alt="Staff photo of 2023" placeholder="blur"/>
             </section>
             <section className="spaced">
                 <h1>Qui sommes-nous?</h1>
@@ -52,18 +50,14 @@ export default async function About() {
                 </p>
             </section>
             <section id="commitee" className={styles.committee}>
-                <Suspense fallback={<Loading />}>
-                    {committee.map((i) => (
-                        <Employee key={i.id} employee={i} />
-                    ))}
-                </Suspense>
+                {committee.map((i) => (
+                    <Employee key={i.id} employee={i}/>
+                ))}
             </section>
             <section id="members" className={styles.members}>
-                <Suspense fallback={<Loading />}>
-                    {members.map((i) => (
-                        <Employee key={i.id} employee={i} />
-                    ))}
-                </Suspense>
+                {members.map((i) => (
+                    <Employee key={i.id} employee={i}/>
+                ))}
             </section>
         </div>
     );
