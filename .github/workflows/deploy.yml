@@ -24,7 +24,8 @@ jobs:
             -   name: Build Next.js app
                 run: npm run build
                 env:
-                    POCKETBASE_URL: ${{ secrets.DATABASE_URL }}
+                    NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.MAPBOX_TOKEN }}
+                    POCKETBASE_URL: ${{ secrets.POCKETBASE }}
 
             -   name: SSH Deploy
                 uses: appleboy/ssh-action@master
