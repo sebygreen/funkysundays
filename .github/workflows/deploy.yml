@@ -35,7 +35,14 @@ jobs:
                 run: npm run lint
 
             -   name: Build Next.js app
-                run: npm run build
+                run: |
+                    touch .env
+                    echo NEXT_PUBLIC_MAPBOX_TOKEN=$NEXT_PUBLIC_MAPBOX_TOKEN
+                    echo POCKETBASE_URL=$POCKETBASE_URL
+                    echo NODEMAILER_PASSWORD=$NODEMAILER_PASSWORD
+                    echo NODEMAILER_USERNAME=$NODEMAILER_USERNAME
+                    echo NODEMAILER_DESTINATION=$NODEMAILER_DESTINATION
+                    npm run build
                 env:
                     NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }}
                     POCKETBASE_URL: ${{ secrets.POCKETBASE_URL }}
