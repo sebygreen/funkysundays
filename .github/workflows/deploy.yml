@@ -22,10 +22,13 @@ jobs:
                 run: npm run lint
 
             -   name: Build Next.js app
-                run: |
-                    touch .env
-                    echo POCKETBASE_URL="https://pocketbase.funkysundays.com" >> .env
-                    npm run build
+                run: npm run build
+                env:
+                    NEXT_PUBLIC_MAPBOX_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }}
+                    POCKETBASE_URL: ${{ secrets.POCKETBASE_URL }}
+                    NODEMAILER_PASSWORD: ${{ secrets.NODEMAILER_PASSWORD }}
+                    NODEMAILER_USERNAME: ${{ secrets.NODEMAILER_USERNAME }}
+                    NODEMAILER_DESTINATION: ${{ secrets.NODEMAILER_DESTINATION }}
 
             -   name: SSH Deploy
                 uses: appleboy/ssh-action@master
