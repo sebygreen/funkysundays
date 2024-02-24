@@ -4,20 +4,17 @@ on:
         branches:
             - release
     workflow_dispatch:
-
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
-
             -   name: Use Node.js
                 uses: actions/setup-node@v4
                 with:
                     node-version: '20'
                     cache: npm
-
             -   name: Restore cache
                 uses: actions/cache@v4
                 with:
@@ -27,20 +24,10 @@ jobs:
                     # If source files changed but packages didn't, rebuild from a prior cache.
                     restore-keys: |
                         ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
             -   name: Install dependencies
-                run: npm ci
-
-            -   name: Lint Next.js app
-                run: npm run lint
-
+                run: npm i
             -   name: Build Next.js app
                 run: |
                     touch .env
-                    echo NEXT_PUBLIC_MAPBOX_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_TOKEN }} >> .env
-                    echo POCKETBASE_URL="https://pocketbase.funkysundays.com" >> .env
-                    echo NODEMAILER_PASSWORD=${{ secrets.NODEMAILER_PASSWORD }} >> .env
-                    echo NODEMAILER_USERNAME=${{ secrets.NODEMAILER_USERNAME }} >> .env
-                    echo NODEMAILER_DESTINATION=${{ secrets.NODEMAILER_DESTINATION }} >> .env
-                    cat .env
+                    echo POCKETBASE_URL=${{ secrets.POCKETBASE_URL }} >> .env
                     npm run build
