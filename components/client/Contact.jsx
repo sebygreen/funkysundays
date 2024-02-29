@@ -3,11 +3,15 @@
 import styles from "@/style/Contact.module.css";
 import sendEmail from "@/lib/mail";
 import { useFormState, useFormStatus } from "react-dom";
-import Loading from "@/components/Loading";
+import Loader from "@/components/Loader";
 import Button from "@/components/Button";
-import { ArrowRight, CaretUpDown } from "@phosphor-icons/react/dist/ssr";
+import {
+    ArrowRight,
+    CaretUpDown,
+    Check,
+    Warning,
+} from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useState } from "react";
-import { Check, Warning } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "framer-motion";
 
 function Submit() {
@@ -21,7 +25,7 @@ function Submit() {
                 aria-disabled={pending}
                 disabled={pending}
             />
-            {pending && <Loading />}
+            {pending && <Loader />}
         </div>
     );
 }
@@ -59,7 +63,11 @@ function Toasts({ data }) {
                             animate="visible"
                             exit="hidden"
                         >
-                            {i.type === "failure" ? <Warning size={22} /> : <Check size={22} />}
+                            {i.type === "failure" ? (
+                                <Warning size={22} />
+                            ) : (
+                                <Check size={22} />
+                            )}
                             <p>{i.message}</p>
                         </motion.article>
                     ))}
@@ -77,7 +85,9 @@ export default function Contact() {
             setToasts((prevState) => [...prevState, state]);
             setTimeout(() => {
                 state.expired = true;
-                setToasts((prevState) => prevState.filter((toast) => toast.id !== state.id));
+                setToasts((prevState) =>
+                    prevState.filter((toast) => toast.id !== state.id),
+                );
             }, 5000);
         }
     }, [state, toasts]);
@@ -93,27 +103,49 @@ export default function Contact() {
                             <div className={styles.select}>
                                 <CaretUpDown size={18} color="currentColor" />
                                 <select name="tag" id="tag">
-                                    <option value="volunteer">Je souhaite devenir membre.</option>
-                                    <option value="artist">Je souhaite jouer sur scène.</option>
-                                    <option value="question">J&apos;ai une question.</option>
-                                    <option value="feedback">Je souhaite faire une remarque.</option>
+                                    <option value="volunteer">
+                                        Je souhaite devenir membre.
+                                    </option>
+                                    <option value="artist">
+                                        Je souhaite jouer sur scène.
+                                    </option>
+                                    <option value="question">
+                                        J&apos;ai une question.
+                                    </option>
+                                    <option value="feedback">
+                                        Je souhaite faire une remarque.
+                                    </option>
                                     <option value="other">Autre</option>
                                 </select>
                             </div>
                         </div>
                         <div className={styles.input}>
                             <p>Nom</p>
-                            <input type="text" placeholder="Jean Dupont" name="name" id="name" />
+                            <input
+                                type="text"
+                                placeholder="Jean Dupont"
+                                name="name"
+                                id="name"
+                            />
                         </div>
                         <div className={styles.input}>
                             <p>Email</p>
-                            <input type="text" placeholder="jean.dupont@email.com" name="email" id="email" />
+                            <input
+                                type="text"
+                                placeholder="jean.dupont@email.com"
+                                name="email"
+                                id="email"
+                            />
                         </div>
                     </div>
                     <div className={styles.message}>
                         <div className={styles.input}>
                             <p>Message</p>
-                            <textarea placeholder="Commencez à écrire ici..." name="message" id="message"></textarea>
+                            <textarea
+                                placeholder="Commencez à écrire ici..."
+                                name="message"
+                                id="message"
+                            ></textarea>
                         </div>
                     </div>
                 </div>

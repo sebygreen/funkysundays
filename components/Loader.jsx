@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 
-export default function Loading({ size, stroke }) {
+export default function Loader({ size, stroke }) {
     async function getLoader() {
         const { ring } = await import("ldrs");
         ring.register();
