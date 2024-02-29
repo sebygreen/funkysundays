@@ -22,7 +22,6 @@
     background-color: var(--opaque-pink);
     box-shadow: inset -1px 1px 2px -1px var(--opaque-pink);
     transition-property: background-color, box-shadow;
-    transition-duration: 200ms;
 }
 
 .menu ul li a.active {

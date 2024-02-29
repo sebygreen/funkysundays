@@ -1,12 +1,13 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { ArrowLeft, List, X } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import styles from "@/style/Overlay.module.css";
 import Menu from "./Menu";
 import Button from "../Button";
 import { AnimatePresence, motion } from "framer-motion";
+import Close from "@/components/client/Close";
 
 export default function Overlay() {
     const router = useRouter();
@@ -44,18 +45,22 @@ export default function Overlay() {
                         initial="hidden"
                         animate="visible"
                         exit="hidden"
-                        onClick={(e) => toggleMenu(e)}
+                        onClick={toggleMenu}
                     />
                 )}
             </AnimatePresence>
-            <Menu shown={menu} route={usePathname()} />
+            <Menu shown={menu} route={usePathname()} close={toggleMenu} />
             <div className={styles.toolbar}>
-                <Button type="button" action={() => router.back()} icon={<ArrowLeft size={20} />} />
+                <Button
+                    type="button"
+                    action={() => router.back()}
+                    icon={<ArrowLeft size={20} />}
+                />
                 <Button
                     type="button"
                     action={() => toggleMenu()}
                     text="Menu"
-                    icon={menu ? <X size={20} /> : <List size={20} />}
+                    icon={<Close open={menu} />}
                 />
             </div>
         </div>

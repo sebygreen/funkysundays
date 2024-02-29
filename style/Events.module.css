@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 480px) {
+    .header {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.select {
+    width: fit-content;
+    border-radius: 10px;
+    position: relative;
+    color: var(--palette-pink);
+    background-color: var(--opaque-pink);
+    box-shadow: inset -1px 1px 2px -1px var(--opaque-pink);
+    transition: background-color 200ms, color 200ms;
+}
+
+.select select {
+    display: block;
+    border: unset;
+    outline: unset;
+    background-color: unset;
+    color: unset;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 15px 10px 10px;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+.select:hover {
+    background-color: var(--palette-pink);
+    color: var(--palette-purple);
+}
+
+.select svg {
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    pointer-events: none;
+}
