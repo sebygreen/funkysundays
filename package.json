@@ -12,13 +12,13 @@
         "@phosphor-icons/react": "^2.0.15",
         "dayjs": "^1.11.10",
         "dotenv": "^16.4.5",
-        "eslint": "8.56.0",
+        "eslint": "8.57.0",
         "eslint-config-next": "14.1.0",
-        "framer-motion": "^11.0.5",
-        "html-react-parser": "^5.1.7",
+        "framer-motion": "^11.0.8",
+        "html-react-parser": "^5.1.8",
         "ldrs": "^1.0.1",
         "next": "14.1.0",
-        "nodemailer": "^6.9.9",
+        "nodemailer": "^6.9.11",
         "pocketbase": "^0.21.1",
         "react": "18.2.0",
         "react-countup": "^6.5.0",
@@ -28,6 +28,6 @@
         "validator": "^13.11.0"
     },
     "devDependencies": {
-        "@types/node": "20.11.20"
+        "@types/node": "20.11.24"
     }
 }
