@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Overlay from "@/components/client/Overlay";
-import {satoshi} from "@/lib/fonts";
+import { satoshi } from "@/lib/fonts";
 import "./globals.css";
 import Script from "next/script";
 
@@ -19,9 +19,11 @@ export default function Layout({ children }) {
         <html lang="fr">
             <body className={satoshi.className}>
                 <Overlay />
-                <Header />
-                <main>{children}</main>
-                <Footer />
+                <div className="layout">
+                    <Header />
+                    <main>{children}</main>
+                    <Footer />
+                </div>
             </body>
             <Script
                 async

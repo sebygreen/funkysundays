@@ -1,9 +1,8 @@
 import styles from "@/style/Menu.module.css";
 import Link from "next/link";
-
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Menu({ shown, route }) {
+export default function Menu({ shown, route, close }) {
     const menu = {
         visible: {
             transition: {
@@ -38,29 +37,72 @@ export default function Menu({ shown, route }) {
         <AnimatePresence>
             {shown && (
                 <nav className={styles.menu}>
-                    <motion.ul variants={menu} initial="hidden" animate="visible" exit="hidden">
+                    <motion.ul
+                        variants={menu}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                    >
                         <motion.li variants={item}>
-                            <Link href="/" className={route === "/" ? styles.active : undefined}>
+                            <Link
+                                href="/"
+                                className={
+                                    route === "/" ? styles.active : undefined
+                                }
+                                onClick={close}
+                            >
                                 Accueil
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/events" className={route === "/events" ? styles.active : undefined}>
+                            <Link
+                                href="/events"
+                                className={
+                                    route === "/events"
+                                        ? styles.active
+                                        : undefined
+                                }
+                                onClick={close}
+                            >
                                 Évènements
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/artists" className={route === "/artists" ? styles.active : undefined}>
+                            <Link
+                                href="/artists"
+                                className={
+                                    route === "/artists"
+                                        ? styles.active
+                                        : undefined
+                                }
+                                onClick={close}
+                            >
                                 Artistes
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/about" className={route === "/about" ? styles.active : undefined}>
+                            <Link
+                                href="/about"
+                                className={
+                                    route === "/about"
+                                        ? styles.active
+                                        : undefined
+                                }
+                                onClick={close}
+                            >
                                 À Propos
                             </Link>
                         </motion.li>
                         <motion.li variants={item}>
-                            <Link href="/contact" className={route === "/contact" ? styles.active : undefined}>
+                            <Link
+                                href="/contact"
+                                className={
+                                    route === "/contact"
+                                        ? styles.active
+                                        : undefined
+                                }
+                                onClick={close}
+                            >
                                 Contact
                             </Link>
                         </motion.li>

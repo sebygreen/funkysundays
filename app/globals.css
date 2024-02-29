@@ -30,6 +30,12 @@
 }
 /*end color for svg stamp*/
 
+.layout {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    min-height: calc(100vh - 60px);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -166,10 +172,4 @@ header span.socials {
 footer p {
     opacity: 0.5;
     font-size: 0.8rem;
-}
-
-.loading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

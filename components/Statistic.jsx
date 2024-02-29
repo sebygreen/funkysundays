@@ -1,4 +1,3 @@
-import { jetBrainsMono } from "@/lib/fonts";
 import Counter from "./client/Counter";
 import styles from "@/style/Statistic.module.css";
 
