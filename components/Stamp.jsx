@@ -2,8 +2,13 @@ import styles from "@/style/Stamp.module.css";
 
 export default function Stamp() {
     return (
-        <figure className={`${styles.container} blur`}>
-            <svg className={styles.ring} id="ring" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+        <figure className={styles.container}>
+            <svg
+                className={styles.ring}
+                id="ring"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1000 1000"
+            >
                 <g id="text_bottom" data-name="text bottom">
                     <path
                         className="cls-4"
@@ -133,8 +138,14 @@ export default function Stamp() {
                     />
                 </g>
             </svg>
-            <div className={`${styles.core}`}>
-                <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className={styles.core}>
+                <svg
+                    width="512"
+                    height="512"
+                    viewBox="0 0 512 512"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                     <path d="M12.5762 196.347V115.038C12.5762 78.1564 7.54574 34.5695 0 9H320.206L335.715 116.713C322.304 107.909 288.772 103.302 251.056 103.302H121.97V143.54H226.327C246.866 143.54 266.565 142.699 279.975 141.025V190.483C266.565 188.384 246.866 187.967 226.327 187.967H121.97V206.408C121.97 243.29 127.001 276.399 135.381 302.385H0.00642271C7.96923 276.399 12.5826 233.229 12.5826 196.347H12.5762Z" />
                     <path d="M162.458 477.849L162.958 381.789C200.174 405.928 273.103 420.512 327.418 420.512C367.656 420.512 391.795 414.474 391.795 400.897C391.795 363.682 166.481 410.958 166.481 312.382C166.481 264.605 231.358 236.437 335.972 236.437C379.225 236.437 443.601 244.984 481.323 256.052L485.847 345.074C460.701 329.989 401.856 315.398 349.549 315.398C315.349 315.398 286.18 320.428 286.18 333.505C286.18 367.204 512 325.459 512 422.02C512 472.819 453.155 502.996 336.478 502.996C287.694 502.996 200.18 489.418 162.464 477.849H162.458Z" />
                 </svg>

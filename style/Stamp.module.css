@@ -1,14 +1,35 @@
 .container {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
     bottom: 0;
     border-radius: 50%;
     width: 33%;
     height: fit-content;
     z-index: 1;
     padding: 2%;
-    background-color: var(--opaque-purple);
+    transform-style: preserve-3d;
+    translate: -50% 0;
+    perspective: 5000px;
+    background-color: rgba(28, 28, 28, 1);
+    animation: 2s bounce ease-in-out alternate infinite, 8s tilt ease-in-out alternate infinite;
+}
+
+@keyframes bounce {
+    from {
+        translate: -50% -5px;
+    }
+    to {
+        translate: -50% 5px;
+    }
+}
+
+@keyframes tilt {
+    from {
+        rotate: y 10deg;
+    }
+    to {
+        rotate: y -10deg;
+    }
 }
 
 .container svg {
@@ -18,14 +39,21 @@
 .ring {
     position: relative;
     width: 100%;
-    animation: 30s linear 1s infinite running stamp;
-    z-index: 2;
+    animation: 30s linear infinite spin;
+    transform: translateZ(10px);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg) translateZ(10px);
+    }
+    to {
+        transform: rotate(360deg) translateZ(10px);
+    }
 }
 
 .core {
     position: absolute;
-    background-color: var(--opaque-pink);
-    border-radius: 50%;
     height: 60%;
     width: 60%;
     display: flex;
@@ -33,20 +61,17 @@
     justify-content: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translateZ(20px);
+    perspective: 800px;
+    background-color: var(--palette-purple);
+    border-radius: 50%;
+    transform-style: preserve-3d;
 }
+
 
 .core svg {
     width: 60%;
     height: auto;
     fill: var(--palette-pink);
-}
-
-@keyframes stamp {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    transform: translateZ(10px);
 }
