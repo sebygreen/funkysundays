@@ -21,7 +21,6 @@ export default async function Page() {
             events.promotional.push(i);
         }
     });
-    console.log(events);
     return (
         <div className="constrain spaced">
             <Hero data={events.round} />
