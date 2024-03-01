@@ -8,7 +8,6 @@ import { CaretUpDown } from "@phosphor-icons/react/dist/ssr";
 
 export default function Events({ data }) {
     const [sort, setSort] = useState("Tout");
-
     data = Object.keys(data).map((key) => data[key]);
     const events = {
         upcoming: [],
