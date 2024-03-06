@@ -1,7 +1,7 @@
 import Events from "@/components/client/Events";
 import { event } from "@/lib/fetch";
 
-export const revalidate = 300;
+export const revalidate = 300; //5 minutes
 
 export const metadata = {
     title: "Évènements",
@@ -13,9 +13,10 @@ export default async function Page() {
         (a, v) => ({ ...a, [data.indexOf(v)]: { ...v } }),
         {},
     );
+
     return (
-        <div className="constrain spaced">
+        <main>
             <Events data={object} />
-        </div>
+        </main>
     );
 }

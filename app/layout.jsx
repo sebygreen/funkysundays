@@ -11,7 +11,7 @@ export const viewport = {
 
 export const metadata = {
     title: "Funky Sundays",
-    description: "Bring Sunday back to life.",
+    description: "Bring Sundays back to life.",
 };
 
 export default function Layout({ children }) {
@@ -21,13 +21,13 @@ export default function Layout({ children }) {
                 <Overlay />
                 <div className="layout">
                     <Header />
-                    <main>{children}</main>
+                    {children}
                     <Footer />
                 </div>
             </body>
             <Script
                 async
-                src="https://umami.smkg.me/script.js"
+                //src="https://umami.smkg.me/script.js"
                 data-website-id="f29a55dc-c3c6-4ad6-a9ff-4d8d97679cb6"
             />
         </html>

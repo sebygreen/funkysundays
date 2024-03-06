@@ -17,13 +17,15 @@ export default function Countdown({ date }) {
     const [counted, setCounted] = useState(false);
 
     useEffect(() => {
-        setTimer(dateDifference(date));
-        setMounted(true);
-        if (counted) {
-            const interval = setInterval(() => {
-                setTimer(dateDifference(date));
-            }, 1000);
-            return () => clearInterval(interval);
+        if (date) {
+            setTimer(dateDifference(date));
+            setMounted(true);
+            if (counted) {
+                const interval = setInterval(() => {
+                    setTimer(dateDifference(date));
+                }, 1000);
+                return () => clearInterval(interval);
+            }
         }
     }, [counted, date]);
 
@@ -37,7 +39,6 @@ export default function Countdown({ date }) {
                             end={timer.days}
                             delay={0}
                             duration={1}
-                            onEnd={() => setCounted(true)}
                         />
                     ) : mounted && counted ? (
                         <span>{timer.days}</span>
@@ -55,7 +56,6 @@ export default function Countdown({ date }) {
                             end={timer.hours}
                             delay={0}
                             duration={1}
-                            onEnd={() => setCounted(true)}
                         />
                     ) : mounted && counted ? (
                         <span>{timer.hours}</span>
@@ -73,7 +73,6 @@ export default function Countdown({ date }) {
                             end={timer.minutes}
                             delay={0}
                             duration={1}
-                            onEnd={() => setCounted(true)}
                         />
                     ) : mounted && counted ? (
                         <span>{timer.minutes}</span>

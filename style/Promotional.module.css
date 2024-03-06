@@ -1,3 +1,28 @@
+.container {
+    padding: 20px 0 0 0;
+}
+
+.wrapper {
+    padding: 20px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
 .container h2 {
     margin-bottom: 20px;
+}
+
+.container > a {
+    margin: 20px auto 0 auto;
+}
+
+.empty {
+    padding: 10px 15px;
+    background-color: var(--opaque-foreground);
+    border-radius: 10px;
+}
+
+.empty p {
+    text-align: center;
+    opacity: .5;
 }

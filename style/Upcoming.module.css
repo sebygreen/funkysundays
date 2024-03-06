@@ -1,18 +1,24 @@
-.text {
-    display: inline-block;
-    margin-bottom: 5px;
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 .container a {
-    margin-top: 10px;
+    width: 100%;
 }
 
 @media (min-width: 480px) {
     .container a {
-        width: max-content;
+        width: 300px;
     }
+}
 
-    .container a svg {
-        margin-left: 50px;
-    }
+.empty {
+    display: block;
+    padding: 5px 10px;
+    background-color: var(--opaque-pink);
+    color: pink;
+    border-radius: 50px;
 }

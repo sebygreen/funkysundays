@@ -5,21 +5,18 @@ import Upcoming from "./Upcoming";
 import texture from "@/images/texture.png";
 
 export default function Hero({ data }) {
-    data = data[0];
     return (
-        <section
-            className={
-                !data ? styles.hero : `${styles.hero} ${styles.upcoming}`
-            }
-        >
+        <section className={styles.container}>
             <div
                 className={styles.background}
                 style={{ backgroundImage: `url(${texture.src})` }}
             />
-            <div className={`${styles.content} spaced`}>
-                <Image src={logo} alt="Purple logo." />
-                <h1>Bring Sundays back to life.</h1>
-                {data && <Upcoming event={data} countdown={true} />}
+            <div className={styles.wrapper}>
+                <div className={styles.content}>
+                    <Image src={logo} alt="Purple logo." />
+                    <h1>Bring Sundays back to life.</h1>
+                </div>
+                <Upcoming event={data[0]} countdown={true} alternate={true} />
             </div>
         </section>
     );

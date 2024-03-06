@@ -1,3 +1,14 @@
+.container {
+    padding: 20px;
+    border-radius: 95px 10px 10px 30px;
+    background-color: var(--opaque-purple);
+}
+
+.container img {
+    height: 120px;
+    width: auto;
+}
+
 .container > *:not(:last-child) {
-    margin-bottom: var(--spacing-small);
+    margin-bottom: 20px;
 }

@@ -1,21 +1,27 @@
-.container {
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.container article > *:not(:last-child) {
-    margin-bottom: 10px;
+.wrapper > *:not(:last-child) {
+    margin-bottom: 40px;
 }
 
-.container span {
+.wrapper section > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.wrapper span {
     font-weight: bold;
     white-space: nowrap;
 }
 
-.container ul {
+.wrapper ul {
     list-style: none;
 }
 
-.container ul li:not(:last-child) {
-    margin-bottom: 5px;
+.wrapper ul li:not(:last-child) {
+    margin-bottom: 10px;
 }

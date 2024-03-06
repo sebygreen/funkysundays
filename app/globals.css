@@ -12,30 +12,6 @@
     --opaque-foreground: #FFFFFF05;
 }
 
-/*begin color for svg stamp*/
-.cls-1 {
-    fill: #f7c9df;
-}
-
-.cls-2 {
-    fill: #f7cae0;
-}
-
-.cls-3 {
-    fill: #8d8cc3;
-}
-
-.cls-4 {
-    fill: #4d4796;
-}
-/*end color for svg stamp*/
-
-.layout {
-    display: grid;
-    grid-template-rows: min-content 1fr min-content;
-    min-height: calc(100vh - 60px);
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -67,7 +43,12 @@ h3 {
     line-height: 1.1rem;
 }
 
-/*small anchors*/
+.layout {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    min-height: calc(100vh - 60px);
+}
+
 a.small::before {
     transform: scaleX(0);
     transform-origin: bottom right;
@@ -100,14 +81,6 @@ a.small:hover {
     text-decoration: underline;
 }
 
-.blur {
-    backdrop-filter: blur(20px);
-}
-
-.nowrap {
-    white-space: nowrap;
-}
-
 .grid {
     display: grid;
     grid-auto-rows: max-content;
@@ -126,50 +99,4 @@ a.small:hover {
     .grid.smaller {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
-}
-
-.spaced > *:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.constrain {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 980px;
-    padding: 20px;
-}
-
-header .constrain,
-footer .constrain {
-    display: flex;
-    justify-content: space-between;
-}
-
-header .constrain {
-    align-items: center;
-    padding: 20px 20px 0 20px;
-}
-
-footer .constrain {
-    align-items: baseline;
-    padding: 0 20px 20px 20px;
-}
-
-header svg#logo {
-    display: block;
-    height: 36px;
-    width: auto;
-    flex-shrink: 0;
-    color: var(--palette-purple);
-}
-
-header span.socials {
-    display: flex;
-    gap: 10px;
-}
-
-footer p {
-    opacity: 0.5;
-    font-size: 0.8rem;
 }

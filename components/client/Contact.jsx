@@ -97,7 +97,7 @@ export default function Contact() {
             <Toasts data={toasts} />
             <form className={styles.form} action={formAction}>
                 <div className={styles.responsive}>
-                    <div className={`${styles.information} spaced`}>
+                    <div className={styles.information}>
                         <div className={styles.input}>
                             <p>Subject</p>
                             <div className={styles.select}>

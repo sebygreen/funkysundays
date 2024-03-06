@@ -1,4 +1,5 @@
 import Contact from "@/components/client/Contact";
+import styles from "./page.module.css";
 
 export const metadata = {
     title: "Contact",
@@ -6,9 +7,11 @@ export const metadata = {
 
 export default function Page() {
     return (
-        <div className="constrain">
-            <h1>Contactez-nous</h1>
-            <Contact />
-        </div>
+        <main>
+            <div className={styles.wrapper}>
+                <h1>Contactez-nous</h1>
+                <Contact />
+            </div>
+        </main>
     );
 }

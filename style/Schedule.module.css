@@ -1,3 +1,7 @@
+.container > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
 .route {
     display: block;
     text-decoration: unset;
@@ -12,11 +16,12 @@
     padding: 10px;
     border-radius: 15px;
     background-color: var(--opaque-foreground);
-    transition: box-shadow 200ms;
+    transition: box-shadow 200ms, scale 200ms;
     box-shadow: inset 0 0 0 0 var(--opaque-pink);
 }
 
 .set:hover {
+    scale: 1.025;
     box-shadow: inset 0 0 0 2px var(--opaque-pink);
 }
 
@@ -35,17 +40,8 @@
     margin-bottom: 5px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     .container {
         width: 100%;
-        min-width: 220px;
-        max-width: 460px;
-    }
-}
-
-@media (min-width: 600px) {
-    .container {
-        width: 100%;
-        max-width: 460px;
     }
 }

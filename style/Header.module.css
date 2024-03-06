@@ -1,0 +1,21 @@
+.wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.logo {
+    display: block;
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+    color: var(--palette-purple);
+}
+
+.socials {
+    display: flex;
+    gap: 10px;
+}

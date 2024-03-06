@@ -1,0 +1,14 @@
+.wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    align-items: baseline;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.container p {
+    opacity: 0.5;
+    font-size: 0.8rem;
+}

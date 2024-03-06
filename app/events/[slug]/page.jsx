@@ -5,6 +5,8 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import {
     Calendar,
+    CalendarX,
+    CameraSlash,
     MapPin,
     Tag,
     UsersThree,
@@ -12,7 +14,7 @@ import {
 import dayjs from "dayjs";
 import Collaborations from "@/components/Collaborations";
 
-export const revalidate = 300;
+export const revalidate = 300; //5 minutes
 
 export const metadata = {
     title: "Évènements",
@@ -25,79 +27,109 @@ export default async function Page({ params }) {
             slug: i.id,
         }));
     }
-    const data = await event.one(params.slug, true);
-    const places = await mapbox.geocoding(data.location);
+
+    let places;
+    const data = await event.one(params.slug);
+    if (!data.archive) {
+        places = await mapbox.geocoding(data.location);
+    }
+
     return (
-        <div className="constrain spaced">
+        <main>
+            <section>
+                <div className={styles.wrapper}>
+                    <div className={styles.header}>
+                        <h1>{data.name}</h1>
+                        {data.archive && (
+                            <p className={styles.archived}>Archive</p>
+                        )}
+                    </div>
+                </div>
+            </section>
             <div className={styles.responsive}>
                 <section className={styles.metadata}>
-                    {dayjs(data.end).isBefore(dayjs()) ? (
-                        <div className={styles.header}>
-                            <h1 className="nowrap">{data.name}</h1>
-                            {dayjs(data.end).isBefore(dayjs()) && (
-                                <p className={styles.archived}>Archive</p>
+                    <div className={styles.flex}>
+                        <figure className={styles.poster}>
+                            {data.poster ? (
+                                <Image
+                                    src={data.poster}
+                                    alt={data.name}
+                                    fill={true}
+                                    sizes="240px"
+                                />
+                            ) : (
+                                <CameraSlash
+                                    size={64}
+                                    color="var(--opaque-pink)"
+                                />
+                            )}
+                        </figure>
+                        <ul className={styles.information}>
+                            <li key={"category"}>
+                                <Tag size={16} weight="fill" />
+                                {data.category}
+                            </li>
+                            <li key={"date"}>
+                                <Calendar size={16} weight="fill" />
+                                {data.multi ? (
+                                    <span>
+                                        {dayjs(data.start).format("LL - HH:mm")}
+                                        <br />
+                                        {dayjs(data.end).format("LL - HH:mm")}
+                                    </span>
+                                ) : (
+                                    <span>
+                                        {dayjs(data.start).format("LL HH:mm")} -{" "}
+                                        {dayjs(data.end).format("HH:mm")}
+                                    </span>
+                                )}
+                            </li>
+                            <li key={"location"}>
+                                <MapPin size={16} weight="fill" />
+                                {data.location}
+                            </li>
+                            <li key={"attendees"}>
+                                <UsersThree size={16} weight="fill" />
+                                {data.attendees}
+                            </li>
+                        </ul>
+                    </div>
+                    {(data.partners || data.sponsors) && (
+                        <div className={styles.collaborations}>
+                            {data.partners && (
+                                <Collaborations items={data.partners} />
+                            )}
+                            {data.sponsors && (
+                                <Collaborations
+                                    items={data.sponsors}
+                                    type="sponsors"
+                                />
                             )}
                         </div>
-                    ) : (
-                        <h1>{data.name}</h1>
-                    )}
-                    {data.poster && (
-                        <figure className={styles.poster}>
-                            <Image
-                                src={data.poster}
-                                alt={data.name}
-                                fill={true}
-                                sizes="240px"
-                            />
-                        </figure>
-                    )}
-                    <ul className={styles.information}>
-                        <li className="nowrap" key={"category"}>
-                            <Tag size={16} weight="fill" />
-                            {data.category}
-                        </li>
-                        <li className="nowrap" key={"date"}>
-                            <Calendar size={16} weight="fill" />
-                            {data.multi ? (
-                                <span>
-                                    {dayjs(data.start).format("LL - HH:mm")}
-                                    <br />
-                                    {dayjs(data.end).format("LL - HH:mm")}
-                                </span>
-                            ) : (
-                                <span>
-                                    {dayjs(data.start).format("LL HH:mm")} -{" "}
-                                    {dayjs(data.end).format("HH:mm")}
-                                </span>
-                            )}
-                        </li>
-                        <li className="nowrap" key={"location"}>
-                            <MapPin size={16} weight="fill" />
-                            {data.location}
-                        </li>
-                        <li className="nowrap" key={"attendees"}>
-                            <UsersThree size={16} weight="fill" />
-                            {data.attendees}
-                        </li>
-                    </ul>
-                    {data.partners && <Collaborations items={data.partners} />}
-                    {data.sponsors && (
-                        <Collaborations
-                            items={data.sponsors}
-                            type={"sponsors"}
-                        />
                     )}
                 </section>
-                {data.schedule && (
-                    <Schedule multi={data.multi} schedule={data.schedule} />
-                )}
+                <section className={styles.timetable}>
+                    <h2>Horaires</h2>
+                    {data.schedule ? (
+                        <Schedule multi={data.multi} schedule={data.schedule} />
+                    ) : (
+                        <div className={styles.empty}>
+                            <CalendarX size={64} />
+                            <p>Pas d&apos;horaires.</p>
+                        </div>
+                    )}
+                </section>
             </div>
-            {places.features.length !== 0 && (
-                <Map
-                    coordinates={places.features[0].center}
-                    location={places.features[0].text}
-                />
+            {places && places.features.length > 0 && (
+                <section>
+                    <div className={styles.wrapper}>
+                        <Map
+                            coordinates={places.features[0].center}
+                            location={places.features[0].text}
+                        />
+                    </div>
+                </section>
             )}
-        </div>
+        </main>
     );
 }

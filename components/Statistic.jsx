@@ -19,7 +19,7 @@ export default function Statistic({ icon, text, number, color }) {
             >
                 {icon}
             </figure>
-            <div>
+            <div className={styles.content}>
                 <p className={styles.number}>
                     <Counter number={number} />
                 </p>

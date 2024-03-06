@@ -1,18 +1,17 @@
 import styles from "@/style/About.module.css";
 import Button from "./Button";
 import { Info } from "@phosphor-icons/react/dist/ssr";
+import Stamp from "@/components/Stamp";
 
 export default function About() {
     return (
-        <section
-            id="about"
-            className={styles.container}
-        >
+        <section className={styles.container}>
+            <Stamp />
             <h2>Qui sommes-nous?</h2>
             <p>
-                Initialement sous le nom “Lausanne Funky Sunday”, c&apos;est en septembre 2018 que l&apos;association
-                Funky Sundays voit le jour. Cette association fondée par un groupe d&apos;amis, 16 anciens étudiants de
-                l&apos;EPFL avait pour but de mettre sur pied un festival de musique le dimanche.
+                La famille Funky Sundays, basée à Genève, compte aujourd’hui 12
+                membres bénévoles et nous sommes motivés à créer ensemble le
+                meilleur rendez-vous dominical de l’année pour toutes et tous.
             </p>
             <Button
                 type="route"

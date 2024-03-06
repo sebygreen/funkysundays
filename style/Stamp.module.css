@@ -1,25 +1,21 @@
 .container {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
     border-radius: 50%;
-    width: 33%;
+    width: 150px;
     height: fit-content;
     z-index: 1;
-    padding: 2%;
+    padding: 10px;
     transform-style: preserve-3d;
-    translate: -50% 0;
     perspective: 5000px;
-    background-color: rgba(28, 28, 28, 1);
+    background-color: var(--opaque-purple);
     animation: 2s bounce ease-in-out alternate infinite, 8s tilt ease-in-out alternate infinite;
 }
 
 @keyframes bounce {
     from {
-        translate: -50% -5px;
+        translate: 0 -2px;
     }
     to {
-        translate: -50% 5px;
+        translate: 0 2px;
     }
 }
 
@@ -74,4 +70,16 @@
     height: auto;
     fill: var(--palette-pink);
     transform: translateZ(10px);
+}
+
+.pink {
+    fill: #F7CBE0;
+}
+
+.mauve {
+    fill: #8d8cc3;
+}
+
+.purple {
+    fill: #4d4796;
 }

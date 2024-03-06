@@ -1,3 +1,14 @@
+.wrapper {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.wrapper > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
 .header {
     display: flex;
     gap: 20px;
@@ -21,10 +32,32 @@
     width: 200px;
     border-radius: 10px;
     overflow: hidden;
+    background-color: var(--opaque-pink);
+}
+
+.poster:has(svg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .poster img {
     object-fit: cover;
+}
+
+.metadata .flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.metadata .collaborations {
+    margin-top: 40px;
+}
+
+.metadata .collaborations > *:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 .information {
@@ -39,6 +72,7 @@
     width: fit-content;
     align-items: center;
     gap: 10px;
+    white-space: nowrap;
 }
 
 .information li svg {
@@ -50,31 +84,54 @@
     box-sizing: content-box;
 }
 
+.timetable h2 {
+    margin-bottom: 20px;
+}
+
+.timetable .empty {
+    padding: 20px;
+    background-color: var(--opaque-foreground);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.timetable .empty svg {
+    opacity: 0.1;
+}
+
+.timetable .empty p {
+    opacity: 0.4;
+}
+
 .responsive {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    gap: 40px;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: 1fr;
 }
 
-.metadata {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-@media (min-width: 480px) {
-    .sponsors {
-        justify-content: flex-start;
-    }
-}
-
-@media (min-width: 600px) {
-    .metadata {
-        width: 100%;
-    }
-
+@media (min-width: 768px) {
     .responsive {
-        flex-direction: row;
-        justify-content: space-between;
+        grid-template-rows: 1fr;
+        grid-template-columns: min-content 1fr;
+    }
+
+    .timetable:has(.empty) {
+        height: 100%;
+        display: grid;
+        grid-template-rows: min-content 1fr;
+    }
+
+    .timetable .empty {
+        padding: 0;
+        height: 100%;
     }
 }

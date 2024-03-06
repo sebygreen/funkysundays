@@ -4,10 +4,10 @@ import { artist } from "@/lib/fetch";
 import parse from "html-react-parser";
 import Image from "next/image";
 import styles from "./page.module.css";
-import Upcoming from "@/components/Upcoming";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
+import Event from "@/components/Event";
 
-export const revalidate = 300;
+export const revalidate = 300; //5 minutes
 
 export const metadata = {
     title: "Artistes",
@@ -20,65 +20,64 @@ export default async function Artist({ params }) {
             slug: i.id,
         }));
     }
-    let data = await artist.one(params.slug, true);
+
+    let data = await artist.one(params.slug);
+
     return (
-        <div className="constrain spaced">
-            <h1>{data.name}</h1>
-            <section className={styles.metadata}>
-                <div className="spaced">
-                    <figure className={styles.picture}>
-                        <Image
-                            src={data.picture}
-                            alt={data.name}
-                            fill={true}
-                            sizes="240px"
-                        />
-                    </figure>
-                    {data.links && (
-                        <div className={styles.socials}>
-                            {data.links.map(
-                                (link) =>
-                                    !link.embed && (
-                                        <Button
-                                            key={link.id}
-                                            type="social"
-                                            href={link.url}
-                                            platform={link.platform}
-                                            text={link.username}
-                                            icon={
-                                                <SiInstagram
-                                                    size={18}
-                                                    color="currentColor"
-                                                />
-                                            }
-                                        />
-                                    ),
-                            )}
-                        </div>
-                    )}
-                    {data.upcoming && (
-                        <Upcoming event={data.upcoming} countdown={false} />
-                    )}
+        <main>
+            <div className={styles.wrapper}>
+                <h1>{data.name}</h1>
+                <div className={styles.responsive}>
+                    <section className={styles.information}>
+                        <figure className={styles.picture}>
+                            <Image
+                                src={data.picture}
+                                alt={data.name}
+                                fill={true}
+                                sizes="240px"
+                            />
+                        </figure>
+                        {data.links.socials && (
+                            <div className={styles.socials}>
+                                {data.links.socials.map((link) => (
+                                    <Button
+                                        key={link.id}
+                                        type="social"
+                                        href={link.url}
+                                        platform={link.platform}
+                                        text={link.username}
+                                        icon={
+                                            <SiInstagram
+                                                size={18}
+                                                color="currentColor"
+                                            />
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        )}
+                        {data.upcoming && (
+                            <div className="grid">
+                                <Event event={data.upcoming} />
+                            </div>
+                        )}
+                    </section>
+                    <section className={styles.description}>
+                        {parse(data.description)}
+                    </section>
                 </div>
-                <div className={`${styles.description} spaced`}>
-                    {parse(data.description)}
-                </div>
-            </section>
-            {data.links && (
-                <section className={styles.embeds}>
-                    {data.links.map((link) => {
-                        if (link.embed) {
-                            return (
-                                <Embed
-                                    key={link.id}
-                                    platform={link.platform}
-                                    url={link.url}
-                                />
-                            );
-                        }
-                    })}
-                </section>
-            )}
-        </div>
+                {data.links.socials && (
+                    <section className={styles.embeds}>
+                        {data.links.embeds.map((link) => (
+                            <Embed
+                                key={link.id}
+                                platform={link.platform}
+                                url={link.url}
+                            />
+                        ))}
+                    </section>
+                )}
+            </div>
+        </main>
     );
 }
