@@ -4,15 +4,19 @@ import styles from "./error.module.css";
 import { useEffect } from "react";
 import Button from "@/components/Button";
 import { ArrowCounterClockwise, MaskSad } from "@phosphor-icons/react";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import revalidate from "@/lib/revalidate";
 
 export default function Error({ error, reset }) {
-    const router = useRouter();
+    const pathname = usePathname();
     useEffect(() => {
         console.error(error);
     }, [error]);
 
-    //revalidate data on reset here, TODO: see discord
+    async function handleClick() {
+        await revalidate(pathname);
+        reset();
+    }
 
     return (
         <div className={styles.container}>
@@ -24,7 +28,7 @@ export default function Error({ error, reset }) {
                 type="button"
                 text="Réessayer"
                 icon={<ArrowCounterClockwise size={22} />}
-                action={reset}
+                action={handleClick}
             />
         </div>
     );
