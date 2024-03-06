@@ -16,9 +16,15 @@
 }
 
 .empty {
-    display: block;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: pink;
     padding: 5px 10px;
     background-color: var(--opaque-pink);
-    color: pink;
     border-radius: 50px;
+}
+
+.empty p {
+
 }

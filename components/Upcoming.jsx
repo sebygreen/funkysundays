@@ -1,22 +1,20 @@
 import Event from "./Event";
 import Countdown from "./client/Countdown";
 import styles from "@/style/Upcoming.module.css";
+import { PaintRoller } from "@phosphor-icons/react/dist/ssr";
 
 export default function Upcoming({ event, countdown, alternate }) {
-    console.log(event);
-    if (event) {
-        return (
-            <article className={styles.container}>
-                {countdown && <Countdown date={event.start} />}
+    return (
+        <article className={styles.container}>
+            {countdown && <Countdown date={event ? event.start : undefined} />}
+            {event ? (
                 <Event event={event} alternate={alternate} />
-            </article>
-        );
-    } else {
-        return (
-            <article className={styles.container}>
-                {countdown && <Countdown />}
-                <p className={styles.empty}>Coming soon.</p>
-            </article>
-        );
-    }
+            ) : (
+                <div className={styles.empty}>
+                    <p>Coming soon...</p>
+                    <PaintRoller size={22} weight="duotone" />
+                </div>
+            )}
+        </article>
+    );
 }
