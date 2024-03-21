@@ -30,6 +30,12 @@
     flex-shrink: 0;
 }
 
+.picture:has(svg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .picture img {
     object-fit: cover;
 }
@@ -48,7 +54,7 @@
     color: var(--palette-pink);
 }
 
-.container svg {
+.caret {
     margin-left: auto;
     color: var(--palette-pink);
 }

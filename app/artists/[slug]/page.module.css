@@ -35,6 +35,14 @@
     object-fit: cover;
 }
 
+.picture:has(svg) {
+    background-color: var(--opaque-foreground);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .socials {
     display: flex;
     flex-direction: column;
@@ -60,6 +68,18 @@
 
 .description > *:not(:last-child) {
     margin-bottom: 10px;
+}
+
+.description:has(svg) {
+    background-color: var(--opaque-foreground);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description svg {
+    opacity: 0.1;
 }
 
 .responsive {

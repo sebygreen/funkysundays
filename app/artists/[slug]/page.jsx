@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Event from "@/components/Event";
+import { TextAlignCenter, User } from "@phosphor-icons/react/dist/ssr";
 
 export const revalidate = 300; //5 minutes
 
@@ -30,12 +31,16 @@ export default async function Artist({ params }) {
                 <div className={styles.responsive}>
                     <section className={styles.information}>
                         <figure className={styles.picture}>
-                            <Image
-                                src={data.picture}
-                                alt={data.name}
-                                fill={true}
-                                sizes="240px"
-                            />
+                            {data.picture ? (
+                                <Image
+                                    src={data.picture}
+                                    fill={true}
+                                    alt={data.name}
+                                    sizes="240px"
+                                />
+                            ) : (
+                                <User size={64} color="var(--opaque-pink)" />
+                            )}
                         </figure>
                         {data.links.socials && (
                             <div className={styles.socials}>
@@ -63,7 +68,11 @@ export default async function Artist({ params }) {
                         )}
                     </section>
                     <section className={styles.description}>
-                        {parse(data.description)}
+                        {data.description ? (
+                            parse(data.description)
+                        ) : (
+                            <TextAlignCenter size={64} />
+                        )}
                     </section>
                 </div>
                 {data.links.socials && (
