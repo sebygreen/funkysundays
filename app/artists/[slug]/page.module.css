@@ -70,12 +70,17 @@
     margin-bottom: 10px;
 }
 
-.description:has(svg) {
+.description:has(.empty) {
     background-color: var(--opaque-foreground);
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px 0;
+}
+
+.description .empty {
+    opacity: 0.4;
 }
 
 .description svg {

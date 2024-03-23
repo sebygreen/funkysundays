@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Event from "@/components/Event";
-import { TextAlignCenter, User } from "@phosphor-icons/react/dist/ssr";
+import { User } from "@phosphor-icons/react/dist/ssr";
 
 export const revalidate = 300; //5 minutes
 
@@ -71,7 +71,7 @@ export default async function Artist({ params }) {
                         {data.description ? (
                             parse(data.description)
                         ) : (
-                            <TextAlignCenter size={64} />
+                            <p className={styles.empty}>Pas de description.</p>
                         )}
                     </section>
                 </div>
