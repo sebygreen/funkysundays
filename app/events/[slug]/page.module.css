@@ -104,10 +104,6 @@
     opacity: 0.1;
 }
 
-.timetable .empty p {
-    opacity: 0.4;
-}
-
 .responsive {
     max-width: 980px;
     margin: 0 auto;

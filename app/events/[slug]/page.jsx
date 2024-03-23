@@ -109,13 +109,12 @@ export default async function Page({ params }) {
                     )}
                 </section>
                 <section className={styles.timetable}>
-                    <h2>Horaires</h2>
+                    <h2>Lineup</h2>
                     {data.schedule ? (
                         <Schedule multi={data.multi} schedule={data.schedule} />
                     ) : (
                         <div className={styles.empty}>
                             <CalendarX size={64} />
-                            <p>Pas d&apos;horaires.</p>
                         </div>
                     )}
                 </section>
