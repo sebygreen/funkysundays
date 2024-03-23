@@ -8,26 +8,26 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@icons-pack/react-simple-icons": "^9.3.0",
+        "@icons-pack/react-simple-icons": "^9.4.0",
         "@phosphor-icons/react": "^2.0.15",
         "dayjs": "^1.11.10",
-        "dotenv": "^16.4.5",
-        "eslint": "8.57.0",
-      "eslint-config-next": "14.1.2",
-        "framer-motion": "^11.0.8",
-        "html-react-parser": "^5.1.8",
+        "framer-motion": "^11.0.20",
+        "html-react-parser": "^5.1.9",
         "ldrs": "^1.0.1",
-      "next": "14.1.2",
-        "nodemailer": "^6.9.11",
+        "next": "14.1.4",
+        "nodemailer": "^6.9.13",
         "pocketbase": "^0.21.1",
         "react": "18.2.0",
-        "react-countup": "^6.5.0",
+        "react-countup": "^6.5.2",
         "react-dom": "18.2.0",
         "react-map-gl": "^7.1.7",
         "sharp": "^0.33.2",
         "validator": "^13.11.0"
     },
     "devDependencies": {
-        "@types/node": "20.11.24"
+        "@types/node": "20.11.30",
+        "dotenv": "^16.4.5",
+        "eslint": "8.57.0",
+        "eslint-config-next": "14.1.4"
     }
 }
