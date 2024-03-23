@@ -12,6 +12,10 @@
     --opaque-foreground: #FFFFFF05;
 }
 
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;

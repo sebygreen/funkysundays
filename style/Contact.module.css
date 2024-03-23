@@ -1,16 +1,23 @@
 .toasts {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 100%;
+    max-width: 980px;
     z-index: 3;
+    padding: 20px;
+    pointer-events: none;
 }
 
 .toast {
+    margin-left: auto;
+    width: fit-content;
     display: flex;
     gap: 20px;
     padding: 15px 18px 15px 15px;
     color: mediumseagreen;
-    background-color: rgba(60, 179, 113, 0.1);
+    background-color: rgba(60, 179, 113, 0.2);
     border-radius: 10px;
     font-size: 1.1rem;
     line-height: 22px;
@@ -134,8 +141,8 @@
 }
 
 .submit {
+    margin-top: 20px;
     display: flex;
     gap: 20px;
     align-items: center;
-    margin-top: 20px;
 }

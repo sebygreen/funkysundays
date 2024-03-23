@@ -1,8 +1,6 @@
 "use client";
 
 import styles from "@/style/Contact.module.css";
-import sendEmail from "@/lib/mail";
-import { useFormState, useFormStatus } from "react-dom";
 import Loader from "@/components/Loader";
 import Button from "@/components/Button";
 import {
@@ -11,26 +9,10 @@ import {
     Check,
     Warning,
 } from "@phosphor-icons/react/dist/ssr";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Submit() {
-    const { pending } = useFormStatus();
-    return (
-        <div className={styles.submit}>
-            <Button
-                type="submit"
-                text="Envoyer"
-                icon={<ArrowRight size={20} />}
-                aria-disabled={pending}
-                disabled={pending}
-            />
-            {pending && <Loader />}
-        </div>
-    );
-}
-
-function Toasts({ data }) {
+function Toasts({ items }) {
     const toast = {
         visible: {
             opacity: 1,
@@ -52,8 +34,8 @@ function Toasts({ data }) {
     return (
         <aside className={styles.toasts}>
             <AnimatePresence>
-                {data.length > 0 &&
-                    data.map((i) => (
+                {items.length > 0 &&
+                    items.map((i) => (
                         <motion.article
                             layout
                             key={i.id}
@@ -77,32 +59,66 @@ function Toasts({ data }) {
 }
 
 export default function Contact() {
+    const [tag, setTag] = useState("volunteer");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
     const [toasts, setToasts] = useState([]);
-    const [state, formAction] = useFormState(sendEmail, null);
+    const [pending, setPending] = useState(false);
 
-    useEffect(() => {
-        if (state && !toasts.includes(state) && !state.expired) {
-            setToasts((prevState) => [...prevState, state]);
-            setTimeout(() => {
-                state.expired = true;
-                setToasts((prevState) =>
-                    prevState.filter((toast) => toast.id !== state.id),
-                );
-            }, 5000);
-        }
-    }, [state, toasts]);
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setPending(true);
+        await grecaptcha.ready(() => {
+            grecaptcha
+                .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, {
+                    action: "contact",
+                })
+                .then(async (token) => {
+                    try {
+                        let res = await fetch("/api/contact", {
+                            method: "POST",
+                            body: JSON.stringify({
+                                tag: tag,
+                                name: name,
+                                email: email,
+                                message: message,
+                                token: token,
+                            }),
+                        });
+                        res = await res.json();
+                        setPending(false);
+                        setToasts((prevState) => [...prevState, res.toast]);
+                        setTimeout(() => {
+                            res.toast.expired = true;
+                            setToasts((prevState) =>
+                                prevState.filter(
+                                    (toast) => toast.id !== res.toast.id,
+                                ),
+                            );
+                        }, 5000);
+                    } catch (e) {
+                        console.error(e);
+                    }
+                });
+        });
+    }
 
     return (
         <>
-            <Toasts data={toasts} />
-            <form className={styles.form} action={formAction}>
+            <Toasts items={toasts} />
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.responsive}>
                     <div className={styles.information}>
                         <div className={styles.input}>
                             <p>Subject</p>
                             <div className={styles.select}>
                                 <CaretUpDown size={18} color="currentColor" />
-                                <select name="tag" id="tag">
+                                <select
+                                    name="tag"
+                                    id="tag"
+                                    onChange={(e) => setTag(e.target.value)}
+                                >
                                     <option value="volunteer">
                                         Je souhaite devenir membre.
                                     </option>
@@ -126,6 +142,7 @@ export default function Contact() {
                                 placeholder="Jean Dupont"
                                 name="name"
                                 id="name"
+                                onChange={(e) => setName(e.target.value)}
                             />
                         </div>
                         <div className={styles.input}>
@@ -135,6 +152,7 @@ export default function Contact() {
                                 placeholder="jean.dupont@email.com"
                                 name="email"
                                 id="email"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                     </div>
@@ -145,11 +163,21 @@ export default function Contact() {
                                 placeholder="Commencez à écrire ici..."
                                 name="message"
                                 id="message"
+                                onChange={(e) => setMessage(e.target.value)}
                             ></textarea>
                         </div>
                     </div>
                 </div>
-                <Submit />
+                <div className={styles.submit}>
+                    <Button
+                        type="submit"
+                        text="Envoyer"
+                        icon={<ArrowRight size={20} />}
+                        aria-disabled={pending}
+                        disabled={pending}
+                    />
+                    {pending && <Loader />}
+                </div>
             </form>
         </>
     );
