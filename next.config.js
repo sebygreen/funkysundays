@@ -4,7 +4,7 @@ module.exports = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "pocketbase.funkysundays.com",
+                hostname: "funkysundays.com",
                 pathname: "/api/files/**",
             },
         ],
