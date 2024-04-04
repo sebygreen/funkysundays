@@ -18,7 +18,6 @@ export default async function About() {
     data.forEach((i) => {
         i.status === "Comité" ? committee.push(i) : members.push(i);
     });
-    console.log(members);
     return (
         <main>
             <div className={styles.wrapper}>
