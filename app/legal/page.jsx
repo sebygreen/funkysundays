@@ -43,9 +43,9 @@ export default function Page() {
                         <a
                             target="_blank"
                             className="small"
-                            href="https://vultr.com"
+                            href="https://ionos.fr"
                         >
-                            Vultr
+                            IONOS
                         </a>
                         .
                     </p>

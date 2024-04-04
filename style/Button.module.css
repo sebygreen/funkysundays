@@ -8,13 +8,6 @@
     font-size: 1rem;
 }
 
-@media (hover: hover) {
-    .anchor:hover, .button:not(:disabled):hover {
-        background-color: var(--palette-pink);
-        color: var(--palette-purple);
-    }
-}
-
 .anchor:active, .button:not(:disabled):active {
     scale: 0.9;
 }
@@ -94,4 +87,11 @@
     background-color: rgba(29, 185, 84, 0.2);
     color: #1db954;
     box-shadow: unset;
+}
+
+@media (hover: hover) {
+    .anchor:hover, .button:not(:disabled):hover {
+        background-color: var(--palette-pink);
+        color: var(--palette-purple);
+    }
 }

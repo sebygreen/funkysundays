@@ -38,7 +38,7 @@
 }
 
 .container:active, .alternate:active {
-    scale: 0.9;
+    scale: 0.975;
 }
 
 .calendar {

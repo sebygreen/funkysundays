@@ -83,10 +83,6 @@
     opacity: 0.4;
 }
 
-.description svg {
-    opacity: 0.1;
-}
-
 .responsive {
     display: grid;
     gap: 40px;
