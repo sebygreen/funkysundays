@@ -36,7 +36,7 @@
 }
 
 .picture:has(svg) {
-    background-color: var(--opaque-foreground);
+    background-color: var(--opaque-pink);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@
 }
 
 .description:has(.empty) {
-    background-color: var(--opaque-foreground);
+    background-color: var(--opaque-pink);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -81,6 +81,7 @@
 
 .description .empty {
     opacity: 0.4;
+    color: var(--palette-pink);
 }
 
 .responsive {

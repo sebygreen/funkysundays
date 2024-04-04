@@ -5,7 +5,6 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import {
     Calendar,
-    CalendarX,
     CameraSlash,
     MapPin,
     Tag,
@@ -30,7 +29,7 @@ export default async function Page({ params }) {
 
     let places;
     const data = await event.one(params.slug);
-    if (data.location !== "n/a" && !data.archive) {
+    if (data.location !== "N/A" && !data.archive) {
         places = await mapbox.geocoding(data.location);
     }
 
@@ -114,7 +113,7 @@ export default async function Page({ params }) {
                         <Schedule multi={data.multi} schedule={data.schedule} />
                     ) : (
                         <div className={styles.empty}>
-                            <CalendarX size={64} />
+                            <p>Pas de lineup.</p>
                         </div>
                     )}
                 </section>

@@ -90,18 +90,17 @@
 
 .timetable .empty {
     padding: 20px;
-    background-color: var(--opaque-foreground);
+    background-color: var(--opaque-pink);
     border-radius: 10px;
     text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
 }
 
-.timetable .empty svg {
-    opacity: 0.1;
+.timetable .empty p {
+    opacity: 0.4;
+    color: var(--palette-pink);
 }
 
 .responsive {
