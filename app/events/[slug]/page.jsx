@@ -30,7 +30,7 @@ export default async function Page({ params }) {
 
     let places;
     const data = await event.one(params.slug);
-    if (!data.archive) {
+    if (data.location !== "n/a" && !data.archive) {
         places = await mapbox.geocoding(data.location);
     }
 
