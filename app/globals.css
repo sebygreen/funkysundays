@@ -1,15 +1,15 @@
 :root {
-    --palette-purple: #4D4797;
-    --palette-pink: #F7CBE0;
-    --palette-yellow: #FDD7AE;
-    --palette-blue:#AADAF7;
-    --palette-green:#C6E0B9;
+    --palette-purple: #4d4797;
+    --palette-pink: #f7cbe0;
+    --palette-yellow: #fdd7ae;
+    --palette-blue: #aadaf7;
+    --palette-green: #c6e0b9;
     --palette-background: #121212;
     --palette-foreground: white;
-    --opaque-purple: #4D479720;
-    --opaque-pink: #F7CBE020;
+    --opaque-purple: #4d479720;
+    --opaque-pink: #f7cbe020;
     --opaque-background: #12121210;
-    --opaque-foreground: #FFFFFF05;
+    --opaque-foreground: #ffffff05;
 }
 
 .grecaptcha-badge {
@@ -77,7 +77,10 @@ a.small::before {
     content: " ";
     display: block;
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     inset: 0 0 0 0;
     background: var(--opaque-purple);
     z-index: -1;

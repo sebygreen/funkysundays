@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Promotional from "@/components/Promotional";
 import { event } from "@/lib/fetch";
 import About from "@/components/About";
+import Crowdfunding from "@/components/Crowdfunding";
 
 export const revalidate = 300; //5 minutes
 
@@ -26,6 +27,7 @@ export default async function Page() {
     return (
         <main>
             <Hero data={events.round} />
+            <Crowdfunding />
             <Promotional data={events.promotional} />
             <div className={styles.responsive}>
                 <About />

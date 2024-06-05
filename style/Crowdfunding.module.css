@@ -1,0 +1,26 @@
+.wrapper {
+    padding: 0 20px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.banner {
+    margin: 0 auto;
+    max-width: fit-content;
+    background-color: var(--palette-purple);
+    padding: 20px;
+    border-radius: 0 0 15px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.banner .header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.banner .header svg {
+    color: var(--palette-pink);
+}
