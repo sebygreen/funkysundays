@@ -9,12 +9,7 @@ export default function Artist({ artist }) {
             <article className={styles.container}>
                 <figure className={styles.picture}>
                     {artist.picture ? (
-                        <Image
-                            src={artist.picture}
-                            fill={true}
-                            alt={artist.name}
-                            sizes="80px"
-                        />
+                        <Image src={artist.picture} fill={true} alt={artist.name} sizes="80px" />
                     ) : (
                         <User size={48} color="var(--opaque-pink)" />
                     )}

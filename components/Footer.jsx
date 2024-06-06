@@ -3,7 +3,7 @@ import styles from "@/style/Footer.module.css";
 
 export default function Footer() {
     return (
-        <footer className={styles.container} id="footer">
+        <footer id="footer">
             <div className={styles.wrapper}>
                 <div className={styles.copyright}>
                     <a href="/legal" className="small">
@@ -12,13 +12,7 @@ export default function Footer() {
                     <p>&copy; funkysundays.com {dayjs().year()}</p>
                 </div>
                 <div className={styles.captcha}>
-                    <svg
-                        width="128"
-                        height="128"
-                        viewBox="0 0 128 128"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M128 63.7239C127.997 62.8061 127.976 61.8932 127.935 60.9847V9.18849L113.615 23.508C101.895 9.16258 84.0667 0 64.0971 0C43.3152 0 24.8526 9.91961 13.1816 25.2817L36.653 49C38.9533 44.7459 42.2209 41.0921 46.1609 38.3325C50.2586 35.1347 56.0647 32.5202 64.0963 32.5202C65.0666 32.5202 65.8155 32.6335 66.3657 32.8471C76.3169 33.6326 84.9426 39.1244 90.0215 47.0953L73.4073 63.7095C94.4513 63.627 118.224 63.5785 127.998 63.7202"
                             fill="#1C3AA9"
@@ -37,17 +31,11 @@ export default function Footer() {
                             <span>Protégé par ReCAPTCHA</span>
                         </p>
                         <p>
-                            <a
-                                className="small"
-                                href="https://policies.google.com/privacy"
-                            >
+                            <a className="small" href="https://policies.google.com/privacy">
                                 Confidentialité
                             </a>{" "}
                             <span>–</span>{" "}
-                            <a
-                                className="small"
-                                href="https://policies.google.com/terms"
-                            >
+                            <a className="small" href="https://policies.google.com/terms">
                                 Conditions
                             </a>
                         </p>

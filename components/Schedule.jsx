@@ -1,6 +1,6 @@
 import { groupBy } from "@/lib/helpers";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
-import TimeBracket from "./Fourchette";
+import Fourchette from "./Fourchette";
 import styles from "@/style/Schedule.module.css";
 import Link from "next/link";
 
@@ -13,10 +13,7 @@ export default function Schedule({ schedule }) {
                     <p className={styles.day}>{day}</p>
                     <div className="grid small">
                         {sets.map((set) => (
-                            <Set
-                                key={set.id}
-                                set={set}
-                            />
+                            <Set key={set.id} set={set} />
                         ))}
                     </div>
                 </div>
@@ -27,20 +24,11 @@ export default function Schedule({ schedule }) {
 
 function Set({ set }) {
     return (
-        <Link
-            href={`/artists/${set.artist.id}`}
-            className={styles.route}
-        >
-            <article
-                key={set.id}
-                className={styles.set}
-            >
+        <Link href={`/artists/${set.artist.id}`} className={styles.route}>
+            <article key={set.id} className={styles.set}>
                 <span>
                     <p className={styles.artist}>{set.artist.name}</p>
-                    <TimeBracket
-                        start={set.start}
-                        end={set.end}
-                    />
+                    <Fourchette start={set.start} end={set.end} />
                 </span>
                 <CaretRight size={22} />
             </article>

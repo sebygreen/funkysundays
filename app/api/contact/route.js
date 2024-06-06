@@ -25,12 +25,7 @@ export async function POST(request) {
         });
     }
 
-    if (
-        isEmpty(res.tag) ||
-        isEmpty(res.name) ||
-        isEmpty(res.email) ||
-        isEmpty(res.message)
-    ) {
+    if (isEmpty(res.tag) || isEmpty(res.name) || isEmpty(res.email) || isEmpty(res.message)) {
         return Response.json({
             toast: {
                 id: Date.now(),

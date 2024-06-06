@@ -1,10 +1,5 @@
 import styles from "@/style/Statistics.module.css";
-import {
-    BeerStein,
-    CalendarCheck,
-    Guitar,
-    UsersFour,
-} from "@phosphor-icons/react/dist/ssr";
+import { BeerStein, CalendarCheck, Guitar, UsersFour } from "@phosphor-icons/react/dist/ssr";
 import { statistics } from "@/lib/fetch";
 import Statistic from "@/components/Statistic";
 

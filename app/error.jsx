@@ -21,15 +21,8 @@ export default function Error({ error, reset }) {
     return (
         <div className={styles.container}>
             <MaskSad size={64} weight="duotone" />
-            <h2>
-                Une erreur s&apos;est produite lors du chargement de la page.
-            </h2>
-            <Button
-                type="button"
-                text="Réessayer"
-                icon={<ArrowCounterClockwise size={22} />}
-                action={handleClick}
-            />
+            <h2>Une erreur s&apos;est produite lors du chargement de la page.</h2>
+            <Button type="button" text="Réessayer" icon={<ArrowCounterClockwise size={22} />} action={handleClick} />
         </div>
     );
 }

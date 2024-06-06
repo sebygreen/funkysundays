@@ -1,16 +1,11 @@
 import Button from "./Button";
-import {
-    SiFacebook,
-    SiInstagram,
-    SiSoundcloud,
-    SiSpotify,
-} from "@icons-pack/react-simple-icons";
+import { SiFacebook, SiInstagram, SiSoundcloud, SiSpotify } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import styles from "@/style/Header.module.css";
 
 export default function Header() {
     return (
-        <header className={styles.container}>
+        <header>
             <div className={styles.wrapper}>
                 <Link href="/">
                     <svg

@@ -32,12 +32,7 @@ export default async function Artist({ params }) {
                     <section className={styles.information}>
                         <figure className={styles.picture}>
                             {data.picture ? (
-                                <Image
-                                    src={data.picture}
-                                    fill={true}
-                                    alt={data.name}
-                                    sizes="240px"
-                                />
+                                <Image src={data.picture} fill={true} alt={data.name} sizes="240px" />
                             ) : (
                                 <User size={64} color="var(--opaque-pink)" />
                             )}
@@ -51,12 +46,7 @@ export default async function Artist({ params }) {
                                         href={link.url}
                                         platform={link.platform}
                                         text={link.username}
-                                        icon={
-                                            <SiInstagram
-                                                size={18}
-                                                color="currentColor"
-                                            />
-                                        }
+                                        icon={<SiInstagram size={18} color="currentColor" />}
                                     />
                                 ))}
                             </div>
@@ -78,11 +68,7 @@ export default async function Artist({ params }) {
                 {data.links.socials && (
                     <section className={styles.embeds}>
                         {data.links.embeds.map((link) => (
-                            <Embed
-                                key={link.id}
-                                platform={link.platform}
-                                url={link.url}
-                            />
+                            <Embed key={link.id} platform={link.platform} url={link.url} />
                         ))}
                     </section>
                 )}

@@ -3,12 +3,7 @@
 import styles from "@/style/Contact.module.css";
 import Loader from "@/components/Loader";
 import Button from "@/components/Button";
-import {
-    ArrowRight,
-    CaretUpDown,
-    Check,
-    Warning,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CaretUpDown, Check, Warning } from "@phosphor-icons/react/dist/ssr";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -45,11 +40,7 @@ function Toasts({ items }) {
                             animate="visible"
                             exit="hidden"
                         >
-                            {i.type === "failure" ? (
-                                <Warning size={22} />
-                            ) : (
-                                <Check size={22} />
-                            )}
+                            {i.type === "failure" ? <Warning size={22} /> : <Check size={22} />}
                             <p>{i.message}</p>
                         </motion.article>
                     ))}
@@ -91,11 +82,7 @@ export default function Contact() {
                         setToasts((prevState) => [...prevState, res.toast]);
                         setTimeout(() => {
                             res.toast.expired = true;
-                            setToasts((prevState) =>
-                                prevState.filter(
-                                    (toast) => toast.id !== res.toast.id,
-                                ),
-                            );
+                            setToasts((prevState) => prevState.filter((toast) => toast.id !== res.toast.id));
                         }, 5000);
                     } catch (e) {
                         console.error(e);
@@ -114,23 +101,11 @@ export default function Contact() {
                             <p>Subject</p>
                             <div className={styles.select}>
                                 <CaretUpDown size={18} color="currentColor" />
-                                <select
-                                    name="tag"
-                                    id="tag"
-                                    onChange={(e) => setTag(e.target.value)}
-                                >
-                                    <option value="volunteer">
-                                        Je souhaite devenir membre.
-                                    </option>
-                                    <option value="artist">
-                                        Je souhaite jouer sur scène.
-                                    </option>
-                                    <option value="question">
-                                        J&apos;ai une question.
-                                    </option>
-                                    <option value="feedback">
-                                        Je souhaite faire une remarque.
-                                    </option>
+                                <select name="tag" id="tag" onChange={(e) => setTag(e.target.value)}>
+                                    <option value="volunteer">Je souhaite devenir membre.</option>
+                                    <option value="artist">Je souhaite jouer sur scène.</option>
+                                    <option value="question">J&apos;ai une question.</option>
+                                    <option value="feedback">Je souhaite faire une remarque.</option>
                                     <option value="other">Autre</option>
                                 </select>
                             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import Map, { Marker, Popup, NavigationControl } from "react-map-gl";
+import Map, { Marker, NavigationControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 export default function Mapbox({ coordinates }) {
@@ -18,11 +18,7 @@ export default function Mapbox({ coordinates }) {
             cooperativeGestures
         >
             <NavigationControl />
-            <Marker
-                longitude={coordinates[0]}
-                latitude={coordinates[1]}
-                color="red"
-            />
+            <Marker longitude={coordinates[0]} latitude={coordinates[1]} color="red" />
         </Map>
     );
 }

@@ -11,23 +11,13 @@ export default function Map({ coordinates, location }) {
                 <Button
                     type="anchor"
                     href={`https://maps.apple.com/?q=${location}`}
-                    icon={
-                        <ArrowSquareOut
-                            size={20}
-                            weight="fill"
-                        />
-                    }
+                    icon={<ArrowSquareOut size={20} weight="fill" />}
                     text="Apple Maps"
                 />
                 <Button
                     type="anchor"
                     href={`https://www.google.com/maps/search/?api=1&query=${location}`}
-                    icon={
-                        <ArrowSquareOut
-                            size={20}
-                            weight="fill"
-                        />
-                    }
+                    icon={<ArrowSquareOut size={20} weight="fill" />}
                     text="Google Maps"
                 />
             </div>

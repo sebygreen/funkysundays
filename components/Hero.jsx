@@ -7,10 +7,7 @@ import texture from "@/images/texture.png";
 export default function Hero({ data }) {
     return (
         <section className={styles.container}>
-            <div
-                className={styles.background}
-                style={{ backgroundImage: `url(${texture.src})` }}
-            />
+            <div className={styles.background} style={{ backgroundImage: `url(${texture.src})` }} />
             <div className={styles.wrapper}>
                 <div className={styles.content}>
                     <Image src={logo} alt="Purple logo." />

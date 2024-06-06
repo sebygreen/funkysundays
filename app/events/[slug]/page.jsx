@@ -3,15 +3,9 @@ import Schedule from "@/components/Schedule";
 import { event, mapbox } from "@/lib/fetch";
 import styles from "./page.module.css";
 import Image from "next/image";
-import {
-    Calendar,
-    CameraSlash,
-    MapPin,
-    Tag,
-    UsersThree,
-} from "@phosphor-icons/react/dist/ssr";
-import dayjs from "dayjs";
+import { Calendar, CameraSlash, MapPin, Tag, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import Collaborations from "@/components/Collaborations";
+import dayjs from "dayjs";
 
 export const revalidate = 300; //5 minutes
 
@@ -39,9 +33,7 @@ export default async function Page({ params }) {
                 <div className={styles.wrapper}>
                     <div className={styles.header}>
                         <h1>{data.name}</h1>
-                        {data.archive && (
-                            <p className={styles.archived}>Archive</p>
-                        )}
+                        {data.archive && <p className={styles.archived}>Archive</p>}
                     </div>
                 </div>
             </section>
@@ -50,36 +42,28 @@ export default async function Page({ params }) {
                     <div className={styles.flex}>
                         <figure className={styles.poster}>
                             {data.poster ? (
-                                <Image
-                                    src={data.poster}
-                                    alt={data.name}
-                                    fill={true}
-                                    sizes="240px"
-                                />
+                                <Image src={data.poster} alt={data.name} fill={true} sizes="240px" />
                             ) : (
-                                <CameraSlash
-                                    size={64}
-                                    color="var(--opaque-pink)"
-                                />
+                                <CameraSlash size={64} color="var(--opaque-pink)" />
                             )}
                         </figure>
                         <ul className={styles.information}>
                             <li key={"category"}>
                                 <Tag size={16} weight="fill" />
-                                {data.category}
+                                {data.category.join(", ")}
                             </li>
                             <li key={"date"}>
                                 <Calendar size={16} weight="fill" />
                                 {data.multi ? (
                                     <span>
-                                        {dayjs(data.start).format("LL - HH:mm")}
+                                        {dayjs.utc(data.start).format("LL - HH:mm")}
                                         <br />
-                                        {dayjs(data.end).format("LL - HH:mm")}
+                                        {dayjs.utc(data.end).format("LL - HH:mm")}
                                     </span>
                                 ) : (
                                     <span>
-                                        {dayjs(data.start).format("LL HH:mm")} -{" "}
-                                        {dayjs(data.end).format("HH:mm")}
+                                        {dayjs.utc(data.start).format("LL HH:mm")} -{" "}
+                                        {dayjs.utc(data.end).format("HH:mm")}
                                     </span>
                                 )}
                             </li>
@@ -95,15 +79,8 @@ export default async function Page({ params }) {
                     </div>
                     {(data.partners || data.sponsors) && (
                         <div className={styles.collaborations}>
-                            {data.partners && (
-                                <Collaborations items={data.partners} />
-                            )}
-                            {data.sponsors && (
-                                <Collaborations
-                                    items={data.sponsors}
-                                    type="sponsors"
-                                />
-                            )}
+                            {data.partners && <Collaborations items={data.partners} />}
+                            {data.sponsors && <Collaborations items={data.sponsors} type="sponsors" />}
                         </div>
                     )}
                 </section>
@@ -121,10 +98,7 @@ export default async function Page({ params }) {
             {places && places.features.length > 0 && (
                 <section>
                     <div className={styles.wrapper}>
-                        <Map
-                            coordinates={places.features[0].center}
-                            location={places.features[0].text}
-                        />
+                        <Map coordinates={places.features[0].center} location={places.features[0].text} />
                     </div>
                 </section>
             )}

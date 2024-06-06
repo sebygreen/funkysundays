@@ -34,12 +34,7 @@ export default function Countdown({ date }) {
             <div className={mounted ? styles.active : undefined}>
                 <p className={`${jetBrainsMono.className} ${styles.counter}`}>
                     {mounted && !counted ? (
-                        <CountUp
-                            start={0}
-                            end={timer.days}
-                            delay={0}
-                            duration={1}
-                        />
+                        <CountUp start={0} end={timer.days} delay={0} duration={1} />
                     ) : mounted && counted ? (
                         <span>{timer.days}</span>
                     ) : (
@@ -51,12 +46,7 @@ export default function Countdown({ date }) {
             <div className={mounted ? styles.active : undefined}>
                 <p className={`${jetBrainsMono.className} ${styles.counter}`}>
                     {mounted && !counted ? (
-                        <CountUp
-                            start={0}
-                            end={timer.hours}
-                            delay={0}
-                            duration={1}
-                        />
+                        <CountUp start={0} end={timer.hours} delay={0} duration={1} />
                     ) : mounted && counted ? (
                         <span>{timer.hours}</span>
                     ) : (
@@ -68,12 +58,7 @@ export default function Countdown({ date }) {
             <div className={mounted ? styles.active : undefined}>
                 <p className={`${jetBrainsMono.className} ${styles.counter}`}>
                     {mounted && !counted ? (
-                        <CountUp
-                            start={0}
-                            end={timer.minutes}
-                            delay={0}
-                            duration={1}
-                        />
+                        <CountUp start={0} end={timer.minutes} delay={0} duration={1} />
                     ) : mounted && counted ? (
                         <span>{timer.minutes}</span>
                     ) : (
@@ -85,13 +70,7 @@ export default function Countdown({ date }) {
             <div className={mounted ? styles.active : undefined}>
                 <p className={`${jetBrainsMono.className} ${styles.counter}`}>
                     {mounted && !counted ? (
-                        <CountUp
-                            start={0}
-                            end={timer.seconds}
-                            delay={0}
-                            duration={1}
-                            onEnd={() => setCounted(true)}
-                        />
+                        <CountUp start={0} end={timer.seconds} delay={0} duration={1} onEnd={() => setCounted(true)} />
                     ) : mounted && counted ? (
                         <span>{timer.seconds}</span>
                     ) : (

@@ -6,12 +6,9 @@ import styles from "@/style/Fourchette.module.css";
 export default function Fourchette({ start, end }) {
     return (
         <div className={styles.container}>
-            <p className={jetBrainsMono.className}>{dayjs(start).format("HH:mm")}</p>
-            <ArrowRight
-                size={14}
-                weight="bold"
-            />
-            <p className={jetBrainsMono.className}>{dayjs(end).format("HH:mm")}</p>
+            <p className={jetBrainsMono.className}>{dayjs.utc(start).format("HH:mm")}</p>
+            <ArrowRight size={14} weight="bold" />
+            <p className={jetBrainsMono.className}>{dayjs.utc(end).format("HH:mm")}</p>
         </div>
     );
 }

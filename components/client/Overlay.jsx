@@ -51,17 +51,8 @@ export default function Overlay() {
             </AnimatePresence>
             <Menu shown={menu} route={usePathname()} close={toggleMenu} />
             <div className={styles.toolbar}>
-                <Button
-                    type="button"
-                    action={() => router.back()}
-                    icon={<ArrowLeft size={20} />}
-                />
-                <Button
-                    type="button"
-                    action={() => toggleMenu()}
-                    text="Menu"
-                    icon={<Close open={menu} />}
-                />
+                <Button type="button" action={() => router.back()} icon={<ArrowLeft size={20} />} />
+                <Button type="button" action={() => toggleMenu()} text="Menu" icon={<Close open={menu} />} />
             </div>
         </div>
     );

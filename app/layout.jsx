@@ -4,6 +4,14 @@ import Overlay from "@/components/client/Overlay";
 import { satoshi } from "@/lib/fonts";
 import "./globals.css";
 import Script from "next/script";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import fr from "dayjs/locale/fr";
+import utc from "dayjs/plugin/utc";
+
+dayjs.extend(localizedFormat);
+dayjs.extend(utc);
+dayjs.locale(fr);
 
 export const viewport = {
     themeColor: "#121212",
@@ -32,7 +40,7 @@ export default function Layout({ children }) {
             />
             <Script
                 async
-                src={"https://umami.smkg.me/script.js"}
+                //src={"https://umami.smkg.me/script.js"}
                 data-website-id="f29a55dc-c3c6-4ad6-a9ff-4d8d97679cb6"
             />
         </html>

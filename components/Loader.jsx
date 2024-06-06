@@ -6,8 +6,9 @@ export default function Loader({ size, stroke }) {
         const { ring } = await import("ldrs");
         ring.register();
     }
+
     useEffect(() => {
-        getLoader();
+        void getLoader();
     }, []);
     return (
         <l-ring

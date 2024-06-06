@@ -9,10 +9,7 @@ export const metadata = {
 
 export default async function Page() {
     const data = await event.all();
-    const object = data.reduce(
-        (a, v) => ({ ...a, [data.indexOf(v)]: { ...v } }),
-        {},
-    );
+    const object = data.reduce((a, v) => ({ ...a, [data.indexOf(v)]: { ...v } }), {});
 
     return (
         <main>

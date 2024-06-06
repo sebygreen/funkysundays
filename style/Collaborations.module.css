@@ -6,24 +6,27 @@
 }
 
 .container a {
-    position: relative;
     display: block;
-    width: fit-content;
 }
 
-.partners figure {
+.container a,
+.container figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partners img.tall {
+    height: 48px;
+    width: auto;
+}
+
+.partners img.wide {
+    height: auto;
+    width: 256px;
 }
 
 .sponsors img {
-    display: block;
     height: 32px;
     width: auto;
-}
-
-.partners img {
-    display: block;
-    height: auto;
-    width: auto;
-    max-height: 48px;
-    max-width: 256px;
 }

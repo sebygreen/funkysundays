@@ -10,19 +10,10 @@ export const revalidate = 300; //5 minutes
 
 export default async function Page() {
     const data = await event.upcoming();
-
     const events = {
-        round: [],
-        promotional: [],
+        round: data.filter((i) => i.category.includes("Funky Sunday")),
+        promotional: data.filter((i) => i.category.includes("Promotion")),
     };
-
-    data.map((i) => {
-        if (i.category === "Un Funky Sunday") {
-            events.round.push(i);
-        } else if (i.category === "Soirée de Promotion") {
-            events.promotional.push(i);
-        }
-    });
 
     return (
         <main>
