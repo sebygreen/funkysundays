@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import picture from "@/images/staff.jpg";
 import round from "@/images/round-gradient.png";
 import { staff } from "@/lib/fetch";
 import Employee from "@/components/Employee";
@@ -21,18 +20,13 @@ export default async function About() {
     return (
         <main>
             <div className={styles.wrapper}>
-                <section className={styles.header}>
-                    <figure>
-                        <Image className={styles.picture} src={picture} alt="Staff photo of 2023" placeholder="blur" />
-                    </figure>
+                <section className={styles.story}>
                     <Image
                         className={styles.stamp}
                         src={round}
                         alt={"Round Funky Sundays gradient stamp."}
                         placeholder="blur"
                     />
-                </section>
-                <section className={styles.story}>
                     <h1>Qui sommes-nous?</h1>
                     <p>
                         Initialement sous le nom «Lausanne Funky Sunday», c’est en septembre 2018 que l’association
