@@ -20,7 +20,8 @@ export const viewport = {
 export const metadata = {
     title: "Funky Sundays",
     description:
-        "La famille Funky Sundays, basée à Genève, compte aujourd’hui 12 membres bénévoles et nous sommes motivés à créer ensemble le meilleur rendez-vous dominical de l’année pour toutes et tous.",
+        "La famille Funky Sundays, basée à Genève, compte aujourd’hui 13 membres bénévoles et nous sommes motivés à créer ensemble le meilleur rendez-vous dominical de l’année pour toutes et tous.",
+    "format-detection": "telephone=no, date=no, address=no, email=no, url=no",
 };
 
 export default function Layout({ children }) {
@@ -38,11 +39,7 @@ export default function Layout({ children }) {
                 async
                 src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
             />
-            <Script
-                async
-                src={"https://umami.smkg.me/script.js"}
-                data-website-id="f29a55dc-c3c6-4ad6-a9ff-4d8d97679cb6"
-            />
+            <Script defer data-domain="funkysundays.com" src={"https://plausible.smkg.me/js/script.js"} />
         </html>
     );
 }
