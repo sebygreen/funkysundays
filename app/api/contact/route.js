@@ -18,7 +18,7 @@ export async function POST(request) {
         return Response.json({
             toast: {
                 id: Date.now(),
-                type: "failure",
+                type: "error",
                 message: "ReCAPTCHA has failed.",
                 expired: false,
             },
@@ -29,7 +29,7 @@ export async function POST(request) {
         return Response.json({
             toast: {
                 id: Date.now(),
-                type: "failure",
+                type: "error",
                 message: "Some or all fields are empty.",
                 expired: false,
             },
@@ -40,7 +40,7 @@ export async function POST(request) {
         return Response.json({
             toast: {
                 id: Date.now(),
-                type: "failure",
+                type: "error",
                 message: "Email field is invalid.",
                 expired: false,
             },
@@ -82,7 +82,7 @@ export async function POST(request) {
         return Response.json({
             toast: {
                 id: Date.now(),
-                type: "failure",
+                type: "error",
                 message: "Email failed to send.",
                 expired: false,
             },

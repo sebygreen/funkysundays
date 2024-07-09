@@ -14,12 +14,10 @@
     margin-left: auto;
     width: fit-content;
     display: flex;
-    gap: 20px;
-    padding: 15px 18px 15px 15px;
-    color: mediumseagreen;
-    background-color: rgba(60, 179, 113, 0.2);
-    border-radius: 10px;
-    font-size: 1.1rem;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 13px 8px 10px;
+    border-radius: 50px;
     line-height: 22px;
     backdrop-filter: blur(10px);
 }
@@ -28,9 +26,22 @@
     margin-bottom: 10px;
 }
 
-.toast.failure {
-    color: tomato;
-    background-color: rgba(255, 99, 71, 0.1);
+.toast.error {
+    color: white;
+    background-color: rgba(237, 67, 55, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.toast.success {
+    color: white;
+    background-color: rgba(60, 179, 113, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.toast.warning {
+    color: white;
+    background-color: rgba(247, 158, 27, 0.9);
+    backdrop-filter: blur(10px);
 }
 
 .form {
@@ -47,7 +58,8 @@
     margin-bottom: 20px;
 }
 
-.information, .message {
+.information,
+.message {
     width: 100%;
 }
 
@@ -84,7 +96,9 @@
     margin-bottom: 5px;
 }
 
-.select select, .input input, .input textarea {
+.select select,
+.input input,
+.input textarea {
     display: block;
     border: unset;
     outline: unset;
@@ -100,7 +114,10 @@
     color: var(--palette-pink);
     background-color: var(--opaque-pink);
     box-shadow: inset -1px 1px 2px -1px var(--opaque-pink);
-    transition: background-color 200ms, color 200ms, transform 200ms;
+    transition:
+        background-color 200ms,
+        color 200ms,
+        transform 200ms;
 }
 
 .select select {
@@ -127,7 +144,8 @@
     resize: none;
 }
 
-.input input, .input textarea {
+.input input,
+.input textarea {
     border-radius: 10px;
     width: 100%;
     padding: 10px 15px;
@@ -136,7 +154,8 @@
     transition: box-shadow 200ms ease;
 }
 
-.input input:focus, .input textarea:focus {
+.input input:focus,
+.input textarea:focus {
     box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 

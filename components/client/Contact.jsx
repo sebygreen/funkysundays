@@ -40,7 +40,7 @@ function Toasts({ items }) {
                             animate="visible"
                             exit="hidden"
                         >
-                            {i.type === "failure" ? <Warning size={22} /> : <Check size={22} />}
+                            {i.type === "error" ? <Warning size={22} /> : <Check size={22} />}
                             <p>{i.message}</p>
                         </motion.article>
                     ))}
