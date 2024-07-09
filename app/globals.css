@@ -53,16 +53,6 @@ h3 {
     min-height: calc(100vh - 60px);
 }
 
-@media (min-width: 768px) {
-    body {
-        padding-bottom: 0;
-    }
-
-    .layout {
-        min-height: 100vh;
-    }
-}
-
 a.small::before {
     transform: scaleX(0);
     transform-origin: bottom right;
