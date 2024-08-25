@@ -1,0 +1,78 @@
+.container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.container.open {
+    pointer-events: all;
+}
+
+.blur {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(var(--background), 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.wrapper {
+    max-width: fit-content;
+    position: relative;
+    padding: var(--spacing-m);
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-t);
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+}
+
+.nav a {
+    line-height: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: rgb(var(--pink));
+    background-color: rgba(var(--pink), 0.1);
+    box-shadow: inset -1px 1px 2px -1px rgba(var(--pink), 0.1);
+    transition:
+        background-color 200ms,
+        box-shadow 200ms,
+        scale 50ms;
+}
+
+.nav a.active {
+    background-color: rgb(var(--pink));
+    color: rgb(var(--purple));
+}
+
+@media (hover: hover) {
+    .nav a:not(.active):hover {
+        box-shadow: inset 0 0 0 4px rgba(var(--pink), 0.2);
+    }
+}
+
+.nav a:active {
+    scale: 0.95;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-t);
+    background-color: rgb(var(--background));
+    box-shadow: 0 0 0 10px rgb(var(--background));
+    border-radius: 10px;
+    pointer-events: all;
+}

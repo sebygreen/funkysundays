@@ -1,0 +1,89 @@
+.wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+}
+
+.picture {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: calc(5px + var(--spacing-s));
+    overflow: hidden;
+    background-color: rgba(var(--pink), 0.1);
+}
+
+.picture:has(svg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.picture svg {
+    display: block;
+    height: 64px;
+    width: 64px;
+    color: rgba(var(--pink), 0.4);
+}
+
+.picture img {
+    object-fit: cover;
+}
+
+.socials {
+    margin-top: var(--spacing-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+}
+
+.responsive .wrapper {
+    display: grid;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-l);
+}
+
+@media (min-width: 600px) {
+    .responsive .wrapper {
+        grid-template-rows: 1fr;
+        grid-template-columns: min-content 1fr;
+    }
+}
+
+.empty {
+    padding: var(--spacing-s);
+    box-shadow: inset 0 0 0 2px rgb(var(--foreground), 0.1);
+    border-radius: calc(5px + var(--spacing-s));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-t);
+}
+
+.empty p {
+    text-align: center;
+    opacity: 0.6;
+    line-height: 22px;
+}
+
+.empty svg {
+    display: block;
+    height: 32px;
+    width: 32px;
+    opacity: 0.6;
+}
+
+.embeds .wrapper {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-m);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (max-width: 480px) {
+    .embeds .wrapper {
+        grid-template-columns: 1fr;
+    }
+}

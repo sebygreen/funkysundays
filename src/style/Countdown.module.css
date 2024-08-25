@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    width: fit-content;
+}
+
+.container > div {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.unit h3 {
+    font-size: 2rem;
+    line-height: 24px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+}

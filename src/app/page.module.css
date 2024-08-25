@@ -1,0 +1,23 @@
+.responsive {
+    display: grid;
+    gap: 40px;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: 1fr;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+}
+
+@media (min-width: 600px) {
+    .responsive {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr min-content;
+    }
+}
+
+@media (min-width: 768px) {
+    .responsive {
+        grid-template-rows: 1fr;
+        grid-template-columns: 2fr 1fr;
+    }
+}

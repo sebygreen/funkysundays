@@ -1,0 +1,138 @@
+.wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+}
+
+.header .wrapper {
+    display: flex;
+    gap: var(--spacing-m);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.responsive .wrapper {
+    display: grid;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-l);
+}
+
+@media (min-width: 600px) {
+    .responsive .wrapper {
+        grid-template-rows: 1fr;
+        grid-template-columns: min-content 1fr;
+    }
+}
+
+.archived {
+    display: block;
+    padding: 5px 15px;
+    color: rgb(var(--pink));
+    background-color: rgba(var(--pink), 0.1);
+    border-radius: 50px;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.poster {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: calc(5px + var(--spacing-s));
+    overflow: hidden;
+    background-color: rgba(var(--pink), 0.1);
+}
+
+.poster:has(svg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poster svg {
+    display: block;
+    height: 64px;
+    width: 64px;
+    color: rgba(var(--pink), 0.4);
+}
+
+.poster img {
+    object-fit: cover;
+}
+
+.information {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-t);
+    margin-top: var(--spacing-m);
+}
+
+.information li {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: var(--spacing-s);
+    white-space: nowrap;
+}
+
+.information li svg {
+    display: block;
+    height: 16px;
+    width: 16px;
+    padding: var(--spacing-t);
+    color: rgb(var(--pink));
+    background-color: rgba(var(--pink), 0.1);
+    border-radius: 50px;
+    box-sizing: content-box;
+}
+
+.collaborations .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+}
+
+.partners,
+.sponsors {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.partners a,
+.sponsors a {
+    display: block;
+}
+
+.partners a,
+.sponsors a,
+.partners figure,
+.sponsors figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partners img.tall {
+    height: 48px;
+    width: auto;
+}
+
+.partners img.wide {
+    height: auto;
+    width: 256px;
+}
+
+.sponsors img {
+    height: 32px;
+    width: auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}

@@ -1,0 +1,12 @@
+.container img {
+    height: 120px;
+    width: auto;
+}
+
+.container > a {
+    width: fit-content;
+}
+
+.container > *:not(:last-child) {
+    margin-bottom: var(--spacing-s);
+}

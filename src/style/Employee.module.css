@@ -1,0 +1,88 @@
+.committee,
+.member {
+    display: flex;
+    gap: var(--spacing-s);
+    background-color: rgba(var(--pink), 0.1);
+    box-shadow: inset -1px 1px 2px -1px rgba(var(--pink), 0.1);
+}
+
+.committee {
+    width: 100%;
+    border-radius: calc(var(--spacing-m) + 50px) 10px 10px 10px;
+    justify-content: space-between;
+    padding: var(--spacing-m);
+    flex-wrap: wrap;
+}
+
+.member {
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-s);
+}
+
+.member div {
+    text-align: center;
+}
+
+.committee figure,
+.member figure {
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgba(var(--pink), 0.1);
+}
+
+.committee figure:has(svg),
+.member figure:has(svg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.committee figure img,
+.member figure img {
+    object-fit: cover;
+}
+
+.committee ul,
+.member ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-t);
+}
+
+.committee ul {
+    margin: auto 0 0 auto;
+}
+
+.committee ul li,
+.member ul li {
+    text-align: right;
+    display: inline-block;
+    width: fit-content;
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    background-color: rgba(var(--pink), 0.1);
+    color: rgb(var(--pink));
+}
+
+.name {
+    margin-top: var(--spacing-s);
+    font-size: 1.2rem;
+}
+
+.member .name {
+    font-size: initial;
+}
+
+.group {
+    opacity: 0.5;
+    font-weight: bold;
+}

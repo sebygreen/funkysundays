@@ -1,0 +1,44 @@
+.wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+}
+
+.introduction .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+}
+
+.introduction h1 {
+    text-align: center;
+}
+
+.seal {
+    display: block;
+    height: 200px;
+    width: fit-content;
+    align-self: center;
+}
+
+.committee .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-s);
+}
+
+.members .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-s);
+}
+
+@media (min-width: 480px) {
+    .committee .wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    }
+
+    .members .wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
