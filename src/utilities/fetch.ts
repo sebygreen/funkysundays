@@ -220,9 +220,7 @@ export const fetchPlace = async (query: string) => {
         limit: "1",
     }).toString();
     try {
-        const data = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?${options}`, {
-            cache: "no-store",
-        });
+        const data = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?${options}`);
         const json = await data.json();
         return json.features[0];
     } catch (e: any) {
