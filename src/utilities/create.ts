@@ -53,8 +53,6 @@ export const createEventExpanded = (data: any): EventExpanded => {
         location: data.location ? data.location : undefined,
         attendees: data.attendees > 0 ? data.attendees : undefined,
         poster: data.poster ? filenameLink(data.poster, data.collectionId, data.id) : undefined,
-        partners:
-            data.expand && data.expand.partners ? data.expand.partners.map((i: any) => createPartner(i)) : undefined,
         sponsors:
             data.expand && data.expand.sponsors ? data.expand.sponsors.map((i: any) => createPartner(i)) : undefined,
         schedule:

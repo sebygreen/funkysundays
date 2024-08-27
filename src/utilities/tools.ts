@@ -7,6 +7,7 @@ import utc from "dayjs/plugin/utc";
 dayjs.extend(localizedFormat);
 dayjs.extend(utc);
 dayjs.locale(fr);
+export const djs = dayjs;
 
 export const dateDifference = (date: string, offset?: boolean): CountdownBase => {
     const diff = offset ? dayjs(date).subtract(2, "seconds").diff(dayjs()) / 1000 : dayjs(date).diff(dayjs()) / 1000;
@@ -22,13 +23,11 @@ export const filenameSize = (filename: any, collection: string, id: string) => {
     let match = [...filename.matchAll(regex)][0];
     return {
         image: filenameLink(filename, collection, id),
-        height: Number(match[1]),
-        width: Number(match[2]),
+        width: Number(match[1]),
+        height: Number(match[2]),
     };
 };
 
 export const filenameLink = (filename: any, collection: string, id: string) => {
     return `${process.env.POCKETBASE_URL}/api/files/${collection}/${id}/${filename}`;
 };
-
-export const djs = dayjs;

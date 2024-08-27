@@ -18,7 +18,6 @@ export interface EventExpanded {
     location?: string;
     attendees?: number;
     poster?: string;
-    partners?: PartnerBase[];
     sponsors?: PartnerBase[];
     schedule?: SetBase[];
 }

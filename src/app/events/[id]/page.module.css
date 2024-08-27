@@ -94,41 +94,26 @@
     gap: var(--spacing-m);
 }
 
-.partners,
-.sponsors {
+.partners {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: var(--spacing-m);
 }
 
-.partners a,
-.sponsors a {
+.partners a {
     display: block;
 }
 
 .partners a,
-.sponsors a,
-.partners figure,
-.sponsors figure {
+.partners figure {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.partners img.tall {
-    height: 48px;
-    width: auto;
-}
-
-.partners img.wide {
+.partners img {
     height: auto;
-    width: 256px;
-}
-
-.sponsors img {
-    height: 32px;
-    width: auto;
 }
 
 .buttons {

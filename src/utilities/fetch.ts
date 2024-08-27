@@ -137,7 +137,7 @@ export const fetchEvent = cache(async (id: string): Promise<EventExpanded> => {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
         let options = {
-            expand: "partners, sponsors, schedule(event).artist",
+            expand: "sponsors, schedule(event).artist",
             filter: "published=true",
         };
         const res = await pb.collection("events").getOne(id, options);
