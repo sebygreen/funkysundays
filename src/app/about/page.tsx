@@ -1,5 +1,4 @@
 import styles from "./page.module.css";
-import Image from "next/image";
 import { fetchStaff } from "@/utilities/fetch";
 import Employee from "@/components/Employee";
 import Stickers from "@/components/client/Stickers";
