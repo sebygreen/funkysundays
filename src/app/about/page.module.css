@@ -14,13 +14,6 @@
     text-align: center;
 }
 
-.seal {
-    display: block;
-    height: 200px;
-    width: fit-content;
-    align-self: center;
-}
-
 .committee .wrapper {
     display: grid;
     grid-template-columns: 1fr;

@@ -1,8 +1,8 @@
 import styles from "./page.module.css";
 import Image from "next/image";
-import seal from "@/images/seal.png";
 import { fetchStaff } from "@/utilities/fetch";
 import Employee from "@/components/Employee";
+import Stickers from "@/components/client/Stickers";
 
 export default async function Page() {
     const data = {
@@ -13,7 +13,7 @@ export default async function Page() {
         <main>
             <section className={styles.introduction}>
                 <div className={styles.wrapper}>
-                    <Image className={styles.seal} src={seal} alt={"Funky Sundays seal."} height={512} width={382} />
+                    <Stickers />
                     <h1>Qui sommes-nous?</h1>
                     <p>
                         Initialement sous le nom «Lausanne Funky Sunday», c’est en septembre 2018 que l’association
