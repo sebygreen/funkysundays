@@ -116,38 +116,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     );
 }
 
-function Partners({ data }: { data: PartnerBase[] }) {
-    return (
-        <div className={styles.partners}>
-            {data.map((i) =>
-                i.url ?
-                    <a key={i.id} target="_blank" href={i.url}>
-                        <Image src={i.logo.image} height={i.logo.height} width={i.logo.width} alt={i.name} />
-                    </a>
-                :   <figure key={i.id}>
-                        <Image src={i.logo.image} height={i.logo.height} width={i.logo.width} alt={i.name} />
-                    </figure>,
-            )}
-        </div>
-    );
-}
-
-function Sponsors({ data }: { data: PartnerBase[] }) {
-    return (
-        <div className={styles.sponsors}>
-            {data.map((i) =>
-                i.url ?
-                    <a key={i.id} target="_blank" href={i.url}>
-                        <Image src={i.logo.image} height={i.logo.height} width={i.logo.width} alt={i.name} />
-                    </a>
-                :   <figure key={i.id}>
-                        <Image src={i.logo.image} height={i.logo.height} width={i.logo.width} alt={i.name} />
-                    </figure>,
-            )}
-        </div>
-    );
-}
-
 const adjustImage = (height: number, width: number) => {
     const base = 48;
     const scale = 0.6;
@@ -156,7 +124,6 @@ const adjustImage = (height: number, width: number) => {
 };
 
 function Partner({ data }: { data: PartnerBase }) {
-    console.log(adjustImage(data.logo.height, data.logo.width));
     let width = adjustImage(data.logo.height, data.logo.width);
     return data.url ?
             <a key={data.id} target="_blank" href={data.url}>
