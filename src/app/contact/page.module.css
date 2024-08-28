@@ -3,3 +3,7 @@
     margin: 0 auto;
     padding: var(--spacing-m);
 }
+
+.header .wrapper {
+    padding-bottom: 0;
+}

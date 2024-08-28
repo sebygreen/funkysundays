@@ -4,6 +4,10 @@
     padding: var(--spacing-m);
 }
 
+.header .wrapper {
+    padding-bottom: 0;
+}
+
 .picture {
     position: relative;
     height: 200px;
