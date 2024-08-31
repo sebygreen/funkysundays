@@ -2,6 +2,7 @@ export interface EventBase {
     id: string;
     name: string;
     start: string;
+    end: string;
     category: "Funky Sunday" | "Promotion";
     activity?: "Blind Test" | "Karaoke";
 }
@@ -17,7 +18,7 @@ export interface EventExpanded {
     days: boolean;
     location?: string;
     attendees?: number;
-    poster?: string;
+    poster?: ImageBase;
     sponsors?: PartnerBase[];
     schedule?: SetBase[];
 }
@@ -27,8 +28,9 @@ export interface EventUpcoming {
     collectionId: string;
     name: string;
     start: string;
+    end: string;
     category: "Funky Sunday";
-    artwork?: string;
+    artwork?: ImageBase;
 }
 
 export interface AlertBase {
@@ -57,11 +59,7 @@ export interface CountdownBase {
 export interface PartnerBase {
     id: string;
     name: string;
-    logo: {
-        image: string;
-        height: number;
-        width: number;
-    };
+    logo: ImageBase;
     url?: string;
 }
 
@@ -81,7 +79,7 @@ export interface ArtistBase {
     collectionId: string;
     name: string;
     type: "DJ" | "Groupe";
-    picture?: string;
+    picture?: ImageBase;
 }
 
 export interface ArtistExpanded {
@@ -90,7 +88,7 @@ export interface ArtistExpanded {
     name: string;
     type: "DJ" | "Groupe";
     description?: string;
-    picture?: string;
+    picture?: ImageBase;
     socials: LinkBase[];
     embeds: LinkBase[];
     upcoming?: EventBase[];
@@ -110,5 +108,11 @@ export interface StaffBase {
     status: "Comité" | "Membre" | "Externe";
     role: "Communication" | "Partenariats" | "Musique" | "Légal" | "Finances" | "Logistique";
     position?: string[];
-    picture?: string;
+    picture?: ImageBase;
+}
+
+export interface ImageBase {
+    url: string;
+    width: number | null;
+    height: number | null;
 }

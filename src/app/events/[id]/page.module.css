@@ -98,23 +98,9 @@
 .partners {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-}
-
-.partners a {
-    display: block;
-}
-
-.partners a,
-.partners figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.partners img {
-    height: auto;
 }
 
 .buttons {

@@ -99,7 +99,7 @@ export default function Contact() {
             setTimeout(() => {
                 toast.expired = true;
                 setToasts((previous) => previous.filter((i) => i.id !== toast.id));
-            }, 10000);
+            }, 6000);
             setPending(false);
         } catch (e) {
             let toast = createToast("error", "Une erreur imprévue est survenue.");
@@ -107,7 +107,7 @@ export default function Contact() {
             setTimeout(() => {
                 toast.expired = true;
                 setToasts((previous) => previous.filter((i) => i.id !== toast.id));
-            }, 10000);
+            }, 6000);
             setPending(false);
         }
     };

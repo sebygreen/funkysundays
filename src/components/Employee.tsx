@@ -10,7 +10,7 @@ export default function Employee({ data }: { data: StaffBase }) {
                 <div>
                     <figure>
                         {data.picture ?
-                            <Image src={data.picture} alt={data.name} fill={true} sizes="120px" />
+                            <Image src={data.picture.url} alt={data.name} fill={true} sizes="120px" />
                         :   <User />}
                     </figure>
                     <p className={styles.name}>{data.name}</p>
@@ -30,7 +30,7 @@ export default function Employee({ data }: { data: StaffBase }) {
             <article key={data.id} className={styles.member}>
                 <figure>
                     {data.picture ?
-                        <Image src={data.picture} alt={data.name} fill={true} sizes="200" />
+                        <Image src={data.picture.url} alt={data.name} fill={true} sizes="200" />
                     :   <User />}
                 </figure>
                 <div>

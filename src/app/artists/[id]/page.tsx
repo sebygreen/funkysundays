@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <section className={styles.metadata}>
                         <figure className={styles.picture}>
                             {data.picture ?
-                                <Image src={data.picture} fill={true} alt={data.name} sizes="200px" />
+                                <Image src={data.picture.url} fill={true} alt={data.name} sizes="200px" />
                             :   <User />}
                         </figure>
                         <div className={styles.socials}>

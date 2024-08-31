@@ -10,7 +10,10 @@ dayjs.locale(fr);
 export const djs = dayjs;
 
 export const dateDifference = (date: string, offset?: boolean): CountdownBase => {
-    const diff = offset ? dayjs(date).subtract(2, "seconds").diff(dayjs()) / 1000 : dayjs(date).diff(dayjs()) / 1000;
+    const diff =
+        offset ?
+            dayjs(date).subtract(2, "seconds").diff(dayjs().utc().add(2, "h")) / 1000
+        :   dayjs(date).diff(dayjs().utc().add(2, "h")) / 1000;
     let d = Math.floor(diff / (60 * 60 * 24));
     let h = Math.floor((diff - d * 60 * 60 * 24) / (60 * 60));
     let m = Math.floor((diff - (d * 60 * 60 * 24 + h * 60 * 60)) / 60);
@@ -18,16 +21,30 @@ export const dateDifference = (date: string, offset?: boolean): CountdownBase =>
     return { d: d, h: h, m: m, s: s };
 };
 
-export const filenameSize = (filename: any, collection: string, id: string) => {
-    let regex = /.+_([0-9]+)x([0-9]+)_.+/g;
-    let match = [...filename.matchAll(regex)][0];
-    return {
-        image: filenameLink(filename, collection, id),
-        width: Number(match[1]),
-        height: Number(match[2]),
-    };
-};
-
-export const filenameLink = (filename: any, collection: string, id: string) => {
-    return `${process.env.POCKETBASE_URL}/api/files/${collection}/${id}/${filename}`;
+export const createImage = (
+    data: { filename: string; collection: string; id: string },
+    options?: {
+        size?: boolean;
+        thumbnail?: string;
+    },
+) => {
+    const url =
+        options && options.thumbnail ?
+            `${process.env.POCKETBASE_URL}/api/files/${data.collection}/${data.id}/${data.filename}?thumb=${options.thumbnail}`
+        :   `${process.env.POCKETBASE_URL}/api/files/${data.collection}/${data.id}/${data.filename}`;
+    if (options && options.size) {
+        const regex = /.+_([0-9]+)x([0-9]+)_.+/g;
+        const match = [...data.filename.matchAll(regex)][0];
+        return {
+            url: url,
+            width: Number(match[1]),
+            height: Number(match[2]),
+        };
+    } else {
+        return {
+            url: url,
+            width: null,
+            height: null,
+        };
+    }
 };

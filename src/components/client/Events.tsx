@@ -25,10 +25,10 @@ export default function Events({ data }: { data: EventBase[] }) {
         filters.year && (data = data.filter((i) => djs(i.start).year() === filters.year));
         let sorted: { upcoming: EventBase[]; archived: EventBase[] } = { upcoming: [], archived: [] };
         data.map((i) => {
-            if (djs(i.start).isAfter(djs())) {
-                sorted.upcoming.push(i);
-            } else {
+            if (djs().utc(true).isAfter(djs(i.end))) {
                 sorted.archived.push(i);
+            } else {
+                sorted.upcoming.push(i);
             }
         });
         return {

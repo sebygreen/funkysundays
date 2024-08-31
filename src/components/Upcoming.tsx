@@ -28,7 +28,7 @@ export default function Upcoming({ data }: { data: EventUpcoming }) {
                 {data.artwork && (
                     <Image
                         className={styles.artwork}
-                        src={data.artwork}
+                        src={data.artwork.url}
                         alt={`Image de fond pour ${data.name}.`}
                         height={200}
                         width={400}

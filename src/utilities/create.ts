@@ -1,4 +1,4 @@
-import { djs, filenameLink, filenameSize } from "@/utilities/tools";
+import { createImage, djs } from "@/utilities/tools";
 import {
     AlertBase,
     ArtistBase,
@@ -11,7 +11,7 @@ import {
     SetBase,
     StaffBase,
 } from "@/types";
-import { v4 as uuidv4 } from "uuid";
+import { v4 } from "uuid";
 
 export const createEventUpcoming = (data: any): EventUpcoming => {
     return {
@@ -19,8 +19,16 @@ export const createEventUpcoming = (data: any): EventUpcoming => {
         collectionId: data.collectionId,
         name: data.name,
         start: data.start,
+        end: data.end,
         category: data.category,
-        artwork: data.artwork ? filenameLink(data.artwork, data.collectionId, data.id) : undefined,
+        artwork:
+            data.artwork ?
+                createImage({
+                    filename: data.artwork,
+                    collection: data.collectionId,
+                    id: data.id,
+                })
+            :   undefined,
     };
 };
 
@@ -29,6 +37,7 @@ export const createEventBase = (data: any, artist: boolean): EventBase => {
         id: artist ? data.expand.event.id : data.id,
         name: artist ? data.expand.event.name : data.name,
         start: data.start,
+        end: data.end,
         category: artist ? data.expand.event.category : data.category,
         activity:
             artist ?
@@ -52,12 +61,22 @@ export const createEventExpanded = (data: any): EventExpanded => {
         days: djs(data.end).isAfter(djs(data.start), "day"),
         location: data.location ? data.location : undefined,
         attendees: data.attendees > 0 ? data.attendees : undefined,
-        poster: data.poster ? filenameLink(data.poster, data.collectionId, data.id) : undefined,
+        poster:
+            data.poster ?
+                createImage(
+                    {
+                        filename: data.poster,
+                        collection: data.collectionId,
+                        id: data.id,
+                    },
+                    { thumbnail: "512x512" },
+                )
+            :   undefined,
         sponsors:
             data.expand && data.expand.sponsors ? data.expand.sponsors.map((i: any) => createPartner(i)) : undefined,
         schedule:
-            data.expand && data.expand["schedule(event)"] ?
-                data.expand["schedule(event)"].map((i: any) => createSet(i))
+            data.expand && data.expand.schedule_via_event ?
+                data.expand.schedule_via_event.map((i: any) => createSet(i))
             :   undefined,
     };
 };
@@ -76,7 +95,14 @@ export const createPartner = (data: any): PartnerBase => {
     return {
         id: data.id,
         name: data.name,
-        logo: filenameSize(data.logo, data.collectionId, data.id),
+        logo: createImage(
+            {
+                filename: data.logo,
+                collection: data.collectionId,
+                id: data.id,
+            },
+            { size: true },
+        ),
         url: data.url ? data.url : undefined,
     };
 };
@@ -100,7 +126,17 @@ export const createArtistBase = (data: any): ArtistBase => {
         collectionId: data.collectionId,
         name: data.name,
         type: data.type,
-        picture: data.picture ? filenameLink(data.picture, data.collectionId, data.id) : undefined,
+        picture:
+            data.picture ?
+                createImage(
+                    {
+                        filename: data.picture,
+                        collection: data.collectionId,
+                        id: data.id,
+                    },
+                    { thumbnail: "256x256" },
+                )
+            :   undefined,
     };
 };
 
@@ -110,7 +146,17 @@ export const createArtistExpanded = (data: any): ArtistExpanded => {
         collectionId: data.collectionId,
         name: data.name,
         type: data.type,
-        picture: data.picture ? filenameLink(data.picture, data.collectionId, data.id) : undefined,
+        picture:
+            data.picture ?
+                createImage(
+                    {
+                        filename: data.picture,
+                        collection: data.collectionId,
+                        id: data.id,
+                    },
+                    { thumbnail: "512x512" },
+                )
+            :   undefined,
         description: data.description ? data.description : undefined,
         socials: data.expand.links.filter((i: any) => !i.embed).map((i: any) => createLink(i)),
         embeds: data.expand.links.filter((i: any) => i.embed).map((i: any) => createLink(i)),
@@ -135,13 +181,23 @@ export const createStaff = (data: any): StaffBase => {
         status: data.status,
         role: data.role,
         position: data.position ? data.position.split(", ") : undefined,
-        picture: data.picture ? filenameLink(data.picture, data.collectionId, data.id) : undefined,
+        picture:
+            data.picture ?
+                createImage(
+                    {
+                        filename: data.picture,
+                        collection: data.collectionId,
+                        id: data.id,
+                    },
+                    { thumbnail: "256x256" },
+                )
+            :   undefined,
     };
 };
 
 export const createToast = (type: "error" | "success" | "warning", message: string) => {
     return {
-        id: uuidv4(),
+        id: v4(),
         type: type,
         message: message,
         expired: false,

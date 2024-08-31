@@ -15,9 +15,9 @@ import { djs } from "@/utilities/tools";
 export const fetchUpcomingRound = cache(async (): Promise<EventUpcoming | null> => {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
-        const filter = `published=true && start>"${djs().format()}" && category="Funky Sunday"`;
+        const filter = `published=true && end>"${djs().utc(true).format("YYYY-MM-DD HH:mm:ss.SSS")}Z" && category="Funky Sunday"`;
         const options = {
-            fields: "id, collectionId, name, start, category, artwork",
+            fields: "id, collectionId, name, start, end, category, artwork",
         };
         const res = await pb.collection("events").getFirstListItem(filter, options);
         return createEventUpcoming(res);
@@ -35,8 +35,9 @@ export const fetchUpcomingPromo = cache(async (): Promise<EventBase[]> => {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
         const options = {
-            filter: `published=true && start>"${djs().format()}" && category="Promotion"`,
-            fields: "id, name, start, category, activity",
+            filter: `published=true && end>"${djs().utc(true).format("YYYY-MM-DD HH:mm:ss.SSS")}Z" && category="Promotion"`,
+            fields: "id, name, start, end, category, activity",
+            sort: "+start",
         };
         const res = await pb.collection("events").getFullList(options);
         return res.map((i) => createEventBase(i, false));
@@ -109,7 +110,7 @@ export const fetchEvents = cache(async (): Promise<EventBase[]> => {
     try {
         const options = {
             filter: "published=true",
-            fields: "id, name, start, category, activity",
+            fields: "id, name, start, end, category, activity",
             sort: "+start",
         };
         const res = await pb.collection("events").getFullList(options);
@@ -137,7 +138,7 @@ export const fetchEvent = cache(async (id: string): Promise<EventExpanded> => {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
         let options = {
-            expand: "sponsors, schedule(event).artist",
+            expand: "sponsors, schedule_via_event.artist",
             filter: "published=true",
         };
         const res = await pb.collection("events").getOne(id, options);
@@ -186,7 +187,7 @@ export const fetchArtist = cache(async (id: string) => {
             sort: "+start",
         });
         const upcoming: any = await pb.collection("schedule").getFullList({
-            filter: `artist="${artist.id}" && start>"${djs().format()}"`,
+            filter: `artist="${artist.id}" && end>"${djs().utc(true).format("YYYY-MM-DD HH:mm:ss.SSS")}Z"`,
             expand: "event",
         });
         return createArtistExpanded({ ...artist, upcoming: upcoming });

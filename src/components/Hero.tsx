@@ -21,7 +21,7 @@ export default function Hero({ data }: { data: EventUpcoming | null }) {
                             <Countdown start={data.start} />
                             <Upcoming data={data} />
                         </>
-                    :   <div className={styles.empty}>
+                        : <div className={styles.empty}>
                             <p>Coming soon...</p>
                             <PaintRoller weight="duotone" />
                         </div>

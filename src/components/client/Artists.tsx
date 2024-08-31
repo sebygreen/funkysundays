@@ -47,7 +47,7 @@ export default function Artists({ data }: { data: ArtistBase[] }) {
                             <motion.article variants={motions.event}>
                                 <figure className={styles.picture}>
                                     {i.picture ?
-                                        <Image src={i.picture} fill={true} alt={i.name} />
+                                        <Image src={i.picture.url} fill={true} alt={i.name} />
                                     :   <User />}
                                 </figure>
                                 <span className={styles.text}>

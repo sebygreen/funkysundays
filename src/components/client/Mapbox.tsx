@@ -16,7 +16,7 @@ export default function Mapbox({
                 zoom: 15,
             }}
             style={{ width: "100%", height: 320, borderRadius: 10 }}
-            mapStyle="mapbox://styles/mapbox/streets-v12"
+            mapStyle="mapbox://styles/mapbox/standard"
             mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
             reuseMaps
             cooperativeGestures

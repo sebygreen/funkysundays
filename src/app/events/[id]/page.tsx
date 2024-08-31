@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <section className={styles.metadata}>
                         <figure className={styles.poster}>
                             {data.poster ?
-                                <Image src={data.poster} alt={data.name} fill={true} sizes="240px" />
+                                <Image src={data.poster.url} alt={data.name} fill={true} sizes="240px" />
                             :   <CameraSlash />}
                         </figure>
                         <ul className={styles.information}>
@@ -116,20 +116,25 @@ export default async function Page({ params }: { params: { id: string } }) {
     );
 }
 
-const adjustImage = (height: number, width: number) => {
+const scaleLogo = (height: number, width: number) => {
     const base = 48;
     const scale = 0.6;
     const ratio = width / height;
-    return Math.pow(ratio, scale) * base;
+    return {
+        width: Math.round(Math.pow(ratio, scale) * base),
+        height: Math.round((Math.pow(ratio, scale) * base) / ratio),
+    };
 };
 
 function Partner({ data }: { data: PartnerBase }) {
-    let width = adjustImage(data.logo.height, data.logo.width);
+    const scaled = scaleLogo(data.logo.height!, data.logo.width!);
     return data.url ?
             <a key={data.id} target="_blank" href={data.url}>
-                <Image src={data.logo.image} height={data.logo.height} width={width} alt={data.name} />
+                <figure key={data.id} className={styles.partner}>
+                    <Image src={data.logo.url} width={scaled.width} height={scaled.height} alt={data.name} />
+                </figure>
             </a>
-        :   <figure key={data.id}>
-                <Image src={data.logo.image} height={data.logo.height} width={width} alt={data.name} />
+        :   <figure key={data.id} className={styles.partner}>
+                <Image src={data.logo.url} width={scaled.width} height={scaled.height} alt={data.name} />
             </figure>;
 }
