@@ -4,6 +4,7 @@ import {
     createAlert,
     createArtistBase,
     createArtistExpanded,
+    createEmbed,
     createEventBase,
     createEventExpanded,
     createEventUpcoming,
@@ -190,7 +191,15 @@ export const fetchArtist = cache(async (id: string) => {
             filter: `artist="${artist.id}" && end>"${djs().utc(true).format("YYYY-MM-DD HH:mm:ss.SSS")}Z"`,
             expand: "event",
         });
-        return createArtistExpanded({ ...artist, upcoming: upcoming });
+        const embeds = await Promise.all(
+            artist.expand.links
+                .filter((i: any) => i.embed)
+                .map(async (i: any) => {
+                    const embed = await fetchEmbed(i.platform, i.url);
+                    return createEmbed({ ...i, html: embed.html });
+                }),
+        );
+        return createArtistExpanded({ ...artist, upcoming: upcoming, embeds: embeds });
     } catch (e: any) {
         console.error(e);
         throw new Error("Failed to fetch artist.");
@@ -237,4 +246,14 @@ export const fetchCaptcha = async (token: string) => {
     );
     const json = await res.json();
     return json.score >= 0.5;
+};
+
+export const fetchEmbed = async (platform: "soundcloud" | "spotify", url: string) => {
+    if (platform === "soundcloud") {
+        const res = await fetch(`https://soundcloud.com/oembed?url=${url}`);
+        return await res.json();
+    } else if (platform === "spotify") {
+        const res = await fetch(`https://open.spotify.com/oembed?url=${url}`);
+        return await res.json();
+    }
 };

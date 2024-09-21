@@ -12,6 +12,7 @@ import {
     StaffBase,
 } from "@/types";
 import { v4 } from "uuid";
+import { fetchEmbed } from "@/utilities/fetch";
 
 export const createEventUpcoming = (data: any): EventUpcoming => {
     return {
@@ -159,7 +160,7 @@ export const createArtistExpanded = (data: any): ArtistExpanded => {
             :   undefined,
         description: data.description ? data.description : undefined,
         socials: data.expand.links.filter((i: any) => !i.embed).map((i: any) => createLink(i)),
-        embeds: data.expand.links.filter((i: any) => i.embed).map((i: any) => createLink(i)),
+        embeds: data.embeds,
         upcoming: data.upcoming.length > 0 ? data.upcoming.map((i: any) => createEventBase(i, true)) : undefined,
     };
 };
@@ -168,7 +169,15 @@ export const createLink = (data: any): LinkBase => {
     return {
         id: data.id,
         url: data.url,
-        embed: data.embed,
+        platform: data.platform,
+        username: data.username,
+    };
+};
+
+export const createEmbed = async (data: any) => {
+    return {
+        id: data.id,
+        html: data.html,
         platform: data.platform,
         username: data.username,
     };

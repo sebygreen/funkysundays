@@ -1,11 +1,11 @@
 import styles from "./page.module.css";
-import { fetchArtist, fetchArtistIds } from "@/utilities/fetch";
+import { fetchArtist, fetchArtistIds, fetchEmbed } from "@/utilities/fetch";
 import { Empty, User } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Button from "@/components/Button";
 import parse from "html-react-parser";
 import Event from "@/components/Event";
-import Embed from "@/components/Embed";
+import Embed from "@/components/client/Embed";
 
 export const revalidate = 30;
 
@@ -16,7 +16,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { id: string } }) {
     const data = await fetchArtist(params.id);
-
     console.log(data);
 
     return (
@@ -73,7 +72,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 <section className={styles.embeds}>
                     <div className={styles.wrapper}>
                         {data.embeds.map((i) => (
-                            <Embed key={i.id} platform={i.platform} url={i.url} />
+                            <Embed key={i.id} data={i} />
                         ))}
                     </div>
                 </section>

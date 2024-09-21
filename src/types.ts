@@ -90,15 +90,21 @@ export interface ArtistExpanded {
     description?: string;
     picture?: ImageBase;
     socials: LinkBase[];
-    embeds: LinkBase[];
+    embeds: EmbedBase[];
     upcoming?: EventBase[];
 }
 
 export interface LinkBase {
     id: string;
     url: string;
-    embed: boolean;
-    platform: "instagram" | "facebook" | "snapchat" | "spotify" | "soundcloud";
+    platform: "instagram" | "facebook" | "snapchat";
+    username: string;
+}
+
+export interface EmbedBase {
+    id: string;
+    html: string;
+    platform: "spotify" | "soundcloud";
     username: string;
 }
 
