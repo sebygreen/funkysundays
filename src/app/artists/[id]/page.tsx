@@ -17,6 +17,8 @@ export async function generateStaticParams() {
 export default async function Page({ params }: { params: { id: string } }) {
     const data = await fetchArtist(params.id);
 
+    console.log(data);
+
     return (
         <main>
             <section className={styles.header}>
@@ -47,7 +49,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     </section>
                     <section className={styles.description}>
                         {data.description ?
-                            parse(data.description)
+                            <div className={styles.text}>{parse(data.description)}</div>
                         :   <div className={styles.empty}>
                                 <Empty weight="duotone" />
                                 <p>Pas de description à montrer. </p>
