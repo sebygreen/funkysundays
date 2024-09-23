@@ -1,4 +1,4 @@
-import { fetchEvent, fetchEventIds, fetchPlace } from "@/utilities/fetch";
+import { fetchArtistName, fetchEvent, fetchEventIds, fetchEventName, fetchPlace } from "@/utilities/fetch";
 import styles from "./page.module.css";
 import Image from "next/image";
 import {
@@ -15,12 +15,21 @@ import Schedule from "@/components/client/Schedule";
 import Mapbox from "@/components/client/Mapbox";
 import Button from "@/components/Button";
 import { djs } from "@/utilities/tools";
+import { Metadata } from "next";
 
 export const revalidate = 30;
 
 export async function generateStaticParams() {
     const data = await fetchEventIds();
     return data.map((i) => ({ id: i.id }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+    const id = params.id;
+    const event = await fetchEventName(id);
+    return {
+        title: `Évènements • ${event.name}`,
+    };
 }
 
 export default async function Page({ params }: { params: { id: string } }) {

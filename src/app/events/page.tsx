@@ -1,9 +1,10 @@
 import { fetchEvents } from "@/utilities/fetch";
 import Events from "@/components/client/Events";
+import { Metadata } from "next";
 
 export const revalidate = 30;
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Évènements",
 };
 

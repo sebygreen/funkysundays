@@ -1,11 +1,12 @@
 import styles from "./page.module.css";
-import { fetchArtist, fetchArtistIds, fetchEmbed } from "@/utilities/fetch";
+import { fetchArtist, fetchArtistIds, fetchArtistName } from "@/utilities/fetch";
 import { Empty, User } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Button from "@/components/Button";
 import parse from "html-react-parser";
 import Event from "@/components/Event";
 import Embed from "@/components/client/Embed";
+import { Metadata } from "next";
 
 export const revalidate = 30;
 
@@ -14,9 +15,16 @@ export async function generateStaticParams() {
     return data.map((i) => ({ id: i.id }));
 }
 
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+    const id = params.id;
+    const artist = await fetchArtistName(id);
+    return {
+        title: `Artistes • ${artist.name}`,
+    };
+}
+
 export default async function Page({ params }: { params: { id: string } }) {
     const data = await fetchArtist(params.id);
-    console.log(data);
 
     return (
         <main>

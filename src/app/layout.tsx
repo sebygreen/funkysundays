@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
     title: {
-        template: "Funky Sundays | %s",
+        template: "Funky Sundays • %s",
         default: "Funky Sundays",
     },
     description: "Le meilleur rendez-vous dominical de l’année pour toutes et tous.",

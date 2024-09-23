@@ -4,7 +4,6 @@ import {
     createAlert,
     createArtistBase,
     createArtistExpanded,
-    createEmbed,
     createEventBase,
     createEventExpanded,
     createEventUpcoming,
@@ -135,6 +134,19 @@ export const fetchEventIds = cache(async (): Promise<{ id: string }[]> => {
     }
 });
 
+export const fetchEventName = cache(async (id: string): Promise<{ name: string }> => {
+    const pb = new PocketBase(process.env.POCKETBASE_URL);
+    try {
+        return await pb.collection("events").getOne(id, {
+            fields: "name",
+            filter: "published=true",
+        });
+    } catch (e: any) {
+        console.error(e);
+        throw new Error("Failed to fetch artist name.");
+    }
+});
+
 export const fetchEvent = cache(async (id: string): Promise<EventExpanded> => {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
@@ -179,6 +191,19 @@ export const fetchArtistIds = cache(async (): Promise<{ id: string }[]> => {
     }
 });
 
+export const fetchArtistName = cache(async (id: string): Promise<{ name: string }> => {
+    const pb = new PocketBase(process.env.POCKETBASE_URL);
+    try {
+        return await pb.collection("artists").getOne(id, {
+            fields: "name",
+            filter: "published=true",
+        });
+    } catch (e: any) {
+        console.error(e);
+        throw new Error("Failed to fetch artist name.");
+    }
+});
+
 export const fetchArtist = cache(async (id: string) => {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
@@ -196,7 +221,7 @@ export const fetchArtist = cache(async (id: string) => {
                 .filter((i: any) => i.embed)
                 .map(async (i: any) => {
                     const embed = await fetchEmbed(i.platform, i.url);
-                    return createEmbed({ ...i, html: embed.html });
+                    return { ...i, html: embed.html };
                 }),
         );
         return createArtistExpanded({ ...artist, upcoming: upcoming, embeds: embeds });
@@ -249,11 +274,12 @@ export const fetchCaptcha = async (token: string) => {
 };
 
 export const fetchEmbed = async (platform: "soundcloud" | "spotify", url: string) => {
+    if (platform === "spotify") {
+        const res = await fetch(`https://open.spotify.com/oembed?url=${url}`);
+        return await res.json();
+    }
     if (platform === "soundcloud") {
         const res = await fetch(`https://soundcloud.com/oembed?url=${url}`);
-        return await res.json();
-    } else if (platform === "spotify") {
-        const res = await fetch(`https://open.spotify.com/oembed?url=${url}`);
         return await res.json();
     }
 };

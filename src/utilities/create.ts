@@ -2,7 +2,7 @@ import { createImage, djs } from "@/utilities/tools";
 import {
     AlertBase,
     ArtistBase,
-    ArtistExpanded,
+    ArtistExpanded, EmbedBase,
     EventBase,
     EventExpanded,
     EventUpcoming,
@@ -12,7 +12,6 @@ import {
     StaffBase,
 } from "@/types";
 import { v4 } from "uuid";
-import { fetchEmbed } from "@/utilities/fetch";
 
 export const createEventUpcoming = (data: any): EventUpcoming => {
     return {
@@ -160,7 +159,7 @@ export const createArtistExpanded = (data: any): ArtistExpanded => {
             :   undefined,
         description: data.description ? data.description : undefined,
         socials: data.expand.links.filter((i: any) => !i.embed).map((i: any) => createLink(i)),
-        embeds: data.embeds,
+        embeds: data.embeds.map((i: any) => createEmbed(i)),
         upcoming: data.upcoming.length > 0 ? data.upcoming.map((i: any) => createEventBase(i, true)) : undefined,
     };
 };
@@ -174,7 +173,7 @@ export const createLink = (data: any): LinkBase => {
     };
 };
 
-export const createEmbed = async (data: any) => {
+export const createEmbed = (data: any): EmbedBase => {
     return {
         id: data.id,
         html: data.html,
