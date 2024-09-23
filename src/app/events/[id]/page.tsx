@@ -1,4 +1,4 @@
-import { fetchArtistName, fetchEvent, fetchEventIds, fetchEventName, fetchPlace } from "@/utilities/fetch";
+import { fetchEvent, fetchEventIds, fetchEventName, fetchPlace } from "@/utilities/fetch";
 import styles from "./page.module.css";
 import Image from "next/image";
 import {
