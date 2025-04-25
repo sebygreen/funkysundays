@@ -1,7 +1,7 @@
 .wrapper {
     max-width: 768px;
     margin: 0 auto;
-    padding: var(--spacing-m);
+    padding: var(--spacing-l) var(--spacing-m) var(--spacing-m) var(--spacing-m);
     display: flex;
     align-items: center;
     gap: var(--spacing-s);

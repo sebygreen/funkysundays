@@ -49,7 +49,6 @@ export default function Slideshow() {
     const [slide, setSlide] = useState<number>(0);
 
     useEffect(() => {
-        console.log(slide);
         scope.current = createScope({ root }).add((self) => {
             const first = self.root.firstElementChild!;
             const travel = -first.clientWidth;

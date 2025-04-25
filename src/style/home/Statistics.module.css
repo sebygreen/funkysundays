@@ -1,11 +1,8 @@
-.container {
-}
-
 .wrapper {
     width: 100%;
     max-width: 680px;
     margin: 0 auto;
-    padding: 0 var(--spacing-m) var(--spacing-m) var(--spacing-m);
+    padding: 0 var(--spacing-m) var(--spacing-l) var(--spacing-m);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
