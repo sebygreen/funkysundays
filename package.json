@@ -13,6 +13,7 @@
     "@react-email/components": "^0.0.36",
     "@stripe/react-stripe-js": "^3.6.0",
     "@stripe/stripe-js": "^7.2.0",
+    "animejs": "^4.0.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.9.1",
