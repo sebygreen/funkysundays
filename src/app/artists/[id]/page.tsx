@@ -1,30 +1,43 @@
 import styles from "./page.module.css";
-import { fetchArtist, fetchArtistIds, fetchArtistName } from "@/utilities/fetch";
-import { Empty, User } from "@phosphor-icons/react/dist/ssr";
+import { Empty, FacebookLogo, InstagramLogo, SoundcloudLogo, SpotifyLogo, User } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import Button from "@/components/Button";
+import Button from "@/components/common/Button";
 import parse from "html-react-parser";
-import Event from "@/components/Event";
-import Embed from "@/components/client/Embed";
+import Event from "@/components/common/Event";
+import Embed from "@/components/artists/Embed";
 import { Metadata } from "next";
-
-export const revalidate = 30;
+import { fetchArtist, fetchArtists } from "@/utilities/fetch/artists";
 
 export async function generateStaticParams() {
-    const data = await fetchArtistIds();
+    const data = await fetchArtists();
     return data.map((i) => ({ id: i.id }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const params = await props.params;
     const id = params.id;
-    const artist = await fetchArtistName(id);
+    const artist = await fetchArtist(id);
     return {
         title: `Artistes • ${artist.name}`,
     };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const data = await fetchArtist(params.id);
+    
+    function platformIcon(platform: "instagram" | "facebook" | "spotify" | "soundcloud") {
+        switch (platform) {
+            case "facebook":
+                return <FacebookLogo />;
+            case "instagram":
+                return <InstagramLogo />;
+            case "spotify":
+                return <SpotifyLogo />;
+            case "soundcloud":
+                return <SoundcloudLogo />;
+        }
+    }
 
     return (
         <main>
@@ -44,11 +57,12 @@ export default async function Page({ params }: { params: { id: string } }) {
                         <div className={styles.socials}>
                             {data.socials.map((i) => (
                                 <Button
+                                    type="anchor"
                                     key={i.id}
-                                    type="social"
-                                    platform={i.platform}
+                                    color={i.platform}
                                     text={i.username}
-                                    href={i.url}
+                                    icon={platformIcon(i.platform)}
+                                    url={i.url}
                                     target="_blank"
                                 />
                             ))}

@@ -1,32 +1,29 @@
-import Hero from "@/components/Hero";
-import { fetchAlert, fetchStatistics, fetchUpcomingPromo, fetchUpcomingRound } from "@/utilities/fetch";
-import Alert from "@/components/Alert";
-import Promotion from "@/components/Promotion";
-import styles from "./page.module.css";
-import About from "@/components/About";
-import Statistics from "@/components/client/Statistics";
-
-export const revalidate = 30;
+import Hero from "@/components/home/Hero";
+import Alert from "@/components/home/Alert";
+import Promotion from "@/components/home/Promotion";
+import About from "@/components/home/About";
+import Statistics from "@/components/home/Statistics";
+import Slideshow from "@/components/home/Slideshow";
+import { fetchAlert, fetchStatistics, fetchUpcomingPromotional, fetchUpcomingRound } from "@/utilities/fetch/home";
 
 export default async function Page() {
     const data = {
         upcoming: {
             round: await fetchUpcomingRound(),
-            promo: await fetchUpcomingPromo(),
+            promotional: await fetchUpcomingPromotional(),
         },
         alert: await fetchAlert(),
         statistics: await fetchStatistics(),
     };
 
     return (
-        <main>
+        <>
             <Hero data={data.upcoming.round} />
             {data.alert && <Alert data={data.alert} />}
-            <Promotion data={data.upcoming.promo} />
-            <div className={styles.responsive}>
-                <About data={data.statistics.staff} />
-                <Statistics data={data.statistics} />
-            </div>
-        </main>
+            <Promotion data={data.upcoming.promotional} />
+            <Slideshow />
+            <About data={data.statistics.staff} />
+            <Statistics data={data.statistics} />
+        </>
     );
 }

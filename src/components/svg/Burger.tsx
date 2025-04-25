@@ -1,4 +1,4 @@
-import styles from "@/style/Burger.module.css";
+import styles from "@/style/svg/Burger.module.css";
 
 export default function Burger({ open }: { open: boolean }) {
     return (

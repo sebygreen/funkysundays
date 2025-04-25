@@ -1,0 +1,94 @@
+a.button {
+    text-decoration: none;
+    color: inherit;
+}
+
+button.button {
+    border: unset;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: transparent;
+}
+
+.button {
+    width: fit-content;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+        background-color 200ms ease,
+        color 200ms ease;
+}
+
+.button svg {
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+.button.full {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 8px 8px 10px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.button.icon {
+    padding: 8px;
+}
+
+.button.text {
+    padding: 8px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.button.primary {
+    background-color: rgba(var(--pink), 0.1);
+    color: rgb(var(--pink));
+    box-shadow: inset -1px 1px 2px -1px rgba(var(--pink), 0.1);
+}
+
+.button.secondary {
+    background-color: rgb(var(--pink));
+    color: rgb(var(--purple));
+}
+
+.button.instagram {
+    background-color: rgba(227, 64, 94, 1);
+    color: rgb(var(--foreground));
+}
+
+.button.facebook {
+    background-color: rgba(24, 118, 242, 1);
+    color: rgb(var(--foreground));
+}
+
+.button.soundcloud {
+    background-color: rgba(255, 136, 0, 1);
+    color: rgb(var(--foreground));
+}
+
+.button.spotify {
+    background-color: rgba(29, 185, 84, 1);
+    color: rgb(var(--foreground));
+}
+
+@media (hover: hover) {
+    .button.primary:not(:disabled):hover,
+    .button.instagram:not(:disabled):hover,
+    .button.facebook:not(:disabled):hover,
+    .button.soundcloud:not(:disabled):hover,
+    .button.spotify:not(:disabled):hover,
+    .button.secondary:not(:disabled):hover {
+        background-color: rgb(var(--purple));
+        color: rgb(var(--pink));
+    }
+}
+
+.button:disabled {
+    opacity: 0.6;
+    filter: grayscale(1);
+    pointer-events: none;
+}

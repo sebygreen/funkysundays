@@ -1,0 +1,58 @@
+.started {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    padding: 9px 9px 9px 12px;
+    border-radius: 50px;
+    background-color: rgba(var(--pink), 0.1);
+    box-shadow: inset 0 0 0 1px rgba(var(--pink), 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.started.small {
+    padding: 6px;
+}
+
+.started p {
+    line-height: 18px;
+}
+
+.started .dot {
+    position: relative;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.started .dot .inner {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(var(--danger));
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+.started .dot .outer {
+    position: relative;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(var(--danger));
+    border-radius: 50px;
+    animation: live 2s ease infinite;
+}
+
+@keyframes live {
+    from {
+        scale: 1;
+        opacity: 1;
+    }
+    to {
+        scale: 2;
+        opacity: 0;
+    }
+}

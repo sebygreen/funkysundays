@@ -1,0 +1,26 @@
+.container {
+    background-color: rgba(var(--pink), 0.1);
+}
+
+.wrapper {
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.display {
+    overflow: hidden;
+    width: 0;
+    min-width: 100%;
+}
+
+.overflow {
+    position: relative;
+    display: flex;
+    height: 320px;
+}
+
+.overflow img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}

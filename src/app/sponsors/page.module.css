@@ -1,0 +1,33 @@
+.wrapper {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--header-height) var(--spacing-m) var(--spacing-m) var(--spacing-m);
+    text-align: center;
+}
+
+.wrapper h1 {
+    margin-bottom: var(--spacing-m);
+}
+
+.group:not(:last-child) {
+    margin-bottom: var(--spacing-m);
+}
+
+.group h2 {
+    margin-bottom: var(--spacing-s);
+}
+
+.group .grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sponsor {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+}

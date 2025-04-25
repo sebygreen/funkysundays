@@ -1,11 +1,14 @@
-import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import { ReactNode } from "react";
-import Menu from "@/components/client/Menu";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Menu from "@/components/layout/Menu";
+import Toasts from "@/components/common/Toasts";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import ToastProvider from "@/context/Toast";
 import { Satoshi } from "@/utilities/fonts";
+import type { Metadata, Viewport } from "next";
+import { ReCaptchaProvider } from "next-recaptcha-v3";
 import Script from "next/script";
+import { ReactNode } from "react";
+import "./globals.css";
 
 export const viewport: Viewport = {
     themeColor: "#191919",
@@ -37,12 +40,19 @@ export default function Layout({
     return (
         <html lang="fr">
             <body className={Satoshi.className}>
-                <Menu />
-                <div id="layout">
-                    <Header />
-                    {children}
-                    <Footer />
-                </div>
+                <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+                    <ToastProvider>
+                        <Toasts />
+                        <Menu />
+                        <div id="layout">
+                            <Header />
+                            <main>
+                                {children}
+                            </main>
+                            <Footer />
+                        </div>
+                    </ToastProvider>
+                </ReCaptchaProvider>
             </body>
             <Script defer data-domain="funkysundays.com" src={"https://plausible.smkg.me/js/script.js"} />
         </html>

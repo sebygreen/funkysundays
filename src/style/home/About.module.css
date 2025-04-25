@@ -1,0 +1,23 @@
+.wrapper {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+    flex-direction: column;
+    text-align: center;
+}
+
+.container img {
+    height: 120px;
+    width: auto;
+}
+
+.container > a {
+    width: fit-content;
+}
+
+.container > *:not(:last-child) {
+    margin-bottom: var(--spacing-s);
+}

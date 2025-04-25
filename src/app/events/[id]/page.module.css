@@ -1,5 +1,5 @@
 .wrapper {
-    max-width: 980px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-m);
 }
@@ -9,7 +9,7 @@
     gap: var(--spacing-m);
     align-items: center;
     flex-wrap: wrap;
-    padding-bottom: 0;
+    padding: var(--header-height) var(--spacing-m) 0 var(--spacing-m);
 }
 
 .responsive .wrapper {
@@ -107,4 +107,8 @@
     display: flex;
     gap: 10px;
     margin-top: var(--spacing-m);
+}
+
+.partners .partner img {
+    display: block;
 }

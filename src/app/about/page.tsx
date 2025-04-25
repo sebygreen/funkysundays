@@ -1,15 +1,13 @@
 import styles from "./page.module.css";
-import { fetchStaff } from "@/utilities/fetch";
-import Employee from "@/components/Employee";
-import Stickers from "@/components/client/Stickers";
+import Employee from "@/components/about/Employee";
+import Stickers from "@/components/about/Stickers";
+import { fetchStaff } from "@/utilities/fetch/about";
 
 export default async function Page() {
-    const data = {
-        staff: await fetchStaff(),
-    };
+    const data = { staff: await fetchStaff() };
 
     return (
-        <main>
+        <>
             <section className={styles.introduction}>
                 <div className={styles.wrapper}>
                     <Stickers />
@@ -17,7 +15,7 @@ export default async function Page() {
                     <p>
                         Initialement sous le nom «Lausanne Funky Sunday», c’est en septembre 2018 que l’association
                         Funky Sundays voit le jour. Cette association fondée par un groupe d’amis, 16 anciens étudiants
-                        de l’EPFL à Lausanne et ayant démarré dans le cadre d’un cours de Gestion des Organisations,
+                        de l&apos;EPFL à Lausanne et ayant démarré dans le cadre d’un cours de Gestion des Organisations,
                         avait pour but de mettre sur pied un festival de musique le dimanche.
                     </p>
                     <p>
@@ -52,6 +50,6 @@ export default async function Page() {
                         ))}
                 </div>
             </section>
-        </main>
+        </>
     );
 }

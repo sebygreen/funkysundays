@@ -1,0 +1,153 @@
+.group {
+    position: relative;
+}
+
+.group .label {
+    display: flex;
+    gap: var(--spacing-t);
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-t);
+}
+
+.group .label label {
+    display: block;
+    font-weight: bold;
+}
+
+.group input,
+.group textarea {
+    display: block;
+    border: unset;
+    outline: unset;
+    color: unset;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgba(var(--pink), 0.1);
+    line-height: 20px;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.group input {
+    max-height: 36px;
+    padding: 8px 10px;
+}
+
+.group textarea {
+    resize: none;
+    padding: 10px;
+    white-space: pre-wrap;
+}
+
+.group input:focus,
+.group textarea:focus {
+    box-shadow: 0 0 0 2px rgba(var(--pink), 0.9);
+}
+
+.group input::placeholder,
+.group textarea::placeholder {
+    color: rgba(var(--pink), 0.4);
+}
+
+.group .label p {
+    font-size: 0.8rem;
+    color: rgba(var(--danger), 1);
+}
+
+/*custom select*/
+.select {
+    width: 100%;
+    border-radius: 10px;
+    position: relative;
+    color: rgb(var(--pink));
+    background-color: rgba(var(--pink), 0.1);
+    box-shadow: inset -1px 1px 2px -1px rgba(var(--pink), 0.1);
+    transition: background-color 200ms, color 200ms, box-shadow 200ms ease;
+}
+
+.select select {
+    display: block;
+    border: unset;
+    border-radius: 10px;
+    background-color: unset;
+    color: unset;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 20px;
+    padding: 8px 23px 8px 10px;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .select:hover {
+        background-color: rgb(var(--pink));
+        color: rgb(var(--purple));
+    }
+}
+
+.select svg {
+    display: block;
+    height: 18px;
+    width: 18px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    pointer-events: none;
+}
+
+/*custom checkbox*/
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.checkbox .switch input {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.checkbox .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(var(--pink), 0.4);
+    border-radius: 50px;
+    transition: 200ms;
+}
+
+.checkbox .switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 200ms;
+    border-radius: 50%;
+}
+
+.checkbox .switch input:checked + .slider {
+    background-color: mediumseagreen;
+}
+
+.checkbox .switch input:checked + .slider:before {
+    transform: translateX(100%);
+}

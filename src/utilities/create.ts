@@ -2,7 +2,8 @@ import { createImage, djs } from "@/utilities/tools";
 import {
     AlertBase,
     ArtistBase,
-    ArtistExpanded, EmbedBase,
+    ArtistExpanded,
+    EmbedBase,
     EventBase,
     EventExpanded,
     EventUpcoming,
@@ -13,6 +14,8 @@ import {
 } from "@/types";
 import { v4 } from "uuid";
 
+const now = djs().utc(true);
+
 export const createEventUpcoming = (data: any): EventUpcoming => {
     return {
         id: data.id,
@@ -20,6 +23,8 @@ export const createEventUpcoming = (data: any): EventUpcoming => {
         name: data.name,
         start: data.start,
         end: data.end,
+        started: djs(data.start).isBefore(now),
+        ended: djs(data.end).isBefore(now),
         category: data.category,
         artwork:
             data.artwork ?
@@ -36,48 +41,42 @@ export const createEventBase = (data: any, artist: boolean): EventBase => {
     return {
         id: artist ? data.expand.event.id : data.id,
         name: artist ? data.expand.event.name : data.name,
-        start: data.start,
-        end: data.end,
+        start: artist ? data.expand.event.start : data.start,
+        end: artist ? data.expand.event.end : data.end,
+        started: djs(data.start).isBefore(now),
+        ended: djs(data.end).isBefore(now),
         category: artist ? data.expand.event.category : data.category,
-        activity:
-            artist ?
-                data.expand.event.activity ?
-                    data.expand.event.activity
-                :   undefined
-            : data.activity ? data.activity
-            : undefined,
+        activity: artist ? data.expand.event.activity || undefined : data.activity || undefined,
     };
 };
 
-export const createEventExpanded = (data: any): EventExpanded => {
+export const createEventExpanded = (event: any, schedule: any): EventExpanded => {
     return {
-        id: data.id,
-        name: data.name,
-        category: data.category,
-        activity: data.activity ? data.activity : undefined,
-        start: data.start,
-        end: data.end,
-        archive: djs(data.start).isBefore(djs()),
-        days: djs(data.end).isAfter(djs(data.start), "day"),
-        location: data.location ? data.location : undefined,
-        attendees: data.attendees > 0 ? data.attendees : undefined,
+        id: event.id,
+        name: event.name,
+        category: event.category,
+        activity: event.activity ? event.activity : undefined,
+        start: event.start,
+        end: event.end,
+        started: djs(event.start).isBefore(now),
+        ended: djs(event.end).isBefore(now),
+        days: djs(event.end).isAfter(djs(event.start), "day"),
+        location: event.location ? event.location : undefined,
+        attendees: event.attendees > 0 ? event.attendees : undefined,
         poster:
-            data.poster ?
+            event.poster ?
                 createImage(
                     {
-                        filename: data.poster,
-                        collection: data.collectionId,
-                        id: data.id,
+                        filename: event.poster,
+                        collection: event.collectionId,
+                        id: event.id,
                     },
                     { thumbnail: "512x512" },
                 )
             :   undefined,
         sponsors:
-            data.expand && data.expand.sponsors ? data.expand.sponsors.map((i: any) => createPartner(i)) : undefined,
-        schedule:
-            data.expand && data.expand.schedule_via_event ?
-                data.expand.schedule_via_event.map((i: any) => createSet(i))
-            :   undefined,
+            event.expand && event.expand.sponsors ? event.expand.sponsors.map((i: any) => createPartner(i)) : undefined,
+        schedule: !!schedule.length ? schedule.map((i: any) => createSet(i)) : undefined,
     };
 };
 
@@ -112,6 +111,8 @@ export const createSet = (data: any): SetBase => {
         id: data.id,
         start: data.start,
         end: data.end,
+        started: djs.utc(data.start).isBefore(now),
+        ended: djs.utc(data.end).isBefore(now),
         day: djs(data.start).format("YYYY-MM-DD"),
         artist: {
             id: data.expand.artist.id,
@@ -126,6 +127,7 @@ export const createArtistBase = (data: any): ArtistBase => {
         collectionId: data.collectionId,
         name: data.name,
         type: data.type,
+        sort: data.sort,
         picture:
             data.picture ?
                 createImage(
@@ -146,6 +148,7 @@ export const createArtistExpanded = (data: any): ArtistExpanded => {
         collectionId: data.collectionId,
         name: data.name,
         type: data.type,
+        sort: data.sort,
         picture:
             data.picture ?
                 createImage(

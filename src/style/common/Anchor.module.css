@@ -1,0 +1,51 @@
+.container {
+    text-decoration: none;
+    position: relative;
+}
+
+.container:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 1px;
+    transform-origin: right;
+    transition: scale 100ms ease-in-out;
+    scale: 0 1;
+}
+
+@media (hover: hover) {
+    .container:hover:after {
+        scale: 1 1;
+        transform-origin: left;
+    }
+}
+
+.container.active:after {
+    scale: 1 1;
+}
+
+.default {
+    color: rgb(var(--pink));
+}
+
+.default:after {
+    background-color: rgba(var(--pink), 0.4);
+}
+
+.default.active:after {
+    background-color: rgb(var(--pink));
+}
+
+.white {
+    color: rgb(var(--foreground));
+}
+
+.white:after {
+    background-color: rgba(var(--foreground), 0.2);
+}
+
+.white.active:after {
+    background-color: rgb(var(--foreground));
+}

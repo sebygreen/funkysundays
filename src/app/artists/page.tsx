@@ -1,8 +1,6 @@
-import { fetchArtists } from "@/utilities/fetch";
-import Artists from "@/components/client/Artists";
+import Artists from "@/components/artists/Artists";
 import { Metadata } from "next";
-
-export const revalidate = 30;
+import { fetchArtists } from "@/utilities/fetch/artists";
 
 export const metadata: Metadata = {
     title: "Artistes",
@@ -11,9 +9,5 @@ export const metadata: Metadata = {
 export default async function Page() {
     const data = await fetchArtists();
 
-    return (
-        <main>
-            <Artists data={data} />
-        </main>
-    );
+    return <Artists data={data} />;
 }

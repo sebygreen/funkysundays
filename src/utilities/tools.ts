@@ -10,10 +10,9 @@ dayjs.locale(fr);
 export const djs = dayjs;
 
 export const dateDifference = (date: string, offset?: boolean): CountdownBase => {
-    const diff =
-        offset ?
-            dayjs(date).subtract(2, "seconds").diff(dayjs().utc().add(2, "h")) / 1000
-        :   dayjs(date).diff(dayjs().utc().add(2, "h")) / 1000;
+    const diff = offset
+        ? dayjs(date).subtract(2, "seconds").diff(dayjs().utc(true)) / 1000
+        : dayjs(date).diff(dayjs().utc(true)) / 1000;
     let d = Math.floor(diff / (60 * 60 * 24));
     let h = Math.floor((diff - d * 60 * 60 * 24) / (60 * 60));
     let m = Math.floor((diff - (d * 60 * 60 * 24 + h * 60 * 60)) / 60);
@@ -29,9 +28,9 @@ export const createImage = (
     },
 ) => {
     const url =
-        options && options.thumbnail ?
-            `${process.env.POCKETBASE_URL}/api/files/${data.collection}/${data.id}/${data.filename}?thumb=${options.thumbnail}`
-        :   `${process.env.POCKETBASE_URL}/api/files/${data.collection}/${data.id}/${data.filename}`;
+        options && options.thumbnail
+            ? `${process.env.POCKETBASE_URL}/api/files/${data.collection}/${data.id}/${data.filename}?thumb=${options.thumbnail}`
+            : `${process.env.POCKETBASE_URL}/api/files/${data.collection}/${data.id}/${data.filename}`;
     if (options && options.size) {
         const regex = /.+_([0-9]+)x([0-9]+)_.+/g;
         const match = [...data.filename.matchAll(regex)][0];
@@ -47,4 +46,14 @@ export const createImage = (
             height: null,
         };
     }
+};
+
+export const scaleLogo = (height: number, width: number) => {
+    const base = 64;
+    const scale = 0.6;
+    const ratio = width / height;
+    return {
+        width: Math.round(Math.pow(ratio, scale) * base),
+        height: Math.round((Math.pow(ratio, scale) * base) / ratio),
+    };
 };

@@ -1,0 +1,50 @@
+.responsive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-m);
+}
+
+.information > *:not(:last-child) {
+    margin-bottom: var(--spacing-m);
+}
+
+.information,
+.message {
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .information {
+        max-width: 320px;
+    }
+
+    .message {
+        min-width: 320px;
+    }
+}
+
+.message {
+    flex-grow: 1;
+    flex-basis: 320px;
+    height: 200px;
+}
+
+@media (min-width: 700px) {
+    .message {
+        height: unset;
+    }
+}
+
+.message .group {
+    height: 100%;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+}
+
+.submit {
+    margin-top: var(--spacing-m);
+    margin-left: auto;
+    display: flex;
+    gap: var(--spacing-s);
+    align-items: center;
+}

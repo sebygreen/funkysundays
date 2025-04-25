@@ -1,0 +1,16 @@
+.wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: var(--spacing-m);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-s);
+}
+
+.wrapper > svg {
+    height: 64px;
+    width: 64px;
+    color: rgb(var(--success));
+}

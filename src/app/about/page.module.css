@@ -1,5 +1,5 @@
 .wrapper {
-    max-width: 980px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: var(--spacing-m);
 }
@@ -7,6 +7,7 @@
 .introduction .wrapper {
     display: flex;
     flex-direction: column;
+    padding-top: var(--header-height);
     gap: var(--spacing-m);
 }
 

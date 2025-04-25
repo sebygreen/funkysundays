@@ -1,8 +1,6 @@
-import { fetchEvents } from "@/utilities/fetch";
-import Events from "@/components/client/Events";
+import Events from "@/components/events/Events";
 import { Metadata } from "next";
-
-export const revalidate = 30;
+import { fetchEvents } from "@/utilities/fetch/events";
 
 export const metadata: Metadata = {
     title: "Évènements",
@@ -11,9 +9,5 @@ export const metadata: Metadata = {
 export default async function Page() {
     const data = await fetchEvents();
 
-    return (
-        <main>
-            <Events data={data} />
-        </main>
-    );
+    return <Events data={data} />;
 }

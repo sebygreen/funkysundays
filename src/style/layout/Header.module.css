@@ -1,0 +1,28 @@
+.container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-m);
+    padding: var(--spacing-m);
+}
+
+.logo svg {
+    display: block;
+    color: rgb(var(--pink));
+    height: 36px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.socials {
+    display: flex;
+    gap: var(--spacing-t);
+}

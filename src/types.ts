@@ -1,8 +1,28 @@
+export interface ImageBase {
+    url: string;
+    width: number | null;
+    height: number | null;
+}
+
+export interface EventUpcoming {
+    id: string;
+    collectionId: string;
+    name: string;
+    start: string;
+    end: string;
+    started: boolean;
+    ended: boolean;
+    category: "Funky Sunday";
+    artwork?: ImageBase;
+}
+
 export interface EventBase {
     id: string;
     name: string;
     start: string;
     end: string;
+    started: boolean;
+    ended: boolean;
     category: "Funky Sunday" | "Promotion";
     activity?: "Blind Test" | "Karaoke";
 }
@@ -14,23 +34,14 @@ export interface EventExpanded {
     activity?: "Blind Test" | "Karaoke";
     start: string;
     end: string;
-    archive: boolean;
+    started: boolean;
+    ended: boolean;
     days: boolean;
     location?: string;
     attendees?: number;
     poster?: ImageBase;
     sponsors?: PartnerBase[];
     schedule?: SetBase[];
-}
-
-export interface EventUpcoming {
-    id: string;
-    collectionId: string;
-    name: string;
-    start: string;
-    end: string;
-    category: "Funky Sunday";
-    artwork?: ImageBase;
 }
 
 export interface AlertBase {
@@ -67,6 +78,8 @@ export interface SetBase {
     id: string;
     start: string;
     end: string;
+    started: boolean;
+    ended: boolean;
     day: string;
     artist: {
         id: string;
@@ -79,6 +92,7 @@ export interface ArtistBase {
     collectionId: string;
     name: string;
     type: "DJ" | "Groupe";
+    sort: "Regular" | "2024" | "2025" | "2026" | "2027";
     picture?: ImageBase;
 }
 
@@ -87,6 +101,7 @@ export interface ArtistExpanded {
     collectionId: string;
     name: string;
     type: "DJ" | "Groupe";
+    sort: "Regular" | "2024" | "2025" | "2026" | "2027";
     description?: string;
     picture?: ImageBase;
     socials: LinkBase[];
@@ -97,7 +112,7 @@ export interface ArtistExpanded {
 export interface LinkBase {
     id: string;
     url: string;
-    platform: "instagram" | "facebook" | "snapchat";
+    platform: "instagram" | "facebook";
     username: string;
 }
 
@@ -115,10 +130,4 @@ export interface StaffBase {
     role: "Communication" | "Partenariats" | "Musique" | "Légal" | "Finances" | "Logistique";
     position?: string[];
     picture?: ImageBase;
-}
-
-export interface ImageBase {
-    url: string;
-    width: number | null;
-    height: number | null;
 }
