@@ -90,5 +90,5 @@ button.button {
 .button:disabled {
     opacity: 0.6;
     filter: grayscale(1);
-    pointer-events: none;
+    cursor: wait;
 }
