@@ -15,35 +15,57 @@
 }
 
 .toast {
+    position: relative;
     margin-right: auto;
     width: fit-content;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 13px 8px 10px;
-    border-radius: 10px;
+    padding: 8px 13px 8px 15px;
+    border-radius: 5px;
     line-height: 20px;
     backdrop-filter: blur(10px);
+    background-color: rgba(var(--foreground), 0.9);
+    color: rgb(var(--background));
+    overflow: hidden;
+}
+
+.toast p {
+    color: rgb(var(--background));
+}
+
+.toast:before {
+    position: absolute;
+    content: '';
+    width: 5px;
+    height: 100%;
+    left: 0;
 }
 
 .toast:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.toast.error {
-    color: rgb(var(--foreground));
+.toast.error svg {
+    color: rgb(var(--danger));
+}
+
+.toast.success svg {
+    color: rgb(var(--success));
+}
+
+.toast.warning svg {
+    color: rgb(var(--warning));
+}
+
+.toast.error:before {
     background-color: rgba(var(--danger), 0.9);
-    backdrop-filter: blur(10px);
 }
 
-.toast.success {
-    color: rgb(var(--foreground));
+.toast.success:before {
     background-color: rgba(var(--success), 0.9);
-    backdrop-filter: blur(10px);
 }
 
-.toast.warning {
-    color: rgb(var(--foreground));
+.toast.warning:before {
     background-color: rgba(var(--warning), 0.9);
-    backdrop-filter: blur(10px);
 }

@@ -1,13 +1,12 @@
 "use client";
 
-import { ToastContext } from "@/context/Toast";
+import { useToast } from "@/context/Toast";
 import styles from "@/style/common/Toasts.module.css";
 import { CheckCircle, WarningCircle, XCircle } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "framer-motion";
-import { useContext } from "react";
 
 export default function Toasts() {
-    const { toasts } = useContext(ToastContext);
+    const { toasts } = useToast();
 
     return (
         <aside className={styles.toasts}>
@@ -65,14 +64,12 @@ function Toast({ variant, message }: ToastProps) {
             animate="visible"
             exit="hidden"
         >
-            {variant === "error" ? (
-                <XCircle size={22} />
-            ) : variant === "success" ? (
-                <CheckCircle size={22} />
-            ) : (
-                <WarningCircle size={22} />
-            )}
             <p>{message}</p>
+            {variant === "error" ?
+                <XCircle size={22} weight="fill" />
+            : variant === "success" ?
+                <CheckCircle size={22} weight="fill" />
+            :   <WarningCircle size={22} weight="fill" />}
         </motion.article>
     );
 }

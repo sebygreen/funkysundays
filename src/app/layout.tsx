@@ -2,13 +2,13 @@ import Menu from "@/components/layout/Menu";
 import Toasts from "@/components/common/Toasts";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import ToastProvider from "@/context/Toast";
 import { Satoshi } from "@/utilities/fonts";
 import type { Metadata, Viewport } from "next";
 import { ReCaptchaProvider } from "next-recaptcha-v3";
 import Script from "next/script";
 import { ReactNode } from "react";
 import "./globals.css";
+import { ToastProvider } from "@/context/Toast";
 
 export const viewport: Viewport = {
     themeColor: "#191919",
