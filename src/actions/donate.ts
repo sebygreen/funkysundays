@@ -2,10 +2,16 @@
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-interface Response {
-    ok: boolean;
+interface Success {
+    ok: true;
     payload: string;
 }
+
+interface Failure {
+    ok: false;
+}
+
+type Response = Success | Failure;
 
 export async function donate(): Promise<Response> {
     try {
@@ -20,14 +26,9 @@ export async function donate(): Promise<Response> {
             success_url: `${process.env.FRONTEND_URL}/donation/success`,
             cancel_url: `${process.env.FRONTEND_URL}/donation?canceled=true`,
         });
-        return {
-            ok: true,
-            payload: session.url,
-        };
-    } catch (error: any) {
-        return {
-            ok: false,
-            payload: error.message,
-        };
+        return { ok: true, payload: session.url };
+    } catch (e) {
+        console.error(e);
+        return { ok: false };
     }
 }

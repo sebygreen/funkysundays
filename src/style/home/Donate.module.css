@@ -1,5 +1,10 @@
 .container {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-s);
+    position: relative;
+}
+
+.container > div {
+    position: absolute;
+    left: calc(100% + var(--spacing-s));
+    top: 50%;
+    translate: 0 -50%;
 }

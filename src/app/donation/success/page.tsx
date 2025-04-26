@@ -1,4 +1,4 @@
-import { Smiley, House } from "@phosphor-icons/react/dist/ssr";
+import { House, Smiley } from "@phosphor-icons/react/dist/ssr";
 import styles from "./page.module.css";
 import Button from "@/components/common/Button";
 
