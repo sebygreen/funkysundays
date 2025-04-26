@@ -1,11 +1,12 @@
 .wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--spacing-m);
+    padding: var(--spacing-l) var(--spacing-m);
 }
 
 .header .wrapper {
     padding-top: var(--header-height);
+    padding-bottom: var(--spacing-m);
 }
 
 .form .wrapper {
