@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(auto) ide settings">
-      <change afterPath="$PROJECT_DIR$/src/actions/contact.ts" afterDir="false" />
+    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(fix) toast padding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/donate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/donate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/contact/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contact/Contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact/Contact.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/validation/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/validation/contact.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,7 @@
       <workItem from="1702648077237" duration="215000" />
       <workItem from="1745601433819" duration="31000" />
       <workItem from="1745601481978" duration="11653000" />
-      <workItem from="1745656967375" duration="5753000" />
+      <workItem from="1745656967375" duration="6417000" />
     </task>
     <task id="LOCAL-00001" summary="(chore) idea ignore rules">
       <option name="closed" value="true" />
@@ -200,7 +196,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745658473458</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="(change) replaced contact route with action">
+      <option name="closed" value="true" />
+      <created>1745665861321</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745665861321</updated>
+    </task>
+    <task id="LOCAL-00014" summary="(fix) toast padding">
+      <option name="closed" value="true" />
+      <created>1745666043082</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745666043082</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +243,8 @@
     <MESSAGE value="(change) disabled button cursor" />
     <MESSAGE value="(change) finalized content for donation page" />
     <MESSAGE value="(auto) ide settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="(auto) ide settings" />
+    <MESSAGE value="(change) replaced contact route with action" />
+    <MESSAGE value="(fix) toast padding" />
+    <option name="LAST_COMMIT_MESSAGE" value="(fix) toast padding" />
   </component>
 </project>
