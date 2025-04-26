@@ -9,12 +9,14 @@ import { useEffect, useTransition } from "react";
 import styles from "@/style/home/Donate.module.css";
 import { HandHeart } from "@phosphor-icons/react/dist/ssr";
 import { donate } from "@/actions/donate";
+import { useReCaptcha } from "next-recaptcha-v3";
 
 const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export default function Donate() {
     const router = useRouter();
     const { newToast } = useToast();
+    const { executeRecaptcha } = useReCaptcha();
     const searchParams = useSearchParams();
     const [pending, dispatch] = useTransition();
 
@@ -28,11 +30,16 @@ export default function Donate() {
     function handleClick() {
         if (pending) return;
         dispatch(async () => {
-            const res = await donate();
-            if (!res.ok) {
+            try {
+                const token = await executeRecaptcha("donate");
+                const res = await donate(token);
+                if (!res.ok) {
+                    newToast("error", "Une erreur est survenue.");
+                } else {
+                    router.push(res.payload);
+                }
+            } catch (e) {
                 newToast("error", "Une erreur est survenue.");
-            } else {
-                router.push(res.payload);
             }
         });
     }
