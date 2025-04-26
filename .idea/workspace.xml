@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(change) slideshow now uses animejs" />
+    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(auto) ide settings">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/donate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/donate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/donation/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/page.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/donation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/donation/success/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/success/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Donate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Donate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Toasts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Toasts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/Toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/Toast.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/common/Button.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/Button.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/common/Toasts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/Toasts.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/home/Donate.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/home/Donate.module.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +63,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/sebastiengreen/Developer/funkysundays/node_modules/prettier",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font",
+    "settings.editor.splitter.proportion": "0.23084201",
     "ts.external.directory.path": "/Users/sebastiengreen/Developer/funkysundays/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -86,7 +100,8 @@
       <updated>1702648075931</updated>
       <workItem from="1702648077237" duration="215000" />
       <workItem from="1745601433819" duration="31000" />
-      <workItem from="1745601481978" duration="7751000" />
+      <workItem from="1745601481978" duration="11653000" />
+      <workItem from="1745656967375" duration="898000" />
     </task>
     <task id="LOCAL-00001" summary="(chore) idea ignore rules">
       <option name="closed" value="true" />
@@ -128,18 +143,55 @@
       <option name="project" value="LOCAL" />
       <updated>1745611500184</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="(chore) renamed gallery files">
+      <option name="closed" value="true" />
+      <created>1745611856411</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745611856411</updated>
+    </task>
+    <task id="LOCAL-00007" summary="(change) increased vertical padding on homepage">
+      <option name="closed" value="true" />
+      <created>1745611908841</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745611908841</updated>
+    </task>
+    <task id="LOCAL-00008" summary="(auto) ide settings">
+      <option name="closed" value="true" />
+      <created>1745611934786</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745611934786</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="(chore) idea ignore rules" />
     <MESSAGE value="(chore) idea folder regen" />
     <MESSAGE value="(bulk) base for 2025 updates" />
-    <MESSAGE value="(auto) ide settings" />
     <MESSAGE value="(change) slideshow now uses animejs" />
-    <option name="LAST_COMMIT_MESSAGE" value="(change) slideshow now uses animejs" />
+    <MESSAGE value="(chore) renamed gallery files" />
+    <MESSAGE value="(change) increased vertical padding on homepage" />
+    <MESSAGE value="(auto) ide settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="(auto) ide settings" />
   </component>
 </project>
