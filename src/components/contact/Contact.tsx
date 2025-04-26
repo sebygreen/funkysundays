@@ -2,72 +2,59 @@
 
 import Button from "@/components/common/Button";
 import Loader from "@/components/common/Loader";
-import { ToastContext } from "@/context/Toast";
+import { useToast } from "@/context/Toast";
 import styles from "@/style/contact/Contact.module.css";
-import { clientSchema } from "@/utilities/validation/contact";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { useReCaptcha } from "next-recaptcha-v3";
-import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { ChangeEvent, FormEvent, useState, useTransition } from "react";
 import Select from "@/components/form/Select";
 import Input from "@/components/form/Input";
 import Textarea from "@/components/form/Textarea";
+import { ContactFormErrors, validateContact } from "@/utilities/validation/contact";
+import { contact } from "@/actions/contact";
 
 export default function Contact() {
     const { executeRecaptcha } = useReCaptcha();
-    const { newToast } = useContext(ToastContext);
-    const [pending, setPending] = useState<boolean>(false);
-    const [errors, setErrors] = useState<{ [key: string]: string | null }>({
+    const { newToast } = useToast();
+    const [pending, dispatch] = useTransition();
+    const [errors, setErrors] = useState<ContactFormErrors>({
         subject: null,
         name: null,
         email: null,
         message: null,
     });
 
-    const handleSubmit = async (e: FormEvent) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setPending(true);
-        const formData = new FormData(e.target as HTMLFormElement);
-        try {
-            const token = await executeRecaptcha("contact");
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    token: token,
-                    values: Object.fromEntries(formData),
-                }),
-            });
-            const json = await res.json();
-            if (!json.ok) {
-                newToast("error", json.toast);
-                if (json.payload) setErrors(json.payload);
-            } else {
-                newToast("success", json.toast);
+        const formData = new FormData(e.currentTarget);
+        dispatch(async () => {
+            try {
+                const token = await executeRecaptcha("contact");
+                const res = await contact(formData, token);
+                if (!res.ok) {
+                    newToast("error", res.toast);
+                    if (res.payload) setErrors(res.payload);
+                } else {
+                    newToast("success", res.toast);
+                }
+            } catch (e) {
+                newToast("error", "Une erreur est survenue.");
             }
-            setPending(false);
-        } catch (e) {
-            newToast("error", "Une erreur imprévue est survenue.");
-            setPending(false);
-        }
+        });
     };
 
     function handleChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
-        const validated = clientSchema[e.target.id as "subject" | "name" | "email" | "message"].validate(
-            e.target.value,
-        );
-        if (validated.error) {
+        const checked = validateContact({ [e.target.name]: e.target.value }, "optional");
+        if (!checked.ok && checked.errors) {
             setErrors((previous) => ({
                 ...previous,
-                [e.target.id]: validated.error.message,
+                [e.target.name]: checked.errors[e.target.name as keyof ContactFormErrors],
             }));
         } else {
-            if (errors[e.target.id]) {
+            if (errors[e.target.name as keyof ContactFormErrors]) {
                 setErrors((previous) => ({
                     ...previous,
-                    [e.target.id]: null,
+                    [e.target.name]: null,
                 }));
             }
         }

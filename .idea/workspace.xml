@@ -5,23 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(auto) ide settings">
+      <change afterPath="$PROJECT_DIR$/src/actions/contact.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/actions/donate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/donate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/donation/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/page.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/donation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/donation/success/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/success/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Donate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Donate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Toasts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Toasts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/Toast.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/Toast.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/common/Button.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/Button.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/common/Toasts.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/common/Toasts.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/home/Donate.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/home/Donate.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/contact/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/contact/Contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact/Contact.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/validation/contact.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/validation/contact.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -101,7 +102,7 @@
       <workItem from="1702648077237" duration="215000" />
       <workItem from="1745601433819" duration="31000" />
       <workItem from="1745601481978" duration="11653000" />
-      <workItem from="1745656967375" duration="898000" />
+      <workItem from="1745656967375" duration="5753000" />
     </task>
     <task id="LOCAL-00001" summary="(chore) idea ignore rules">
       <option name="closed" value="true" />
@@ -167,11 +168,46 @@
       <option name="project" value="LOCAL" />
       <updated>1745611934786</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="(change) refreshed look for toasts">
+      <option name="closed" value="true" />
+      <created>1745658399478</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745658399478</updated>
+    </task>
+    <task id="LOCAL-00010" summary="(change) disabled button cursor">
+      <option name="closed" value="true" />
+      <created>1745658429410</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745658429410</updated>
+    </task>
+    <task id="LOCAL-00011" summary="(change) finalized content for donation page">
+      <option name="closed" value="true" />
+      <created>1745658455344</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745658455344</updated>
+    </task>
+    <task id="LOCAL-00012" summary="(auto) ide settings">
+      <option name="closed" value="true" />
+      <created>1745658473458</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745658473458</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".zshrc" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -191,6 +227,9 @@
     <MESSAGE value="(change) slideshow now uses animejs" />
     <MESSAGE value="(chore) renamed gallery files" />
     <MESSAGE value="(change) increased vertical padding on homepage" />
+    <MESSAGE value="(change) refreshed look for toasts" />
+    <MESSAGE value="(change) disabled button cursor" />
+    <MESSAGE value="(change) finalized content for donation page" />
     <MESSAGE value="(auto) ide settings" />
     <option name="LAST_COMMIT_MESSAGE" value="(auto) ide settings" />
   </component>

@@ -1,13 +1,13 @@
-import Joi from "joi";
+import Joi, { PresenceMode } from "joi";
 
-interface ContactForm {
+export interface ContactForm {
     subject: string;
     name: string;
     email: string;
     message: string;
 }
 
-interface ContactFormErrors {
+export interface ContactFormErrors {
     subject: string | null;
     name: string | null;
     email: string | null;
@@ -24,30 +24,15 @@ const messages = {
     "any.only": `Cet object n'existe pas.`,
 };
 
-export const schema = Joi.object({
-    subject: Joi.string().valid("member", "volunteer", "artist", "question", "privacy", "feedback", "other").required(),
-    name: Joi.string().max(255).required(),
-    email: Joi.string()
-        .email({ tlds: { allow: false } })
-        .required(),
-    message: Joi.string().max(1024).required(),
+const rules = Joi.object({
+    subject: Joi.string().valid("member", "volunteer", "artist", "question", "privacy", "feedback", "other"),
+    name: Joi.string().max(32),
+    email: Joi.string().email({ tlds: false }),
+    message: Joi.string().max(1024),
 }).messages(messages);
 
-export const clientSchema = {
-    subject: Joi.string()
-        .valid("member", "volunteer", "artist", "question", "privacy", "feedback", "other")
-        .required()
-        .messages(messages),
-    name: Joi.string().max(255).required().messages(messages),
-    email: Joi.string()
-        .email({ tlds: { allow: false } })
-        .required()
-        .messages(messages),
-    message: Joi.string().max(1024).required().messages(messages),
-};
-
-export function validateContact(values: ContactForm) {
-    const checked = schema.validate(values, { abortEarly: false });
+export function validateContact(values: any, presence: PresenceMode) {
+    const checked = rules.validate(values, { abortEarly: false, presence });
     if (checked.error) {
         const errors = checked.error.details;
         const grouped = errors.reduce(
@@ -57,8 +42,8 @@ export function validateContact(values: ContactForm) {
             },
             { subject: null, name: null, email: null, message: null },
         );
-        return { ok: false, errors: grouped };
+        return { ok: false, values: checked.value as ContactForm, errors: grouped };
     } else {
-        return { ok: true };
+        return { ok: true, values: checked.value as ContactForm };
     }
 }

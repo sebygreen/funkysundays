@@ -11,9 +11,9 @@ interface Failure {
     ok: false;
 }
 
-type Response = Success | Failure;
+type DonateResponse = Success | Failure;
 
-export async function donate(): Promise<Response> {
+export async function donate(): Promise<DonateResponse> {
     try {
         const session = await stripe.checkout.sessions.create({
             line_items: [
