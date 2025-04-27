@@ -1,7 +1,7 @@
 .wrapper {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--header-height) var(--spacing-m) var(--spacing-m) var(--spacing-m);
+    padding: var(--header-height) var(--spacing-m) var(--spacing-l) var(--spacing-m);
 }
 
 .wrapper h1 {

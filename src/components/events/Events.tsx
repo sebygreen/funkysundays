@@ -4,7 +4,7 @@ import { ChangeEvent, ReactNode, useCallback, useEffect, useState } from "react"
 import styles from "@/style/events/Events.module.css";
 import { Calendar, CaretUpDown, Empty, Tag } from "@phosphor-icons/react/dist/ssr";
 import Event from "@/components/common/Event";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import _ from "lodash";
 import { EventBase } from "@/types";
 import { djs } from "@/utilities/tools";
@@ -18,6 +18,43 @@ interface Sorted {
     upcoming: EventBase[] | null;
     archived: EventBase[] | null;
 }
+
+const motions = {
+    event: {
+        hidden: {
+            opacity: 0,
+            scale: 0.9,
+            transition: {
+                opacity: {
+                    type: "tween",
+                    easing: "linear",
+                    duration: 0.2,
+                },
+                scale: {
+                    type: "spring",
+                    duration: 0.4,
+                    bounce: 0.4,
+                },
+            },
+        },
+        shown: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                opacity: {
+                    type: "tween",
+                    easing: "linear",
+                    duration: 0.2,
+                },
+                scale: {
+                    type: "spring",
+                    duration: 0.4,
+                    bounce: 0.4,
+                },
+            },
+        },
+    },
+};
 
 export default function Events({ data }: { data: EventBase[] }) {
     const sort = useCallback((data: EventBase[], filters: Filters) => {
@@ -84,34 +121,6 @@ export default function Events({ data }: { data: EventBase[] }) {
         }
     }
 
-    const motions = {
-        container: {
-            hidden: {
-                transition: {
-                    when: "afterChildren",
-                },
-            },
-            shown: {
-                transition: {
-                    staggerChildren: 0.05,
-                    when: "beforeChildren",
-                },
-            },
-        },
-        event: {
-            hidden: {
-                opacity: 0,
-                scale: 0.9,
-                transition: { duration: 0.2, ease: "backIn" },
-            },
-            shown: {
-                opacity: 1,
-                scale: 1,
-                transition: { duration: 0.2, ease: "backOut" },
-            },
-        },
-    };
-
     return (
         <>
             <section className={styles.header}>
@@ -143,7 +152,12 @@ export default function Events({ data }: { data: EventBase[] }) {
                 </div>
             </section>
             {events && (
-                <motion.div initial={"hidden"} animate={"shown"} variants={motions.container}>
+                <motion.div
+                    className={styles.dynamic}
+                    initial={"hidden"}
+                    animate={"shown"}
+                    transition={{ staggerChildren: 0.05 }}
+                >
                     {events.upcoming && (
                         <section id="upcoming" className={styles.upcoming}>
                             <div className={styles.wrapper}>
@@ -173,12 +187,14 @@ export default function Events({ data }: { data: EventBase[] }) {
                         </section>
                     )}
                     {!events.upcoming && !events.archived && (
-                        <div className={styles.wrapper}>
-                            <motion.section key={"empty"} className={styles.empty} variants={motions.event}>
-                                <Empty weight="duotone" />
-                                <p>Pas d&apos;évènements à montrer. </p>
-                            </motion.section>
-                        </div>
+                        <section id="empty">
+                            <div className={styles.wrapper}>
+                                <motion.div key={"empty"} className={styles.empty} variants={motions.event}>
+                                    <Empty weight="duotone" />
+                                    <p>Pas d&apos;évènements à montrer. </p>
+                                </motion.div>
+                            </div>
+                        </section>
                     )}
                 </motion.div>
             )}

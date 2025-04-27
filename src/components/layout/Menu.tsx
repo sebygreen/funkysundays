@@ -7,8 +7,69 @@ import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { usePathname, useRouter } from "next/navigation";
 import Burger from "@/components/svg/Burger";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { clsx } from "clsx";
+
+const motions = {
+    blur: {
+        hidden: {
+            opacity: 0,
+            transition: {
+                duration: 0.1,
+                type: "tween",
+                easing: "linear",
+            },
+        },
+        shown: {
+            opacity: 1,
+            transition: {
+                duration: 0.2,
+                type: "tween",
+                easing: "linear",
+            },
+        },
+    },
+    nav: {
+        hidden: {},
+        shown: {
+            transition: { staggerChildren: 0.025, delayChildren: 0.1 },
+        },
+    },
+    route: {
+        hidden: {
+            opacity: 0,
+            scale: 0.9,
+            y: 10,
+            transition: {
+                duration: 0.1,
+                type: "tween",
+                easing: "easeIn",
+            },
+        },
+        shown: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: {
+                opacity: {
+                    duration: 0.2,
+                    type: "tween",
+                    easing: "linear",
+                },
+                scale: {
+                    duration: 0.4,
+                    type: "spring",
+                    bounce: 0.4,
+                },
+                y: {
+                    duration: 0.4,
+                    type: "spring",
+                    bounce: 0.4,
+                },
+            },
+        },
+    },
+};
 
 export default function Menu() {
     const router = useRouter();
@@ -18,37 +79,6 @@ export default function Menu() {
     function toggle() {
         setOpen(!open);
     }
-
-    const motions = {
-        blur: {
-            hidden: {
-                opacity: 0,
-                transition: { duration: 0.2 },
-            },
-            shown: {
-                opacity: 1,
-                transition: { duration: 0.2 },
-            },
-        },
-        nav: {
-            hidden: {},
-            shown: {
-                transition: { staggerChildren: 0.05, delayChildren: 0.1 },
-            },
-        },
-        route: {
-            hidden: {
-                y: 10,
-                opacity: 0,
-                transition: { duration: 0.05, ease: "linear" },
-            },
-            shown: {
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.3, ease: "backOut" },
-            },
-        },
-    };
 
     return (
         <div className={clsx(styles.container, open && styles.open)}>

@@ -2,7 +2,7 @@
 
 import styles from "@/style/common/Countdown.module.css";
 import { useEffect, useState } from "react";
-import { animate } from "framer-motion";
+import { animate } from "motion/react";
 import { dateDifference, djs } from "@/utilities/tools";
 import { Overpass } from "@/utilities/fonts";
 import { CountdownBase } from "@/types";
@@ -59,11 +59,10 @@ export default function Countdown({ ...props }: Props) {
         return () => clearInterval(interval);
     }, [counted, started, mounted, props.start]);
 
-    return (
-        !started ? (
+    return !started ?
             <section className={styles.container}>
                 <div className={styles.unit}>
-                    <h3 className={Overpass.className}>{("0" + timer.d).slice(-2)}</h3>
+                    <h3 className={Overpass.className}>{timer.d < 10 ? ("0" + timer.d).slice(-2) : timer.d}</h3>
                     <p>j</p>
                 </div>
                 <div className={styles.unit}>
@@ -79,6 +78,5 @@ export default function Countdown({ ...props }: Props) {
                     <p>s</p>
                 </div>
             </section>
-        ) : <Live />
-    );
+        :   <Live />;
 }

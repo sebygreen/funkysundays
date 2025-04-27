@@ -1,6 +1,6 @@
 import styles from "@/style/form/Input.module.css";
 import { clsx } from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ChangeEvent, ChangeEventHandler } from "react";
 
 const motions = {

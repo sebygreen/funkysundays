@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "@/style/about/Stickers.module.css";
-import { motion } from "framer-motion";
 import {
     Ball,
     RoundGradient,
@@ -10,6 +9,32 @@ import {
     RoundPurple,
     RoundYellowPurple,
 } from "@/components/svg/Sticker";
+import { motion } from "motion/react";
+
+const motions = {
+    sticker: {
+        hidden: {
+            scale: 0.8,
+            opacity: 0,
+        },
+        shown: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                opacity: {
+                    type: "tween",
+                    easing: "linear",
+                    duration: 0.4,
+                },
+                scale: {
+                    type: "spring",
+                    duration: 0.8,
+                    bounce: 0.6,
+                },
+            },
+        },
+    },
+};
 
 export default function Stickers() {
     const images = [
@@ -21,34 +46,21 @@ export default function Stickers() {
         <RoundYellowPurple key={6} />,
     ];
 
-    const motions = {
-        sticker: {
-            hidden: {
-                opacity: 0,
-                scale: 0.8,
-                x: 100,
-            },
-            shown: {
-                opacity: 1,
-                scale: 1,
-                x: 0,
-                transition: {
-                    duration: 1,
-                    ease: [0, 0.55, 0.45, 1],
-                },
-            },
-        },
-    };
-
     return (
-        <motion.div className={styles.container} transition={{ staggerChildren: 0.1 }} initial="hidden" animate="shown">
-            <div className={styles.wrapper}>
+        <div className={styles.container}>
+            <motion.div
+                className={styles.wrapper}
+                transition={{ staggerChildren: 0.1 }}
+                initial="hidden"
+                whileInView="shown"
+                viewport={{ once: true }}
+            >
                 {images.map((i, n) => (
                     <motion.span className={styles.sticker} key={n} variants={motions.sticker}>
                         {i}
                     </motion.span>
                 ))}
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     );
 }

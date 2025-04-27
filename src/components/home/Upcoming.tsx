@@ -5,25 +5,42 @@ import Link from "next/link";
 import Image from "next/image";
 import { EventUpcoming } from "@/types";
 import { djs } from "@/utilities/tools";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
-export default function Upcoming({ data }: { data: EventUpcoming }) {
-    const motions = {
-        upcoming: {
-            hidden: {
-                opacity: 0,
-                scale: 0.95,
-            },
-            shown: {
-                opacity: 1,
-                scale: 1,
-                transition: { duration: 0.4, ease: "backOut" },
+const motions = {
+    upcoming: {
+        hidden: {
+            scale: 0.9,
+            opacity: 0,
+        },
+        shown: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                opacity: {
+                    type: "tween",
+                    easing: "linear",
+                    duration: 0.2,
+                },
+                scale: {
+                    type: "spring",
+                    duration: 0.4,
+                    bounce: 0.4,
+                },
             },
         },
-    };
+    },
+};
 
+export default function Upcoming({ data }: { data: EventUpcoming }) {
     return (
-        <motion.div initial="hidden" animate="shown" variants={motions.upcoming} className={styles.container}>
+        <motion.div
+            className={styles.container}
+            initial="hidden"
+            whileInView="shown"
+            viewport={{ once: true }}
+            variants={motions.upcoming}
+        >
             <Link href={`/events/${data.id}`}>
                 {data.artwork && (
                     <Image

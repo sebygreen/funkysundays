@@ -2,13 +2,14 @@
 
 import Map, { Marker, NavigationControl } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
+import GeoPoint = types.GeoPoint;
 
-export default function Mapbox({ coordinates }: { coordinates: [number, number] }) {
+export default function Mapbox({ coordinates }: { coordinates: GeoPoint }) {
     return (
         <Map
             initialViewState={{
-                longitude: coordinates[0],
-                latitude: coordinates[1],
+                longitude: coordinates.lon,
+                latitude: coordinates.lat,
                 zoom: 13,
             }}
             style={{ width: "100%", height: 320, borderRadius: 10 }}
@@ -18,7 +19,7 @@ export default function Mapbox({ coordinates }: { coordinates: [number, number] 
             cooperativeGestures
         >
             <NavigationControl />
-            <Marker longitude={coordinates[0]} latitude={coordinates[1]} color="red" />
+            <Marker longitude={coordinates.lon} latitude={coordinates.lat} color="red" />
         </Map>
     );
 }

@@ -82,6 +82,10 @@
     pointer-events: none;
 }
 
+.dynamic section:last-child .wrapper {
+    padding-bottom: var(--spacing-l);
+}
+
 .archived h2,
 .upcoming h2 {
     margin-bottom: var(--spacing-s);

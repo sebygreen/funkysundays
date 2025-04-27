@@ -7,42 +7,44 @@ import { ArrowRight, CaretRight, Empty } from "@phosphor-icons/react/dist/ssr";
 import { Overpass } from "@/utilities/fonts";
 import styles from "@/style/events/Schedule.module.css";
 import { djs } from "@/utilities/tools";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Live from "@/components/common/Live";
+
+const motions = {
+    event: {
+        hidden: {
+            opacity: 0,
+            scale: 0.9,
+        },
+        shown: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                opacity: {
+                    type: "tween",
+                    easing: "linear",
+                    duration: 0.2,
+                },
+                scale: {
+                    type: "spring",
+                    duration: 0.4,
+                    bounce: 0.4,
+                },
+            },
+        },
+    },
+};
 
 export default function Schedule({ data }: { data?: SetBase[] }) {
     const grouped = _.groupBy(data, "day");
 
-    const motions = {
-        parent: {
-            hidden: {
-                transition: {
-                    when: "afterChildren",
-                },
-            },
-            shown: {
-                transition: {
-                    staggerChildren: 0.05,
-                    when: "beforeChildren",
-                },
-            },
-        },
-        child: {
-            hidden: {
-                opacity: 0,
-                scale: 0.9,
-                transition: { duration: 0.2, ease: "backIn" },
-            },
-            shown: {
-                opacity: 1,
-                scale: 1,
-                transition: { duration: 0.2, ease: "backOut" },
-            },
-        },
-    };
-
     return (
-        <motion.section className={styles.container} variants={motions.parent} initial="hidden" animate="shown">
+        <motion.section
+            className={styles.container}
+            transition={{ staggerChildren: 0.05 }}
+            initial="hidden"
+            animate="shown"
+        >
             {data ?
                 Object.entries(grouped).map(([day, sets]) => (
                     <div key={day} className={styles.group}>
@@ -54,12 +56,12 @@ export default function Schedule({ data }: { data?: SetBase[] }) {
                         </div>
                         <div className="grid small">
                             {sets.map((i) => (
-                                <Set key={i.id} data={i} motions={motions.child} />
+                                <Set key={i.id} data={i} motions={motions.event} />
                             ))}
                         </div>
                     </div>
                 ))
-            :   <motion.div className={styles.empty} variants={motions.child}>
+            :   <motion.div className={styles.empty} variants={motions.event}>
                     <Empty weight="duotone" />
                     <p>Pas de lineup à montrer. </p>
                 </motion.div>

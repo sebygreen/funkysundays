@@ -4,12 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(new) secured donate with recaptcha">
+    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(change) spacing adjustments">
+      <change afterPath="$PROJECT_DIR$/src/components/svg/Stripe.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about/page.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/page.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/donation/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/page.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/donation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/donation/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/events/[id]/page.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/events/[id]/page.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/events/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/events/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/about/Stickers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about/Stickers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/artists/Artists.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/artists/Artists.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Countdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Countdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Toasts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Toasts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/events/Events.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/events/Events.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/events/Mapbox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/events/Mapbox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/events/Schedule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/events/Schedule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/About.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Alert.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Alert.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Slideshow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Slideshow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Statistics.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Statistics.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Upcoming.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Upcoming.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Menu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Menu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/round-gradient.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/round-gradient.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/about/Stickers.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/about/Stickers.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/artists/Artists.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/artists/Artists.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/events/Events.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/events/Events.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/home/Alert.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/home/Alert.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/home/Slideshow.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/home/Slideshow.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/home/Upcoming.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/home/Upcoming.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/create.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/create.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/fetch/providers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/fetch/providers.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +47,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -101,7 +129,7 @@
       <workItem from="1702648077237" duration="215000" />
       <workItem from="1745601433819" duration="31000" />
       <workItem from="1745601481978" duration="11653000" />
-      <workItem from="1745656967375" duration="11008000" />
+      <workItem from="1745656967375" duration="39487000" />
     </task>
     <task id="LOCAL-00001" summary="(chore) idea ignore rules">
       <option name="closed" value="true" />
@@ -231,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745667256046</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="(change) spacing adjustments">
+      <option name="closed" value="true" />
+      <created>1745671534765</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1745671534765</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +302,7 @@
     <MESSAGE value="(fix) toast padding" />
     <MESSAGE value="(fix) fix local url variables" />
     <MESSAGE value="(new) secured donate with recaptcha" />
-    <option name="LAST_COMMIT_MESSAGE" value="(new) secured donate with recaptcha" />
+    <MESSAGE value="(change) spacing adjustments" />
+    <option name="LAST_COMMIT_MESSAGE" value="(change) spacing adjustments" />
   </component>
 </project>

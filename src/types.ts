@@ -1,3 +1,5 @@
+import GeoPoint = types.GeoPoint;
+
 export interface ImageBase {
     url: string;
     width: number | null;
@@ -37,7 +39,7 @@ export interface EventExpanded {
     started: boolean;
     ended: boolean;
     days: boolean;
-    location?: string;
+    location?: GeoPoint;
     attendees?: number;
     poster?: ImageBase;
     sponsors?: PartnerBase[];

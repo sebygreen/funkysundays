@@ -18,19 +18,19 @@ export default function Alert({ data }: { data: AlertBase }) {
                         <h2>{data.title}</h2>
                     </div>
                     <div className={styles.description}>{parse(data.description)}</div>
-                    <Button
-                        type="anchor"
-                        url={data.link}
-                        icon={<ArrowRight />}
-                        text={
-                            data.type === "crowdfunding" ? "Donations"
-                            : data.type === "volunteers" ?
-                                "S'inscrire"
-                            :   "Visiter"
-                        }
-                        target="_blank"
-                        color="primary"
-                    />
+                    {data.type === "crowdfunding" && (
+                        <Button type="route" url="/donation" icon={<ArrowRight />} text="Contribuer" color="primary" />
+                    )}
+                    {data.type === "volunteers" && (
+                        <Button
+                            type="anchor"
+                            url={data.link}
+                            icon={<ArrowRight />}
+                            text="S'inscrire"
+                            target="_blank"
+                            color="primary"
+                        />
+                    )}
                 </div>
             </div>
         </section>

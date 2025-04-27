@@ -1,6 +1,8 @@
 import styles from "./page.module.css";
 import Donate from "@/components/common/Donate";
 import { Drop, FilmStrip, Handshake, MusicNote } from "@phosphor-icons/react/dist/ssr";
+import { Lock } from "@phosphor-icons/react/dist/ssr";
+import { Stripe } from "@/components/svg/Stripe";
 
 export default function Page() {
     return (
@@ -12,24 +14,28 @@ export default function Page() {
                     <div className={styles.message}>
                         <p>
                             Nous avons lancé ce festival avec une idée simple: Bring Sundays Back to Life. Alors que le
-                            week-end est synonyme d’inactivité, nous transformons le dimanche en fête — avec de la musique
-                            live, de la bonne énergie, et une communauté réunie pour en profiter.
+                            week-end est synonyme d’inactivité, nous transformons le dimanche en fête — avec de la
+                            musique live, de la bonne énergie, et une communauté réunie pour en profiter.
                         </p>
                         <p>
-                            Notre prochaine édition aura lieu les 5 et 6 juillet, et comme toujours, l’entrée est gratuite
-                            et ouverte à tous. Mais pour que cela reste possible, nous avons besoin de votre soutien.
+                            Notre prochaine édition aura lieu les 5 et 6 juillet, et comme toujours, l’entrée est
+                            gratuite et ouverte à tous. Mais pour que cela reste possible, nous avons besoin de votre
+                            soutien.
                         </p>
                         <p>
-                            Votre don nous aide à couvrir les coûts essentiels: rémunérer les artistes, installer la scène,
-                            fournir un son et des lumières de qualité, et payer les frais de location.
+                            Votre don nous aide à couvrir les coûts essentiels: rémunérer les artistes, installer la
+                            scène, fournir un son et des lumières de qualité, et payer les frais de location.
                         </p>
                     </div>
                     <Donate />
+                    <p className={styles.secure}>
+                        <Lock weight="fill" />
+                        <Stripe />
+                    </p>
                 </div>
             </section>
             <section id="costs" className={styles.costs}>
                 <div className={styles.wrapper}>
-                    <h2>Coûts</h2>
                     <div className={styles.divisions}>
                         <article>
                             <FilmStrip weight="duotone" />

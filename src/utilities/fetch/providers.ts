@@ -1,17 +1,20 @@
 import "server-only";
+import GeoPoint = types.GeoPoint;
 
-export async function fetchPlace(query: string) {
+export async function fetchPlace(coordinates: GeoPoint) {
     const options = new URLSearchParams({
         access_token: process.env.NEXT_PUBLIC_MAPBOX_TOKEN!,
         country: "ch",
         language: "fr",
         limit: "1",
+        longitude: String(coordinates.lon),
+        latitude: String(coordinates.lat),
     }).toString();
     try {
-        const data = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?${options}`);
+        const data = await fetch(`https://api.mapbox.com/search/geocode/v6/reverse?${options}`);
         const json = await data.json();
         return json.features[0];
-    } catch (e: any) {
+    } catch (e) {
         console.error(e);
         throw new Error("Failed to fetch place from Mapbox.");
     }

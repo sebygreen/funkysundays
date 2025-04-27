@@ -34,7 +34,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
     const data = await fetchEvent(params.id);
-    const place = !data.ended && !!data.location ? await fetchPlace(data.location) : undefined;
+    const place = !data.ended && data.location ? await fetchPlace(data.location) : undefined;
 
     return (
         <>
@@ -78,7 +78,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
                             </li>
                             <li key={"location"}>
                                 <MapPin weight="fill" />
-                                {data.location ? data.location : "N/A"}
+                                {place ? place.properties.full_address : "N/A"}
                             </li>
                             <li key={"attendees"}>
                                 <UsersThree weight="fill" />
@@ -100,22 +100,22 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
                     </div>
                 </section>
             )}
-            {place && (
+            {!data.ended && data.location && (
                 <section className={styles.map}>
                     <div className={styles.wrapper}>
-                        <Mapbox coordinates={place.center} />
+                        <Mapbox coordinates={data.location} />
                         <div className={styles.buttons}>
                             <Button
                                 type="anchor"
                                 color="primary"
-                                url={`https://maps.apple.com/?q=${place.place_name_fr}`}
+                                url={`https://maps.apple.com/?q=${place.properties.full_address}`}
                                 icon={<ArrowSquareOut weight="fill" />}
                                 text="Apple Maps"
                             />
                             <Button
                                 type="anchor"
                                 color="primary"
-                                url={`https://www.google.com/maps/search/?api=1&query=${place.place_name_fr}`}
+                                url={`https://www.google.com/maps/search/?api=1&query=${place.properties.full_address}`}
                                 icon={<ArrowSquareOut weight="fill" />}
                                 text="Google Maps"
                             />

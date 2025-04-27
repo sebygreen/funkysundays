@@ -21,7 +21,7 @@ import slide17 from "@/images/gallery/slide17.jpg";
 import slide18 from "@/images/gallery/slide18.jpg";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { animate, createScope, Scope } from "animejs";
+import { animate } from "motion/react";
 
 export default function Slideshow() {
     const slides = useRef([
@@ -45,33 +45,42 @@ export default function Slideshow() {
         slide18,
     ]);
     const root = useRef<HTMLDivElement>(null);
-    const scope = useRef<Scope>(null);
     const [slide, setSlide] = useState<number>(0);
 
     useEffect(() => {
-        scope.current = createScope({ root }).add((self) => {
-            const first = self.root.firstElementChild!;
-            const travel = -first.clientWidth;
-            animate(self.root, {
-                x: {
-                    from: 0,
-                    to: travel,
-                    ease: "linear",
-                    duration: 15000,
+        const container = root.current;
+        if (!container) return;
+        const first = container.firstElementChild;
+        if (!first) return;
+        const travel = -first.clientWidth;
+        const motion = animate(
+            container,
+            { x: [0, travel] },
+            {
+                duration: 15,
+                ease: "linear",
+                onComplete: () => {
+                    const end = slide === slides.current.length;
+                    setSlide(end ? 0 : slide + 1);
                 },
-                onComplete: (animation) => {
-                    self.root.appendChild(first);
-                    animation.revert();
-                    setSlide(slide === slides.current.length ? 0 : slide + 1);
-                },
-            });
-        });
-        return () => scope.current?.revert();
+            },
+        );
+        return () => {
+            if (motion.state !== "finished") motion.complete();
+            container.appendChild(first);
+            container.style.transform = `translateX(0px)`;
+        };
     }, [slide]);
 
     return (
         <section id="gallery" className={styles.container}>
             <div className={styles.wrapper}>
+                <div className={styles.counter}>
+                    <p>
+                        {slide + 1}
+                        <span>/{slides.current.length}</span>
+                    </p>
+                </div>
                 <div className={styles.display}>
                     <div className={styles.overflow} ref={root}>
                         {slides.current.map((slide, index) => (

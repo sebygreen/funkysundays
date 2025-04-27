@@ -13,7 +13,7 @@ export default function About({ data }: { data: number }) {
                     La famille Funky Sundays, basée à Genève, compte aujourd&apos;hui {data} membres bénévoles et nous
                     sommes motivés à créer ensemble le meilleur rendez-vous dominical de l’année pour toutes et tous.
                 </p>
-                <Button type="route" url="/about" icon={<ArrowRight />} text="Découvrir" color="primary" />
+                <Button type="route" url="/about" icon={<ArrowRight />} text="À Propos" color="primary" />
             </div>
         </section>
     );

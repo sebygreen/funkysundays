@@ -61,7 +61,7 @@ export const createEventExpanded = (event: any, schedule: any): EventExpanded =>
         started: djs(event.start).isBefore(now),
         ended: djs(event.end).isBefore(now),
         days: djs(event.end).isAfter(djs(event.start), "day"),
-        location: event.location ? event.location : undefined,
+        location: event.location.lon != 0 && event.location.lat != 0 ? event.location : undefined,
         attendees: event.attendees > 0 ? event.attendees : undefined,
         poster:
             event.poster ?

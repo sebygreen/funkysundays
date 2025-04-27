@@ -93,7 +93,7 @@
 .text p {
     width: fit-content;
     padding: 2px 10px;
-    border-radius: 50px;
+    border-radius: 5px;
     font-size: 0.8rem;
     background-color: rgba(var(--purple), 0.1);
     color: rgb(var(--purple));

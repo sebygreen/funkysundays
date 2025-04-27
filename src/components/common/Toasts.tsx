@@ -3,7 +3,49 @@
 import { useToast } from "@/context/Toast";
 import styles from "@/style/common/Toasts.module.css";
 import { CheckCircle, WarningCircle, XCircle } from "@phosphor-icons/react/dist/ssr";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
+
+interface ToastProps {
+    variant: "success" | "error" | "warning";
+    message: string;
+}
+
+const motions = {
+    toast: {
+        hidden: {
+            opacity: 0,
+            scale: 0.9,
+            x: -15,
+            transition: {
+                duration: 0.2,
+                type: "tween",
+                easing: "easeIn",
+            },
+        },
+        shown: {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            transition: {
+                opacity: {
+                    duration: 0.2,
+                    type: "tween",
+                    easing: "linear",
+                },
+                scale: {
+                    duration: 0.4,
+                    type: "spring",
+                    bounce: 0.4,
+                },
+                x: {
+                    duration: 0.4,
+                    type: "spring",
+                    bounce: 0.4,
+                },
+            },
+        },
+    },
+};
 
 export default function Toasts() {
     const { toasts } = useToast();
@@ -18,50 +60,21 @@ export default function Toasts() {
     );
 }
 
-interface ToastProps {
-    variant: "success" | "error" | "warning";
-    message: string;
-}
-
 function Toast({ variant, message }: ToastProps) {
-    const toast = {
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 0.2,
-                type: "spring",
-                bounce: 0.1,
-                damping: 7,
-                mass: 0.5,
-            },
-        },
-        hidden: {
-            opacity: 0,
-            x: -10,
-            transition: {
-                duration: 0.1,
-                type: "tween",
-            },
-        },
-    };
-
     return (
         <motion.article
             className={`${styles.toast} ${styles[variant]}`}
             layout
             transition={{
                 layout: {
-                    duration: 0.2,
+                    duration: 0.4,
                     type: "spring",
-                    bounce: 0.1,
-                    damping: 10,
-                    mass: 0.5,
+                    bounce: 0.4,
                 },
             }}
-            variants={toast}
+            variants={motions.toast}
             initial="hidden"
-            animate="visible"
+            animate="shown"
             exit="hidden"
         >
             <p>{message}</p>
