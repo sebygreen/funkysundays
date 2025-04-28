@@ -1,10 +1,15 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
     images: {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "demo.office.fs.smkg.me",
+                hostname: "office.funkysundays.com",
+                pathname: "/api/files/**",
+            },
+            {
+                protocol: "https",
+                hostname: "demo.funkysundays.office.smkg.me",
                 pathname: "/api/files/**",
             },
             {

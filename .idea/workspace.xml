@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(fix) changed undefined types in prod">
+    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(fix) nextjs remote images &amp; bumped packages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <workItem from="1745601481978" duration="11653000" />
       <workItem from="1745656967375" duration="40197000" />
       <workItem from="1745834103386" duration="4000" />
-      <workItem from="1745834300838" duration="1818000" />
+      <workItem from="1745834300838" duration="3522000" />
     </task>
     <task id="LOCAL-00001" summary="(chore) idea ignore rules">
       <option name="closed" value="true" />
@@ -255,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745835650474</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="(fix) nextjs remote images &amp; bumped packages">
+      <option name="closed" value="true" />
+      <created>1745838687976</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1745838687976</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +300,7 @@
     <MESSAGE value="(change) spacing adjustments" />
     <MESSAGE value="(new) overhauled animations and spacing" />
     <MESSAGE value="(fix) changed undefined types in prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="(fix) changed undefined types in prod" />
+    <MESSAGE value="(fix) nextjs remote images &amp; bumped packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="(fix) nextjs remote images &amp; bumped packages" />
   </component>
 </project>
