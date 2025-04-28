@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(new) overhauled animations and spacing">
+    <list default="true" id="bea5ba83-a06d-44c5-b6dc-54b9ed012c94" name="Changes" comment="(fix) changed undefined types in prod">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
       <workItem from="1745601481978" duration="11653000" />
       <workItem from="1745656967375" duration="40197000" />
       <workItem from="1745834103386" duration="4000" />
-      <workItem from="1745834300838" duration="621000" />
+      <workItem from="1745834300838" duration="1818000" />
     </task>
     <task id="LOCAL-00001" summary="(chore) idea ignore rules">
       <option name="closed" value="true" />
@@ -246,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745773519346</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="(fix) changed undefined types in prod">
+      <option name="closed" value="true" />
+      <created>1745835650474</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1745835650474</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +292,7 @@
     <MESSAGE value="(new) secured donate with recaptcha" />
     <MESSAGE value="(change) spacing adjustments" />
     <MESSAGE value="(new) overhauled animations and spacing" />
-    <option name="LAST_COMMIT_MESSAGE" value="(new) overhauled animations and spacing" />
+    <MESSAGE value="(fix) changed undefined types in prod" />
+    <option name="LAST_COMMIT_MESSAGE" value="(fix) changed undefined types in prod" />
   </component>
 </project>

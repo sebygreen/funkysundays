@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "office.funkysundays.com",
+                hostname: "demo.office.fs.smkg.me",
                 pathname: "/api/files/**",
             },
             {
