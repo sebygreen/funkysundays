@@ -1,4 +1,7 @@
-import GeoPoint = types.GeoPoint;
+export interface GeoPoint {
+    lon: number;
+    lat: number;
+}
 
 export interface ImageBase {
     url: string;

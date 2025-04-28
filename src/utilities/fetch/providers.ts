@@ -1,5 +1,5 @@
 import "server-only";
-import GeoPoint = types.GeoPoint;
+import { GeoPoint } from "@/types";
 
 export async function fetchPlace(coordinates: GeoPoint) {
     const options = new URLSearchParams({

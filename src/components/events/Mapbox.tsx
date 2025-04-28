@@ -2,7 +2,7 @@
 
 import Map, { Marker, NavigationControl } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
-import GeoPoint = types.GeoPoint;
+import { GeoPoint } from "@/types";
 
 export default function Mapbox({ coordinates }: { coordinates: GeoPoint }) {
     return (
