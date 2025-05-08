@@ -84,15 +84,11 @@ export async function fetchStatistics(): Promise<StatisticsBase> {
         const sponsors = await pb.collection("sponsors").getList(1, 1, {
             fields: "id",
         });
-        const staff = await pb.collection("staff").getList(1, 1, {
-            fields: "id",
-        });
         return {
             attendees: countAttendees(events),
             events: events.length,
             artists: artists.totalItems,
             sponsors: sponsors.totalItems,
-            staff: staff.totalItems,
         };
     } catch (e: any) {
         console.error(e);

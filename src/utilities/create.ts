@@ -189,8 +189,6 @@ export const createStaff = (data: any): StaffBase => {
     return {
         id: data.id,
         name: data.name,
-        status: data.status,
-        role: data.role,
         position: data.position ? data.position.split(", ") : undefined,
         picture:
             data.picture ?

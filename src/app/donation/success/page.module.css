@@ -1,5 +1,6 @@
 .wrapper {
     max-width: 980px;
+    height: 100%;
     margin: 0 auto;
     padding: var(--spacing-m);
     display: flex;
@@ -7,6 +8,15 @@
     align-items: center;
     justify-content: center;
     gap: var(--spacing-s);
+}
+
+.wrapper > h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .wrapper > svg {

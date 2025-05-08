@@ -48,8 +48,7 @@ export const createImage = (
     }
 };
 
-export const scaleLogo = (height: number, width: number) => {
-    const base = 64;
+export const scaleLogo = (height: number, width: number, base: number = 64) => {
     const scale = 0.6;
     const ratio = width / height;
     return {

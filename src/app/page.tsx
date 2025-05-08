@@ -20,7 +20,7 @@ export default async function Page() {
         <>
             <Hero data={data.upcoming.round} />
             {data.alert && <Alert data={data.alert} />}
-            <About data={data.statistics.staff} />
+            <About />
             <Statistics data={data.statistics} />
             <Slideshow />
             <Promotion data={data.upcoming.promotional} />

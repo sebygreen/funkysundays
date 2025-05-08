@@ -62,7 +62,6 @@ export interface StatisticsBase {
     events: number;
     artists: number;
     sponsors: number;
-    staff: number;
 }
 
 export interface CountdownBase {
@@ -131,8 +130,6 @@ export interface EmbedBase {
 export interface StaffBase {
     id: string;
     name: string;
-    status: "Comité" | "Membre" | "Externe";
-    role: "Communication" | "Partenariats" | "Musique" | "Légal" | "Finances" | "Logistique";
-    position?: string[];
+    position: string[];
     picture?: ImageBase;
 }

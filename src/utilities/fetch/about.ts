@@ -7,8 +7,7 @@ export async function fetchStaff(): Promise<StaffBase[]> {
     const pb = new PocketBase(process.env.POCKETBASE_URL);
     try {
         const data = await pb.collection("staff").getFullList({
-            fields: "id, collectionId, name, role, status, position, picture",
-            sort: "+role",
+            fields: "id, collectionId, name, position, picture",
             filter: "published=true",
         });
         return data.map((i) => createStaff(i));

@@ -16,24 +16,27 @@
 }
 
 .committee .wrapper {
+    padding-bottom: var(--spacing-l);
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-s);
 }
 
-.members .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-s);
-    padding-bottom: var(--spacing-l);
-}
-
 @media (min-width: 480px) {
     .committee .wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+        grid-template-columns: unset;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .members .wrapper {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    .committee .wrapper article {
+        flex: 1 1 calc(calc(var(--max-width) - calc(var(--spacing-s) * 3) - var(--spacing-l)) / 4);
+    }
+}
+
+@media (min-width: 1200px) {
+    .committee .wrapper article {
+        max-width: calc(calc(var(--max-width) - calc(var(--spacing-s) * 3) - var(--spacing-l)) / 4);
     }
 }

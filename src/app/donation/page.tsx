@@ -3,6 +3,11 @@ import Donate from "@/components/common/Donate";
 import { Drop, FilmStrip, Handshake, MusicNote } from "@phosphor-icons/react/dist/ssr";
 import { Lock } from "@phosphor-icons/react/dist/ssr";
 import { Stripe } from "@/components/svg/Stripe";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contribuer",
+};
 
 export default function Page() {
     return (
@@ -38,7 +43,9 @@ export default function Page() {
                 <div className={styles.wrapper}>
                     <div className={styles.divisions}>
                         <article>
-                            <FilmStrip weight="duotone" />
+                            <figure>
+                                <FilmStrip weight="duotone" />
+                            </figure>
                             <p>Communication & Image</p>
                             <div className={styles.bullets}>
                                 <p>Marketing local</p>
@@ -47,7 +54,9 @@ export default function Page() {
                             </div>
                         </article>
                         <article>
-                            <Drop weight="duotone" />
+                            <figure>
+                                <Drop weight="duotone" />
+                            </figure>
                             <p>Logistique</p>
                             <div className={styles.bullets}>
                                 <p>Électricité, lumières et son</p>
@@ -56,7 +65,9 @@ export default function Page() {
                             </div>
                         </article>
                         <article>
-                            <MusicNote weight="duotone" />
+                            <figure>
+                                <MusicNote weight="duotone" />
+                            </figure>
                             <p>Musique</p>
                             <div className={styles.bullets}>
                                 <p>Artistes locaux</p>
@@ -65,7 +76,9 @@ export default function Page() {
                             </div>
                         </article>
                         <article>
-                            <Handshake weight="duotone" />
+                            <figure>
+                                <Handshake weight="duotone" />
+                            </figure>
                             <p>Partenaires & Sponsoring</p>
                             <div className={styles.bullets}>
                                 <p>Réservations</p>
